@@ -7,7 +7,7 @@
 ### We cover most of Chapters 1 - 8
 
 ### Teaching and learning material
-(more material to be added)
+(expected uploading completion: June 2021)
 1. Lectures folder: lecture files (.Rmd and .pdf).
 2. Homework folder: homework files (.tex and .pdf).
 3. Syllabus folder (.tex and .pdf)
