@@ -2,6 +2,9 @@
 
 ## This repo contains teaching and learning material of MATH 241 Probability at Vassar College, NY
 
+### We use A First Course in Probability (9th edition) by Sheldon Ross
+### We cover most of Chapters 1 - 8
+
 (more material to be added)
 1. Lectures folder: lecture files (.Rmd and .pdf).
 2. Homework folder: homework files (.tex and .pdf).
