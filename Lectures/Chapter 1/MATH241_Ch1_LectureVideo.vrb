@@ -1,0 +1,11 @@
+
+\disc{For example, the number of ways to arrange two red marbles and two
+blue marbles is}
+\begin{center}
+\includegraphics[width = 0.2\textwidth]{figures/marbles}
+\end{center}
+
+\[
+{4 \choose 2} = \frac{4!}{2! \times 2!} = \frac{24}{2 \times 2} = 6.
+\]
+

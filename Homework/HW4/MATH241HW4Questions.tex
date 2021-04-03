@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 4}	\\
+Due: Sunday 3/21 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+    Chapter 4 Problem 1
+    
+    Two balls are chosen randomly from an urn containing 8 white, 4 black, and 2 orange balls. Suppose that we win \$2 for each black ball selected and we lose \$1 for each white ball selected. Let $X$ denote our winnings. What are the possible values of $X$, and what are the probabilities associated with each value?
+    
+    \item
+    Chapter 4 Problem 4
+    
+    Five men and 5 women are ranked according to their scores on an examination. Assume that no two scores are alike and all $10!$ possible rankings are equally likely. Let $X$ denote the highest ranking achieved by a woman. (For instance, $X = 1$ if the top-ranked person is female.) Find $P\{X = i\}, i = 1, 2, \cdots, 9, 10$.
+
+    \item
+    Chapter 4 Problem  21
+    
+    Four buses carrying 148 students from the same school arrive at a football stadium. The buses carry, respectively, 40, 33, 25, and 50 students. One of the students is randomly selected. Let $X$ denote the number of students who were on the bus carrying the randomly selected student. One of the 4 bus drivers is also randomly selected. Let $Y$ denote the number of students on her bus.
+    
+    \begin{itemize}
+    \item[(a)] Which of $E[X]$ or $E[Y]$ do you think is higher? Why?
+    \item[(b)] Compute $E[X]$ and $E[Y]$.
+    \end{itemize}
+
+    \item
+    Chapter 4 Problem  25
+    
+    Two coins are to be flipped. The first coin will land on heads with probability 0.6, the second with probability 0.7. Assume that the results of the flips are independent, and let $X$ equal the total number of heads that result.
+    
+    \begin{itemize}
+    \item[(a)] Find $P\{X = 1\}$.
+    \item[(b)] Determine $E[X]$.
+    \end{itemize}
+
+    \item
+    Chapter 4 Problem  31
+    
+    Each night different meteorologists give us the probability that it will rain the next day. To judge how well these people predict, we will score each of them as follows: If a meteorologist says that it will rain with probability $p$, then he will she will receive a score of
+    
+    \begin{itemize}
+    \item[-] $1 - (1-p)^2$ if it does rain
+    \item[-] $1 - p^2$ if it does not rain
+    \end{itemize}
+    
+    We will then keep track of scores over a certain time span and conclude that the meteorologist with the highest average score is the best predictor of weather. Suppose now that a given meteorologist is aware of our scoring mechanism and wants to maximize his or her expected value. If this person truly believes that it will rain tomorrow with probability $p^*$, what value of $p$ should he or she assert to as to maximize the expected score?
+
+    \item
+    Chapter 4 Problem  32
+    
+    To determine whether they have a certain disease, 100 people are to have their blood tested. However, rather than testing each individual separately, it has been decided first to place the people into groups of 10. The blood samples of the 10 people in each group will be pooled and analyzed together. If the test is negative, one test will suffice for the 10 people, whereas if the test is positive, each of the 10 people will also be individually tested and, in all, 11 tests will be made on this group. Assume that the probability that a person has the disease is 0.1 for all people, independently of one another, and compute the expected number of tests necessary for each group. (Note that we are assuming that the pooled test will be positive if at least one person in the pool has the disease.)
+
+  
+    \item
+    Chapter 4 Theoretical exercise 6
+    
+    Let $X$ be such that
+    
+    $$
+    P\{X = 1\} = p = 1 - P\{X = -1\}
+    $$
+    
+    Find $c \neq 1$ such that $E[c^X] = 1$.
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 4 Problems: 2, 5-10, 12-13, 15, 17-20, 22-23, 26-29
+\item Textbook  Chapter 4 Theoretical exercise: 2-5
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

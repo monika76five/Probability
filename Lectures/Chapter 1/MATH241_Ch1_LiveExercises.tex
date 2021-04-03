@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 1 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item How many different 4-digit pins? Each digit can either be a letter or a number.
+   
+    \item Number of permutations of the letters in the word ``Vassar"?
+    
+    \item Suppose you have 3 distinctive gifts to give to 8 friends. How many permutations of give gifting strategy do you have?
+    
+    \item Lining up 8 people / 4 married couples.
+    
+    \begin{enumerate}
+    \item In how many ways can 4 married couples line up? 
+    \item What if couples must stand together?
+    \end{enumerate}
+
+     \item How many distinct hands of ``four of a kind" (four of the five cards are of the same rank)?
+     
+     \item Among 4 married couples, we want to select a group of 3 people that is not allowed to contain a married couple. How many choices are there?
+     
+     \item How many subsets are there of the set $\{1, 2, \cdots, n\}$?
+     
+     \item {\bf Order matters or not?}
+     
+     	\begin{enumerate}
+	\item Textbook Example 5b: Ten children are to be divided into an $A$ team and a $B$ team of 5 each. The $A$ team will play in one league and the $B$ team in another. How many different divisions are possible?
+	
+	\item Textbook Example 5c: In order to play a game of basketball, 10 children at a playground divide themselves into two teams of 5 each. How many different divisions are possible?
+	\end{enumerate}
+	
+      \item In a well shuffled deck of 52 cards, how many ways can the 4 Aces to be together?
+
+\end{enumerate}
+
+
+\end{document} 

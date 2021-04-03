@@ -1,0 +1,576 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 4 part 2]{Chapter 4 part 2}
+\subtitle{Discrete Random Variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%\item HW3: \red{due now!}
+%\item HW4: \red{due Tuesday, Sept 30th}
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Variance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Variance}
+
+\begin{itemize}
+\item Expected value (or mean) $\mu = E[X]$ yields the weighted average of the possible values of X
+\end{itemize}
+
+\pause
+\begin{defn}
+\hl{Variance} measures the variation (or spread) of these values
+\[\sigma^2 = Var(X) = E\left[ (X-E(X))^2\right] = E\left[(X-\mu)^2 \right] \]
+This holds for all random variable $X$ (not necessary discrete random variable).
+\end{defn}
+
+\pause
+\begin{itemize}
+\item One common simplification:
+\[
+Var(X) 	  =  E(X^2)-\mu^2
+\]
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Standard deviation}
+
+\begin{defn}
+\hl{Standard Deviation} is the square root of the variance
+\[\sigma = SD(X) = \sqrt{Var(X)}\]
+\end{defn}
+
+\pause
+
+Example: compute the standard deviation of a fair 4-sided die toss.
+\pause
+\[Var(X) = E[X^2] - (E[X])^2\]
+\vspace{-0.3cm}
+%\invisible{
+\pause \[ E[X] = 1 \times \frac{1}{4} + 2 \times \frac{1}{4} + 3 \times \frac{1}{4} + 4 \times \frac{1}{4}  = 2.5\]
+\pause \[ E[X^2] = 1 \times \frac{1}{4} + 4 \times \frac{1}{4} + 9 \times \frac{1}{4} + 16 \times \frac{1}{4}  = 7.5\]
+\pause \[ Var(X) = 7.5 - 2.5^2 = 1.25 \]
+\vspace{-0.3cm}
+\pause \[ SD(X) = \sqrt{Var[X]} = 1.12\]
+%}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Variance measures the spread of $X$}
+\disc{
+\twocol{0.5}{0.5}
+{
+$X_1$ is a discrete random variable with pmf
+\begin{center}
+\begin{tabular}{c | c | c }
+$x$			& $-1$			& $1$			\\
+\hline
+$p_{X_1}(x)$	&$1/2$			&$1/2$ 			\\
+\end{tabular}
+\end{center}
+}
+{
+$X_2$ is a discrete random variable with pmf
+\begin{center}
+\begin{tabular}{c | c | c }
+$x$			& $-2$			& $2$			\\
+\hline
+$p_{X_2}(x)$	&$1/2$			&$1/2$ 			\\
+\end{tabular}
+\end{center}
+}
+}
+
+%\invisible{
+\vspace{-0.3cm}
+\pause \[ \mu_1 = 0,\ \sigma_1^2 = E[X_1^2] - 0^2= 1,\ \sigma_1 = 1\]
+\vspace{-0.3cm}
+\pause \[ \mu_2 = 0,\ \sigma_2^2 = E[X_2^2] - 0^2= 4,\ \sigma_2 = 2\]
+
+\pause
+\vspace{0.2cm}
+Increasing variance (or sd) reflects increasing spread.
+\vspace{-0.2cm}
+\begin{center}
+\includegraphics[width = 9cm, height = 4cm]{figures/pmf}
+\end{center}
+%}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Distributions with SD = 1}
+
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{figures/severalDiffDistWithSdOf1}
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Property of variance}
+\disc{We know that $Var(X) = E[(X-\mu)^2]$, and for constants $a, b$,
+\[ E[aX+b] = a E[X] + b.\]
+Write $Var(aX + b)$ as a function of $Var(X)$.}
+
+%\invisible{
+\pause
+\begin{align*}
+Var(aX+b) &= E[(aX+b-E[aX+b])^2]\\
+\uncover<3->{		 &= E[(aX+b-aE[X]-b)^2]\\
+		 &= E[(aX-a\mu)^2]\\
+		 &= E[a^2(X-\mu)^2] \\
+		 &= a^2 Var(X)}
+\end{align*}
+%}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Properties of variance}
+
+$Var(X) \geq 0$
+\begin{itemize}
+\item $Var(X) = 0$ if and only if $X$ is a constant.
+\end{itemize}
+
+\pause
+\vspace{0.2cm}
+If $a$ and $b$ are constants, then
+\[ Var(aX+b) = a^2 Var(X) \]
+
+\pause
+\begin{itemize}
+\item \[ Var(aX) = a^2 Var(X) \]
+\item \[ Var(X + b) =  Var(X) \]
+\item \[ Var(b) = 0 \]
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bernoulli distribution and Binomial distribution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Bernoulli distribution}
+
+A trial has two outcomes: success (1) or failure (0). \\
+Let random variable $X$ be the number of success in a single trial.
+\pause
+\begin{defn}
+Random variable $X$
+has a \hl{Bernoulli distribution}, if
+\[
+P(X = 1) = p, \quad P(X = 0) = 1-p
+\]
+where $0 \leq p \leq 1$ is the probability of a success.
+\end{defn}
+
+\pause
+\twocol{0.78}{0.22}{
+\begin{itemize}
+\item The pmf of Bernoulli distribution
+\[ X \sim \text{Ber}(p) \Longleftrightarrow\ p(1) = p, \ p(0) = 1-p \]
+
+\pause
+\item Found by Swiss mathematician Jacob Bernoulli.
+\end{itemize}
+}
+{
+\begin{center}
+\includegraphics[width = \textwidth]{figures/Jacob_Bernoulli}
+\end{center}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Mean and variance of a Bernoulli random variable}
+Examples of Bernoulli distributions
+\begin{itemize}
+\item Toss a fair coin and obtain a head. $p = 0.5$.
+\item Roll a fair 6-sided die and obtain a 6. $p = 1/6$.
+\item Earn an A for this class. $p \in [0, 1]$.
+\end{itemize}
+
+\pause
+\disc{Find the mean and variance of $X \sim \text{Ber}(p)$.}
+\pause
+\[E(X) = 1 \times p + 0 \times (1-p) = p\]
+\[Var(X) = E(X^2) - (E[X])^2 = 1^2 \times p + 0^2 \times (1-p) - p^2= p - p^2 = p(1-p)\]
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Variance $\sigma^2$
+\begin{itemize}
+\item \textbf{For all random variable}
+\[
+Var(X) = E[(X - \mu)^2] = E[X^2] - \mu^2
+\]
+\vspace{2mm}
+\item \textbf{Linear function}
+\[Var(aX+b) = a^2 Var(X)\]
+\item \textbf{Constants}
+\[Var(c) = 0\]
+\end{itemize}
+
+Standard deviation
+\[SD(X) = \sqrt{Var(X)}\]
+
+Bernoulli distribution
+\[p(1) = p, \quad p(0) = 1-p\]
+\[\mu  = p, \quad \sigma^2 = p(1-p)\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Binomial distribution}
+\begin{defn}
+Define $X$ to be the \emph{number of successes} in a \emph{fixed number} $n$
+of \emph{independent trials} with the \emph{same probability of success} $p$ as having a \hl{Binomial distribution}.
+
+\pause
+Then the pmf of $X$ is $P(X = k) = P(\text{getting } k \text{ successes in } n \text{ trials})$
+\pause \vspace{-0.3cm}
+\[ X \sim \text{Bin}(n,p) \Longleftrightarrow \ p(k) = {n \choose k} p^k(1-p)^{n-k}, \quad k = 0, 1, \ldots, n\]
+
+\end{defn}
+
+\pause
+Example of Binomial distributions
+\begin{itemize}
+\item The number of heads obtained by tossing a fair coin 10 times. $n = 10, p = 0.5$. \pause
+\item The number of 6 obtained when roll four fair 6-sided dice simultaneously. $n = 4, p = 1/6$. \pause
+\item The number of  A's students will earn in this semester. $n = \text{number of classes you're taking, } p$ varies by classes...\\
+$\Longrightarrow$ not really a Binomial random variable!
+
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Pmf of Binomial distribution: uni-modeal}
+\disc{Example: let $X$ be the number of 6 obtained when roll four fair 6-sided dice simultaneously.
+Find its pmf.
+}
+\vspace{0.5cm}
+%\invisible{
+\twocol{0.4}{0.6}
+{
+\pause
+\[n = 4, \ p = 1/6,\]
+\[ p(k) = {n \choose k} p^k(1-p)^{n-k}\]
+\vspace{-1cm}
+\uncover<8->{
+\begin{center}
+\includegraphics[scale = 0.45]{figures/pmf1}
+\end{center}
+}
+}
+{
+\begin{align*}
+\uncover<3->{
+p(0) &= {4 \choose 0} \left(1/6\right)^0 \left(5/6\right)^4 = 0.4823\\
+}
+\uncover<4->{
+p(1) &= {4 \choose 1} \left(1/6\right)^1 \left(5/6\right)^3 = 0.3858\\
+}
+\uncover<5->{
+p(2) &= {4 \choose 2} \left(1/6\right)^2 \left(5/6\right)^2 = 0.1157\\
+}
+\uncover<6->{
+p(3) &= {4 \choose 3} \left(1/6\right)^3 \left(5/6\right)^1 = 0.0154\\
+}
+\uncover<7->{
+p(4) &= {4 \choose 4} \left(1/6\right)^4 \left(5/6\right)^0 = 0.0008\\
+}
+\end{align*}
+}
+
+%}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+\disc{Suppose 42\% of the students in a class have part time jobs.
+Among a random sample of 10 students in that class, what is the probability that exactly 8 have part time jobs?}
+
+
+\pause
+Binomial distribution. $n = 10, p = 0.42$.
+\[
+P(X = 8) = {10 \choose 8} \times 0.42^8 \times 0.58^2 = 0.0147
+\]
+\vfill
+%\begin{enumerate}[(a)]
+%\item $0.42^8 \times 0.58^2$
+%\item ${8 \choose 10} \times 0.42^8 \times 0.58^2$
+%\soln{\red{\only<2>{$ = 45 \times  0.42^8 \times 0.58^2 = 0.0035$}}}
+%\solnMult{${10 \choose 8} \times 0.42^8 \times 0.58^2$}
+%\item ${10 \choose 8} \times 0.42^2 \times 0.58^8$
+%\end{enumerate}
+
+\pause
+We can use the binomial distribution to calculate the probability of $k$ successes in $n$ trials, as long as
+\pause
+\begin{enumerate}
+\item the trials are independent
+\pause
+\item the number of trials, $n$, is fixed
+\pause
+\item each trial outcome can be classified as a \textit{success} or a \textit{failure}
+\pause
+\item the probability of success, $p$, is the same for each trial
+\end{enumerate}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\begin{frame}
+%\frametitle{}
+%
+%\cl{2. I drink a cup of coffee everyday. About $80\%$ of the time I buy coffee from the Java City cafe,
+%about $20\%$ of the time from the Starbucks. Compute the probability I drink 4 cups of Starbucks coffee in 10 days. }
+%
+%\begin{enumerate}[(a)]
+%\item $0.2^4 \times 0.8^6$
+%\item ${4 \choose 10} \times 0.2^4 \times 0.8^6$
+%\solnMult{${10 \choose 4} \times 0.2^4 \times 0.8^6$} \soln{\red{\only<2>{$ = 210 \times  0.2^4 \times 0.8^6 = 0.088$}}}
+%\item ${10 \choose 4} \times 0.8^4 \times 0.2^6$
+%\end{enumerate}
+%
+%
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Pmf of Binomial distribution: uni-modal}
+
+\vspace{-0.5cm}
+\begin{center}
+\includegraphics[scale = 0.6]{figures/pmf2}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Mode of Binomial distribution}
+%
+%\begin{itemize}
+%\item $X \sim \text{Bin}(n, p)$ and $p \in (0, 1)$. Then as $k$ goes from $0$ to $n$,
+%\begin{align*}
+%& p(k) \text{ increases  for } 0 \leq k \leq (n+1)p\\
+%& p(k) \text{ decreases   for } (n+1)p < k \leq n
+%\end{align*}
+%\end{itemize}
+%\pause
+%\red{Recall the Binomial Theorem $(a + b)^n = \sum_{k=0}^n {n \choose k} a^k b^{n-k}$}
+%
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Binomial pmf is valid (or well-defined)} %$p(k) = {n \choose k} p^k (1-p)^{n-k}$}
+
+\begin{itemize}
+\item Positive: for any $x \in \mathbb{R}$
+\[p(x) \geq 0\]
+\item Total one ({\color{red}required}):
+ \[\sum_{k = 0}^n p(k) = 1\]
+\pause
+\red{Recall the Binomial Theorem $(a + b)^n = \sum_{k=0}^n {n \choose k} a^k b^{n-k}$}
+$$\sum_{k = 0}^n p(k) = \sum_{k = 0}^n {n \choose k} p^k(1-p)^{n-k} = [p+(1-p)]^n = 1^n = 1$$
+
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Mean of Binomial random variable}
+
+Toss a coin $n$ times, each toss has prob $p$ being a head. On average,
+total number of heads equals $np$.\\
+\pause
+\[E[X] = np \]
+
+Check textbook page 131 for the derivation ({\color{red}not required}).
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of Binomial distribution}
+
+\begin{itemize}
+\item Variance
+\[Var[X] = np(1-p) \]
+Check textbook page 132 for the derivation ({\color{red}not required}).
+
+\pause
+\vfill
+\item If we have independent Bernoulli random variable's $X_1, X_2, \ldots, X_n$ with the same probability of success $p$, then
+their sum has a Binomial distribution
+\[
+X = X_1 + X_2 + \cdots + X_n \sim \text{Bin}(n, p)
+\]
+
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{}
+
+\disc{Roll 4 fair six-sided dice. Let $X$ be the number of 6 obtained. Find its mean and variance.  }
+
+%\invisible{
+\pause
+\[ X \sim \text{Bin}(n = 4, p = 1/6)\]
+\pause
+\[E[X] = np = 4 \times (1/6) = 2/3\]
+\[Var(X) = np(1-p) = 4 \times (1/6) \times (5/6) = 5/9\]
+
+%}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Binomial distribution $X \sim \text{Bin}(n,p) $
+\[ p(k) = {n \choose k} p^k(1-p)^{n-k}\]
+\begin{itemize}
+\item mean $\mu = np$
+\item variance $\sigma^2 = np(1-p)$
+%\item Bernoulli distribution: $n=1$
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document} 

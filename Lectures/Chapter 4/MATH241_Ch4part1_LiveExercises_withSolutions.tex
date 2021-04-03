@@ -1,0 +1,529 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 4 part 1]{Chapter 4 part 1}
+\subtitle{Discrete Random Variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%\item HW3: \red{due now!}
+%\item HW4: \red{due Tuesday, Sept 30th}
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Outline}
+%\tableofcontents[hideallsubsections,pausections]
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discrete random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Random Variables}
+
+\begin{defn}
+\hl{Random Variable} $X$ is a real-valued  function on the sample space $S$.
+\end{defn}
+
+
+\begin{itemize}
+\item Random variable is a number associated with a random experiment.
+\item Random variables are in essence a fancy way of describing an event.
+
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\cl{Two fair six-sided dice are rolled. Let the random variable $X$ denote the product of the 2 dice. What are possible values of $X$ and their associated probabilities? Just give a few examples and you do not need to calculate the associated probability for all possible values.
+}
+
+\pause
+\begin{align*}
+P(X = 1) & = P(1,  1) = 1 / 6 \times 1 / 6\\
+P(X = 2) & = P(1,  2) + P(2, 1) = 1 / 6 \times 1 / 6 \times 2\\
+P(X = 3) & = P(1,  3) + P(3, 1) = 1 / 6 \times 1 / 6 \times 2\\
+ \cdots & \cdots \\
+P(X = 36) & = P(6,  6) = 1 / 6 \times 1 / 6
+\end{align*}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Cumulative distribution function (cdf)}
+\begin{defn}
+For a random variable $X$, the function $F$ defined by
+\[ F(x) = P(X \leq x), \quad  -\infty < x < \infty \]
+is called the \hl{cumulative distribution function} of $X$.
+\end{defn}
+
+\pause
+Note that
+\begin{itemize}
+\item Capital $X$: random variable
+\item Little $x$: a real-valued number
+\item $\leq$: smaller than or equal to
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of the cdf (Ch 4.10)}
+
+\begin{itemize}
+\item $P(a < X \leq b) = F(b) - F(a)$, for all $a<b$
+
+\item $P(X < b)$ does not necessary equal to $P(X\leq b)$.
+\end{itemize}
+
+\begin{enumerate}
+\item $F(x)$ is a non-decreasing function; i.e., if $x_1 < x_2$, then
+\[F(x_1) \leq F(x_2)\]
+
+\vspace{-0.5cm}
+\item \[ \lim_{x \rightarrow \infty} F(x) = 1 \Longleftrightarrow P(X \leq \infty) = 1\]
+
+\vspace{-0.5cm}
+\item \[ \lim_{x \rightarrow -\infty} F(x) = 0 \Longleftrightarrow P(X > -\infty) = 1\]
+
+\vspace{-0.1cm}
+\item $F(x)$ is right continuous; i.e., for any decreasing sequence $\{x_n: n = 1, 2, \ldots \}$ that converges to $x$,
+\[ \lim_{n\rightarrow \infty}F(x_n) = F(x)\Longrightarrow \lim_{n\rightarrow \infty}P(X \leq x + \frac{1}{n}) = P(X \leq x)\]
+\end{enumerate}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\cl{Two fair six-sided dice are rolled. Let the random variable $X$ denote the product of the 2 dice. Find the probability of: (a) $P(X \leq 2)$, (b) $P(X \leq 35)$.
+}
+
+\pause
+Part (a)
+\begin{align*}
+P(X \leq 2) &= P(X = 1) + P(X = 2) \\
+&=  P(1, 1) + P(1, 2) + P(2, 1) = 1 / 6 \times 1 / 6 \times 3
+\end{align*}
+
+\pause
+Part (b)
+\begin{align*}
+P(X \leq 35) & = P(X = 1) + P(X = 2) + \cdots + P(X = 35)\\
+&= 1 - P(X = 36) \\
+ &= 1 - P(6, 6) \\
+&=  1 - 1 / 6 \times 1 / 6 
+\end{align*}
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Discrete random variables}
+\begin{defn}
+\begin{dinglist}{\DingListSymbolA}
+\item A random variable $X$ that can take on at most a countable number of possible values is a
+\hl{discrete random variable}.
+\item For a discrete random variable $X$, we define the \hl{probability mass function} (pmf) by
+\[ p(x) = P(X = x) \]
+\end{dinglist}
+\end{defn}
+\vspace{-0.1cm}
+Note: pmf is also written as $f(x)$.
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{pmf and cdf}
+\begin{itemize}
+\item For a discrete random variable $X$, there exists a countable sequence $x_1, x_2, \ldots$, such that
+\begin{align*}
+p(x_i) > 0 & \quad\text{ for } i = 1, 2, \ldots\\
+p(x) = 0 & \quad\text{ for all other values of }x
+\end{align*}
+
+and
+\[ \sum_{i=1}^\infty p(x_i) = 1 \]
+
+
+\item Relationship between pmf and cdf (for discrete random variable)
+\[ F(a) = \sum_{\text{all } x \leq a} p(x)\]
+
+\item If we know pmf, we can compute cdf. And vice versa.
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\cl{Three fair coins are tossed. Let the random variable $X$ denote the number of heads. Write out the pmf and cdf of $X$.
+}
+
+\pause
+For pmf:
+\begin{align*}
+P(X = 0) &= P(TTT)  = (1 / 2)^3 = 1 / 8 \\
+P(X = 1) &=  P(HTT) + P(THT) + P(TTH) = (1 / 2)^3 \times 3 = 3 / 8\\
+P(X = 2) &= P(HHT) + P(HTH) + P(THH) = (1 / 2)^3 \times 3 = 3 / 8\\
+P(X = 3) &= P(HHH) = (1 / 2)^3 = 1 / 8 
+\end{align*}
+
+\pause
+For pmf:
+\begin{align*}
+F(a)= 
+\begin{cases}
+    1 / 8,& 0 \leq a < 1\\
+    1 / 2,& 1 \leq a < 2 \\
+    7 / 8,& 2 \leq a < 3 \\
+    1, & 3 \leq a
+\end{cases}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}
+
+\cl{Suppose that the distribution function of $X$ is given by
+\begin{align*}
+F(b)= 
+\begin{cases}
+    0,& b < 0\\
+    \frac{b}{4},& 0 \leq b < 1 \\
+    \frac{1}{2} + \frac{b - 1}{4},& 1 \leq b < 2 \\
+    \frac{11}{12}, & 2 \leq b < 3 \\
+    1, & 3 \leq b
+\end{cases}
+\end{align*}
+Find $P(X = i), i = 1, 2, 3$.
+}
+
+\pause
+
+\begin{itemize}
+\item $P(X = 1) = P(X \leq 1) - P(X < 1) = \frac{1}{2} - \frac{1}{4} = \frac{1}{4}$\\ \pause
+\item $P(X = 2) = P(X \leq 2) - P(X < 2) = \frac{11}{12} - (\frac{1}{2} + \frac{2 - 1}{4}) = \frac{11}{12} - \frac{3}{4} = \frac{1}{6}$ \\ \pause
+\item $P(X = 3) = P(X \leq 3) - P(X < 3) = 1 - \frac{11}{12} = \frac{1}{12}$
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Random Variable
+\begin{itemize}
+\item Random Variable $X$ is a real-valued  function on the sample space $S$.
+\[ X: S \longrightarrow \mathbb{R}\]
+
+\item Cumulative distribution function (cdf)
+\[ F_X(x) = P(X \leq x), \quad \text{for any } x \in \mathbb{R} \]
+\end{itemize}
+
+Discrete random variable
+\begin{itemize}
+\item can only take at most a countable number of possible values.
+\item probability mass function (pmf)
+\[ p_X(x) = P(X = x) \]
+\end{itemize}
+
+\vspace{-0.3cm}
+\twocol{0.5}{0.5}
+{
+\begin{itemize}
+\item $\sum_{i=1}^{\infty} p(x_i) = 1$
+\end{itemize}
+}
+{
+\begin{itemize}
+\item $F(a) = \sum_{\text{all } x \leq a} p(x)$
+\end{itemize}
+}
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Expectation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Expected value}
+\begin{defn}
+The \hl{expected value} (or \hl{mean}) of a \underline{discrete random variable} is defined as
+\[E[X] = \sum_{x: p(x) > 0} x\cdot P(X = x)= \sum_{x: p(x) > 0} x p(x)\]
+\end{defn}
+
+
+\begin{itemize}
+\item $E[X]$ is a weighted average of the possible values $x$ that $X$ can take on,
+each value being weighted by the probability $p(x) $.
+\end{itemize}
+
+\vspace{0.5cm}
+\twocol{0.2}{0.7}
+{
+\includegraphics[width = 0.5\textwidth]{figures/joke1}
+\includegraphics[width = 0.5\textwidth]{figures/joke2}
+}
+{
+When she told me I was average, \\
+she was just being mean.
+}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Toss a coin. Suppose the probability of a head is $p$. Let $X$ be
+a 0-1 indicator random variable s.t.\
+\[
+X = \left\{
+\begin{array}{ll}
+1	& \text{if head is obtained}\\
+0	& \text{otherwise}\\
+\end{array}
+\right.
+\]
+Compute $\mu = E[X]$.
+}
+
+%\invisible{
+\pause
+\[ E[X] = 1 \cdot p + 0 \cdot (1-p) = p\]
+%}
+
+\pause
+\begin{itemize}
+\item In general, for indicator variable $X = \delta_A$ or $\mathbf{1}_A$, denoted as
+\[
+X = \left\{
+\begin{array}{ll}
+1	& \text{if event } A \text{ occurs}\\
+0	& \text{otherwise}\\
+\end{array}
+\right.
+\]
+\pause
+The expected value of $X$ equals the probability that $A$ occurs.
+\[ E[X] = 1 \cdot P(A) + 0 \cdot P(A^c) = P(A) \]
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Let the random variable $X$ denote the GP a certain student will earn in this class. Suppose its pmf is
+\[ p(0) = 0.05, \quad p(1) = 0.05, \quad p(2) = 0.3, \quad p(3) = 0.4\]
+Calculate their expected GP $E[X]$.
+}
+\vspace{0.4cm}
+
+\pause
+Since the domain of $X$ (all possible values $X$ can take) is $\{0, 1, 2, 3, 4\}$,
+first compute $p(4)$.
+\[p(4) = 1 - p(0) - p(1) - p(2) - p(3) = 0.2\]
+Then compute $E[X]$
+\[ E[X] = 0 \times 0.05 + 1 \times 0.05 + 2 \times 0.3 + 3 \times 0.4 + 4 \times 0.2 = 2.65 \]
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Expectation of a function of a random variable}
+\begin{itemize}
+\item If $X$ is a discrete random variable, and $g$ is a real-valued function then the expectation (or expected value) of $Y = g(X)$ is
+\[ E[g(X)] = \sum_{x: p_X(x) > 0} g(x) \cdot p_X(x) \]
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Let $X$ denote a random variable that takes on any of the values -1, 0, and 2 with respective probability: $P(X = -1) = \frac{1}{5}, P(X = 0) = \frac{1}{5}, P(X = 2) = \frac{3}{5}$. Compute $E[X^3]$.}
+
+\pause
+Let $Y = X^3$, then
+\begin{align*}
+E[X^3] = E[Y] & = \sum_{\text{all }x} x^3 \cdot p_X(x)\\
+& = (-1)^3 \times \frac{1}{5} + 0^3 \times \frac{1}{5} + 2^3 \times \frac{3}{5}\\
+& = -\frac{1}{5} + 0 + \frac{24}{5} \\
+& = \frac{24}{5}
+\end{align*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Properties of expected values}
+
+If $a$ and $b$ are constants, then
+\[ E[aX+b] = a E[X] + b \]
+
+
+\begin{itemize}
+\item Holds for all random variable $X$ (not necessary discrete random variable).
+\item Special cases of linear transformation $ E[aX+b] = a E[X] + b $
+\begin{itemize}
+\item constant factor \[ E[aX] = a E[X] \]
+
+\item constant \[ E[b] = b \]
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Let $X$ denote a random variable that takes on any of the values -1, 0, and 2 with respective probability: $P(X = -1) = \frac{1}{5}, P(X = 0) = \frac{1}{5}, P(X = 2) = \frac{3}{5}$. Compute: (a) $E[2X^2]$, (b) $E[4X^2 - 1]$.}
+
+\pause
+Let $Y = X^2$, then
+\begin{align*}
+E[X^2] = E[Y] & = \sum_{\text{all }x} x^2 \cdot p_X(x)\\
+& = (-1)^2 \times \frac{1}{5} + 0^2 \times \frac{1}{5} + 2^2 \times \frac{3}{5}\\
+& = \frac{1}{5} + 0 + \frac{12}{5} \\
+& = \frac{13}{5} 
+\end{align*}
+
+Part (a): $E[2X^2] = 2 E[X^2] = 2 E[X^2] = 26 / 5$\\
+Part (b): $E[4X^2 - 1] = 4 E[X^2] - 1 = 52 / 5 - 1 =  47 / 5$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Expectation $\mu$
+\begin{itemize}
+\item \textbf{For discrete random variable}: $E[X] = \sum_{\text{all } x} x \cdot p(x)$
+\item \textbf{Functions}: $E[g(X)] = \sum_{\text{all }x} g(x)~p(x)$
+\vspace{2mm}
+\item \textbf{Indicators}: $E[\delta_A] = P(A)$ where $\delta_A$ is an indicator function
+\item \textbf{Linear function}: $E[aX + b] = aE[X] + b$
+\item \textbf{Constants}: $E[c] = c$ if $c$ is constant
+\end{itemize}
+
+For two random variable's $X$ and $Y$
+\[E[X + Y] = E[X] + E[Y]\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+\end{document}

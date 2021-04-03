@@ -1,0 +1,25 @@
+\frametitle{Combinations: order doesn't matter!}
+
+When order matters, there are $r!$ different orderings of the $r$ items selected.
+
+\begin{dinglist}{\DingListSymbolA}
+\item If we have $n$ items and want to select $r$ of them,
+\[
+\#(\text{combinations}) = \frac{n \times (n-1) \times \cdots \times (n-r+1)}{r!} = \frac{n!}{(n-r)!r!}
+\]
+
+\pause
+\item Define \hl{choose}
+\[ {n \choose r} = \frac{n!}{(n-r)!r!}\]
+\end{dinglist}
+
+\pause
+\begin{itemize}
+\item The number ${n \choose r}$ is pronounced as $n$ choose $r$, it is the number of ways to pick
+$r$ objects from a set of $n$ distinct objects.
+
+\item $0 \leq r \leq n$, otherwise $0$
+\pause
+\item $0! = 1$
+\end{itemize}
+

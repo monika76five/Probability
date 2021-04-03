@@ -1,0 +1,6 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{The basic rule of counting}{3}{0}{1}
+\beamer@sectionintoc {2}{Permutations}{7}{0}{2}
+\beamer@sectionintoc {3}{Combinations}{23}{0}{3}
+\beamer@sectionintoc {4}{Multinomial coefficients}{50}{0}{4}
+\beamer@sectionintoc {5}{Recap}{56}{0}{5}

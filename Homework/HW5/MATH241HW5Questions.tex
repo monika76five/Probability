@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 5}	\\
+Due: Sunday 3/28 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+    \item
+    Chapter 4 Problem  35
+    
+    A box contains 5 red and 5 blue marbles. Two marbles are withdrawn randomly. If they are the same color, then you win \$1.10; if they are different colors, then you will -\$1.00. (That is, you lose \$1.00.) Calculate
+    
+    \begin{itemize}
+    \item[(a)] the expected value of the amount you win;
+    \item[(b)] the variance of the amount you win.
+    \end{itemize}
+
+ \item
+    Chapter 4 Problem 40
+    
+    On a multiple-choice exam with 3 possible answers for each of the 5 questions, what is the probability that a student will get 4 or more correct answers just by guessing?
+    
+    
+    \item
+    Chapter 4 Problem 44
+    
+    A satellite system consists of $n$ components and functions on any given day if at least $k$ of the $n$ components function on that day. On a rainy day, each of the components independently functions with probability $p_1$, whereas on a dry day, each independently functions with probability $p_2$. If the probability of rain tomorrow is $\alpha$, what is the probability that the satellite system will function?
+    
+
+    \item
+    Chapter 4 Problem  49
+    
+    When coin 1 is flipped, it lands on heads with probability 0.4; when coin 2 is flipped, it lands on heads with probability 0.7. One of these coins is randomly chosen and flipped 10 times.
+    
+    \begin{itemize}
+    \item[(a)] What is the probability that the coin lands on heads on exactly 7 of the 10 flips?
+    
+    \item[(b)] Given that the first of these 10 flips lands heads, what is the conditional probability that exactly 7 of the 10 flips land on heads?
+    \end{itemize}
+
+
+    \item
+    Chapter 4 Theoretical exercise 7
+    
+    Let $X$ be a random variable having expected value $\mu$ and variance $\sigma^2$. Find the expected value and variance of
+    
+    $$
+    Y  = \frac{X - \mu}{\sigma}
+    $$
+
+ \item
+    Chapter 4 Theoretical exercise 10. [Hint: use ${n + 1 \choose k + 1} = {n  \choose k } \frac{n + 1}{ k + 1}$]
+    
+    Let $X$ be a binomial random variable with parameters $n$ and $p$. Show that
+    
+    $$
+    E\left[\frac{1}{X+1}\right] = \frac{1 - (1-p)^{n+1}}{(n+1)p}
+    $$
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 4 Problems:  37, 39, 41-42
+\item Textbook  Chapter 4 Theoretical exercise: 8, 11, 13, 14
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

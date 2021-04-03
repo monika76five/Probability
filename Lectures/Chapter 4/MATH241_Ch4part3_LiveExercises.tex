@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 4 part 3 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Find the probability that a randomly selected Vassar student has odd number of siblings, if the average number of siblings is 1.73.
+
+\item If you buy a lottery ticket in 50 lotteries, in each of which your chance of winning a prize is 1 / 100, what is the (approximate) probability that you will win a prize 
+
+\begin{enumerate}[(a)]
+\item at least once?
+\item exactly once? 
+\item at least twice?
+\end{enumerate}
+
+\item $X \sim \text{P}(\lambda)$. Which is the following is FALSE?
+
+\begin{enumerate}[(a)]
+\item The mean and standard deviation of $X$ are different.
+\item Pmf of $X$ can be a decreasing function.
+\item $\lambda$ can only take values $0, 1, 2, \ldots$.
+\item None of the above.
+\end{enumerate}
+
+\item $X$ denotes the number of times a die is rolled until 6 is obtained.
+\begin{enumerate}
+\item What are the odds we have to roll it 10 or more times?
+\item How many times do we expect to roll?
+\item Find $Var[X]$.
+\end{enumerate}
+
+\item Consider independent trials with success probability $p$. Let $q = 1-p$.
+What's the probability of getting $r$ successes before $m$ failures?
+
+\begin{enumerate}[(a)]
+\item $p^{r-1} q^m$
+\item ${r + m -1 \choose r-1}p^{r-1} q^m$
+\item $\sum_{k = r}^{r + m} {k -1 \choose r-1}p^r q^{k - r}$
+\item  $\sum_{k = r}^{r + m-1} {k -1 \choose r-1}p^r q^{k - r}$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document} 

@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 4 part 2 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Let the random variable $X$ denote the GP a certain student will earn in this class. Suppose its pmf is
+\[ p(0) = 0.05, \quad p(1) = 0.05, \quad p(2) = 0.3, \quad p(3) = 0.4\]
+Calculate their GP variance $Var[X]$.
+
+\item Find $Var(X)$ if
+\[
+P(X = a) = p = 1 - P(X = b)
+\]
+
+\item If $E[X] = 1$ and $Var(X) = 5$, find 
+\begin{enumerate}
+\item $E[(2 + X)^2]$
+\item $Var(4 + 3X)$
+\end{enumerate}
+
+
+\item Let $X$ be the number of 6 obtained when roll four fair 6-sided dice simultaneously.
+Its pmf is.
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c }
+$x$				& $0$			& $1$			& $2$			& $3$			& $4$			\\
+\hline
+$p(x)$			&$0.4823$		&$0.3858$ 		&$0.1157$ 		&$0.0154$ 		&$0.0008$ 	\\
+\end{tabular}
+\end{center}
+Find its cdf $F(x)$.
+
+\item I drink a cup of coffee everyday. About $80\%$ of the time I buy coffee from CraftedKup,
+about $20\%$ of the time from the Starbucks. Compute the probability I drink 4 cups of Starbucks coffee in 10 days.
+
+\item Random variable $X \sim \text{Binom}(n,p)$, and the value of $n$ is fixed.
+For any fixed $n$, find $p$ such that the distribution of $X$ has the largest spread.
+
+\end{enumerate}
+
+
+\end{document} 

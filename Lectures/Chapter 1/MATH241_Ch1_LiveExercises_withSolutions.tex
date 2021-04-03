@@ -1,0 +1,572 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 1]{Chapter 1}
+\subtitle{Combinatorial Analysis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu]
+{Jingchen (Monika) Hu}
+
+\institute[Vassar]
+{Vassar College}
+
+
+\date[MATH 241]
+{MATH 241}
+
+
+\subject{MATH 241}
+
+
+\begin{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%\item HW1: \red{due Thursday, Aug 28th}\\
+%Blackboard course page $\longrightarrow$ Content $\longrightarrow$ Homework assignments
+%
+%\end{itemize}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The basic rule of counting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{The generalized rule of counting}
+
+\begin{dinglist}{\DingListSymbolA}
+\item Suppose an experiment consists $r$ different outcomes, with the $i$-th outcome having $n_i$ possibilities,
+then together there are
+\[
+n_1 \times n_2 \times \cdots \times n_r = \prod_{i=1}^r n_i
+\]
+possibilities for the experiment.
+\end{dinglist}
+
+\uncover<2-3>{
+\cl{How many different 4-digit pins?
+\begin{center}
+\begin{tabular}{cccccc}
+\underline{\hspace{1cm}} &\underline{\hspace{1cm}} &\underline{\hspace{1cm}} &\underline{\hspace{1cm}}  \\
+letter or number& letter or number & letter or number & letter or number
+\end{tabular}
+\end{center}
+}
+}
+
+\uncover<3>{
+\[
+(26 + 10) \times (26 + 10) \times (26 + 10) \times (26 + 10) = 1,679,616
+\]
+%Try out in R!
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Permutations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]\frametitle{Permutations}
+
+\disc{
+Our example: how many different arrangements of the letters a, b, c?
+}
+
+\begin{dinglist}{\DingListSymbolA}
+\item Each of these arrangements is a \red{permutation}
+\item The order matters!
+\item Number of permutations of $n$ different objects
+\[
+n \times (n-1) \times \cdots 2 \times 1 = n!
+\]
+\end{dinglist}
+
+\begin{comment}
+Factorial in R:
+\begin{verbatim}
+factorial(3)
+\end{verbatim}
+\end{comment}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Permutations of r groups of n objects}
+\begin{dinglist}{\DingListSymbolA}
+\item Among $n$ objects, if $n_1$ are alike, $n_2$ are alike, \ldots, $n_r$ are alike, then there are
+\[
+\frac{n!}{n_1! n_2! \cdots n_r!}
+\]
+different permutations.
+\end{dinglist}
+
+\uncover<2-3>{
+\cl{Number of permutations of the letters in the word ``Vassar''?}
+\begin{enumerate}[(a)]
+\item $6! / 2$
+\item $5! / 2$
+\only<beamer| beamer:2>{\item{ $6!/ 4$}} \only<3>{\item{ \red{$6!/ 4$}}}
+\item $6!$
+\end{enumerate}
+}
+
+\uncover<3>{
+%Try out in R!
+}
+
+\end{frame}
+
+\begin{frame}\frametitle{Permutation of selecting r items from n objects}
+\begin{dinglist}{\DingListSymbolA}
+\item If we have $n$ items and want to select $r$ of them,
+\[
+\#(\text{permutations}) = n \times (n-1) \times \cdots \times (n-r+1) = \frac{n!}{(n-r)!}
+\]
+\end{dinglist}
+
+\cl{Suppose you have 3 distinctive gifts to give to 8 friends. How many permutations of gift giving strategy do you have?}
+\begin{enumerate}[(a)]
+\item $3! $
+\item $3 ^ 3$
+\item $8!$
+\solnMult{$8\times 7 \times 6$}
+\end{enumerate}
+
+\uncover<2->{
+\begin{center}
+\begin{tabular}{cccccc}
+\underline{\hspace{1cm}} &  &\underline{\hspace{1cm}} & &\underline{\hspace{1cm}}\\
+\uncover<3->{
+8 & $\times$  & 7 & $\times$ & 6 & $= ~~8! / (8 - 3)!$
+}
+\end{tabular}
+\end{center}
+}
+
+\uncover<4->{
+
+%Try out in R!
+}
+\vspace{1mm}
+
+\uncover<5->{
+\underline{What if the order doesn't matter? e.g.\ handshakes.}
+}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Additional exercises}
+
+\cl{(a) In how many ways can 4 married couples line up?  \\
+(b) What if couples must stand together?}
+\pause
+Part (a): 8 different people
+\[8! = 40320\]
+\pause
+
+Part (b): there are $4!=24$ ways that the couples can be arranged, and each
+couple can be arranged in $2! = 2$ ways.  So the answer is \pause
+\[
+(4!) \times (2!) \times (2!) \times (2!) \times (2!) = 384.
+\]
+\pause
+Another way to look at the problem:\\
+
+For the first position, there are 8 choices. For the next position, only one, because the first person's spouse needs to take that position. The next one has 6, next 1 again, etc.. So the answer is
+
+$$ 8 \times 1 \times 6 \times 1 \times 4 \times 1 \times 2 \times 1 = 384.$$
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\frametitle{Recap}
+
+The basic rule of counting
+\begin{itemize}
+\item $r$ different outcomes; the $i$-th outcome having $n_i$ possibilities,
+then the number of possibilities is
+\[
+\prod_{i=1}^r n_i
+\]
+
+\end{itemize}
+
+Permutations
+\begin{itemize}
+\item Number of permutations of $n$ different objects is $n!$.
+\item Number of permutations of $n$ objects, if $n_1$ are alike, $n_2$ are alike, \ldots, $n_r$ are alike, is
+\[
+\frac{n!}{n_1! n_2! \cdots n_r!}
+\]
+\item Number of permutations of selecting $r$ items from $n$ objects
+\[
+\frac{n!}{(n-r)!}
+\]
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Combinations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]\frametitle{Combinations: order doesn't matter!}
+
+When order matters, there are $r!$ different orderings of the $r$ items selected.
+
+\begin{dinglist}{\DingListSymbolA}
+\item If we have $n$ items and want to select $r$ of them,
+\[
+\#(\text{combinations}) = \frac{n \times (n-1) \times \cdots \times (n-r+1)}{r!} = \frac{n!}{(n-r)!r!}
+\]
+
+\pause
+\item Define \hl{choose}
+\[ {n \choose r} = \frac{n!}{(n-r)!r!}\]
+\end{dinglist}
+
+\pause
+\begin{itemize}
+\item The number ${n \choose r}$ is pronounced as $n$ choose $r$, it is the number of ways to pick
+$r$ objects from a set of $n$ distinct objects.
+
+\item $0 \leq r \leq n$, otherwise $0$
+\pause
+\item $0! = 1$
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{}
+Example: Poker hand. A standard poker deck has 52 cards, in four suits (clubs, diamonds, hearts, spades) of thirteen cards each (2, 3, ..., 10, Jack, Queen, King, Ace).
+
+\cl{How many distinct hands of ``four of a kind" (four of the five cards are of the same rank)?}
+\pause
+\vspace{0.5cm}
+\begin{tabular}{c c c c c}
+$ {13 \choose 1}$ & $\times$ & ${4 \choose 4}$ & $\times$ & ${48 \choose 1}$\\
+the same rank &&  suits for the same rank && the rest 1 card
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}%\frametitle{}
+Related to the previous question...
+\cl{How many distinct hands of ``four of a suit" (four of the five cards are of the same suit)?}
+\pause
+\vspace{0.5cm}
+\begin{tabular}{c c c c c}
+$ {4 \choose 1}$ & $\times$ & ${13 \choose 4}$ & $\times$ & ${39 \choose 1}$\\
+the suit &&  4 cards in the same suit && the rest 1 card
+\end{tabular}
+
+\pause
+\vspace{10mm}
+Note that the number of possible ways to get ``four of a kind" ${13 \choose 1} \times {4 \choose 4} \times {48 \choose 1}$ is smaller than the number of possible ways to get ``four of a suit" $ {4 \choose 1} \times {13 \choose 4} \times {39 \choose 1}$, that means it is less possible to get ``four of a kind". In a game, ``four of a kind" wins over ``four of a suit" because of its smaller probability.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Among 4 married couples, we want to select a group of 3 people that is not allowed to contain a married couple.
+How many choices are there?}
+\pause
+{\small{
+Number of choices if the group can contain married couple(s):
+\[
+N_1 = {8 \choose 3} = \frac{8!}{3! \times 5!} = 56
+\]
+\pause
+Number of choices if the group contains married couple(s)? \\
+Then it can only contain one couple.
+\[
+N_2 = {4 \choose 1} \times {6 \choose 1} = 24
+\]
+\pause
+The number of choices that the group does not have a couple:
+\[
+N_1 - N_2 = 32
+\]
+
+\pause
+Alternatively: there are $8 \times 6 \times 4$ ways of permuting 3 people where no married couple is contained. However, the order plays a role in this calculation, which we do not want. Therefore, there are $\frac{8 \times 6 \times 4}{3!} = 32$ number of choices that the group does not have a couple.
+
+}}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of combinations ${n \choose r} = \frac{n!}{(n-r)!r!}$}
+
+\begin{enumerate}
+\item
+\[{n \choose 1} = n ~~~~~~~~~~~~~~~~~~~~~~~~ {n \choose n} = 1~~~~~~~~~~~~ ~~~~~~~~~~~~\]
+\pause
+\item
+\[{n \choose r} = {n \choose n - r} ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
+\pause
+\item
+\[
+{n \choose r} = {n-1 \choose r} + {n-1 \choose r-1}, \quad 1\leq r \leq n ~~~~~~~~~~~~~~~~~
+\]
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Binomial theorem}
+
+\[
+(a + b)^n = \sum_{k = 0}^n {n \choose k} a^k b^{n-k}
+\]
+{\it Proof: 1) mathematical induction or 2) combinatorial consideration.}\\
+\pause
+Think about license plates that are formed by $n$ digits, where each digit can be a letter or a number.
+$a = 26, b = 10$. \\
+\pause
+Total number of distinct plates:
+\[
+N = (a + b)^n = N_0 + N_1 + \cdots + N_n,
+\]
+where $N_k$ is the number of distinct plates that contains exactly $k$ number of letters.
+\pause
+\[
+N_k = {n \choose k} \times a^k \times b^{n-k}
+\]
+\vfill
+%\Note{By definition, $0! = 1$}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{How many subsets are there of the set $\{1, 2, \ldots, n\}$?}
+%\begin{enumerate}[(a)]
+%\solnMult{$2^n$}
+%\item ${n \choose 2}$
+%\item $\sum_{k = 1}^n {n \choose k}$
+%\item $n!$
+%\end{enumerate}
+
+\pause
+For each $0 \leq k \leq n$, there are ${n \choose k}$ different subsets of size $k$. Then
+\[
+\#(\text{subsets}) = \sum_{k = 0}^n {n \choose k} %= \sum_{k = 0}^n {n \choose k} 1^k 1^{n-k} = (1 + 1)^n
+\]
+\pause
+Use the Binomial Theorem to simplify
+\[
+\sum_{k = 0}^n {n \choose k} = \sum_{k = 0}^n {n \choose k} 1^k 1^{n-k} = (1 + 1)^n = 2^n
+\]
+\pause
+\underline{Any other way to solve this question?}
+
+\pause
+Each element can be either in the subset or out of the subset (2 choices); there are $n$ elements; therefore the number of subsets is $2^n$ (basic rule of counting).
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Multinomial coefficients}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Multinomial coefficients}
+
+\begin{dinglist}{\DingListSymbolA}
+\item  \hl{Multinomial coefficient}: a set of $n$ distinct items is to be
+divided into $r$ distinct groups of respective sizes $n_1, \ldots, n_r$, where $n_1 + n_2 + \cdots + n_r = n$.
+Number of possible divisions is
+\[
+{n \choose n_1, n_2, \ldots, n_r} \stackrel{\text{def}}{=} \frac{n!}{n_1!n_2! \cdots n_r!}
+\]
+\end{dinglist}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Multinomial Theorem}
+
+\begin{itemize}
+\item
+\[
+{n \choose n_1, n_2, \ldots, n_r} = {n \choose n_1}{n-n_1 \choose n_2}{n-n_1-n_2 \choose n_3}\cdots{n_r \choose n_r}
+\]
+\pause
+
+\item When $r = 2$, becomes binomial coefficient (choose function)
+\[
+{n \choose n_1, n_2} = {n \choose n_1}
+\]
+Note that $n_1 + n_2 = n$
+
+\pause
+\item Multinomial Theorem
+\[
+(a_1 + a_2 + \cdots + a_r)^n = \sum_{n_1 + \cdots + n_r = n} {n \choose n_1, n_2, \ldots, n_r} a_1^{n_1} a_2^{n_2} \cdots a_r^{n_r}
+\]
+
+\pause
+\item The Binomial theorem is a special case when $r = 2$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Recap}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Recap}
+
+\begin{itemize}
+
+\item From $n$ distinct items, number of ways to draw $r$ of them
+\begin{center}
+\begin{tabular}{c|cc}
+					& without replacement 			& with replacement \\
+\hline				
+order matters			& $n! / (n-r)!$					& $n^r$ \\
+&&\\
+order doesn't matter		& ${n \choose r} = n! / (n-r)!r!$		&  see Ch1.6$^*$\\
+&&\\
+\end{tabular}
+\end{center}
+
+
+\end{itemize}
+
+%\Note{Ch1.6$^*$: students enrolled in 6000 are encouraged to know.}
+\end{frame}
+
+\begin{frame}\frametitle{Recap}
+Order matters or not?
+\pause
+\begin{itemize}
+
+\item Textbook Example 5b: Ten children are to be divided into an $A$ team and a $B$ team of 5 each. The $A$ team will play in one league and the $B$ team in another. How many different divisions are possible?
+\pause
+$${10 \choose 5} = \frac{10!}{5! \times 5!} = 252.$$
+\pause
+
+\item Textbook Example 5c: In order to play a game of basketball, 10 children at a playground divide themselves into two teams of 5 each. How many different divisions are possible?
+\pause
+$$\frac{{10 \choose 5}}{2!} = \frac{10!}{5! \times 5! \times 2!} = 126.$$
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Recap}
+\begin{itemize}
+\item Binomial theorem
+\[
+(a + b)^n = \sum_{k = 0}^n {n \choose k} a^k b^{n-k}
+\]
+License plate problem?
+
+\pause
+\item Multinomial coefficient
+\[
+{n \choose n_1, n_2, \ldots, n_r} = \frac{n!}{n_1!n_2! \cdots n_r!}
+\]
+
+Connection?
+
+$$1, 1, \cdots, 1, 2, 2, \cdots 2, \cdots, r, r, \cdots r$$
+($n_1$ of $1$, $n_2$ of $2$, ..., $n_r$ of $r$.)\\
+\pause
+\vspace{1mm}
+{\color{red} Each permutation yields a division of the items $\rightarrow$ multinomial. }
+
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{In a well shuffled deck of 52 cards, how many ways can the 4 Aces to be together?}
+%\begin{enumerate}[(a)]
+%\item $4! \times 48!$
+%\solnMult{$4! \times 49!$}
+%\item ${52 \choose 4}$
+%\item ${52 \choose 4} \times {52 \choose 48} $
+%\end{enumerate}
+
+\pause
+Treat the 4 Aces together as one object, then the total number of objects are $49$.\\
+Also consider the number of permutations among the four aces: $4!$
+
+\pause
+\[N = 49! \times 4!\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+\end{document}

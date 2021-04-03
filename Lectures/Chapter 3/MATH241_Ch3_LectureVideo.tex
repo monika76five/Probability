@@ -1,0 +1,772 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 3]{Chapter 3}
+\subtitle{Conditional Probability and Independence}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Announcement and comments}
+%
+%\begin{itemize}
+%\item Quiz 1: extra credit appointment (TWTh this week, M next week)\pause
+%\item Problems from HW1: TE2, TE8, and TE13
+%\end{itemize}
+%
+%\end{frame}
+%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conditional probability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Conditional probability: motivation}
+
+The probability of getting a one when rolling a fair 6-sided die is 1/6\\
+\vspace{0.5cm}\pause
+Suppose you were given the extra information that the die roll was an odd number (hence 1, 3 or 5)\\
+\vspace{0.5cm}\pause
+
+\red{Conditional on this new information}, the probability of a one is now 1/3
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Conditional probability}
+
+\begin{defn}
+Given two events $A$ and $B$ with $P(B) > 0$, the \hl{conditional
+probability} of $A$ given $B$ has occurred is defined as
+\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\]
+\end{defn}
+\pause
+\begin{itemize}
+\item When $B$ is the sample space: $P(A \mid B) = P(A)$
+\item Intuition: in a sample space with equally likely outcomes,
+\[P(A \mid B) = \frac{\#(A \cap B)}{\#(B)}\]
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Example}
+Consider the die roll example:  $B = \{1~\text{or}~3~\text{or}~5\}, A=\{1\}$
+\begin{align*}
+P(\text{get 1 given that roll is odd}) =& P(A \mid B)\\
+= & \frac{P(A\cap B)}{P(B)} \\
+=& \frac{P(\text{get 1})}{P(\text{get 1 or 3 or 5})} \\
+=& \frac{1/6}{3/6}=\frac{1}{3}
+\end{align*}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\disc{Example: roll two fair 6-sided dice.
+Find the probability of the sum of two rolls is 7, given the condition that the first roll is 4.}
+\pause
+Denote two events $A=\{\text{Sum is 7}\}$ and $B=\{\text{First roll is 4}\}$.\\
+Find $P(A \mid B)$.
+Formulas to use?
+\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\]
+
+\pause In context,
+\[
+P(A \cap B) = P\left(\{(4, 3)\}\right) = 1/36, \quad P(B) = 1/6
+\]
+\[
+P(A \mid B) = \frac{1/36}{1/6} = \frac{1}{6}
+\]
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Propositions of conditional probability}
+
+\begin{enumerate}
+\item $P(A \mid A) = 1$ \pause
+\vspace{1.5cm}
+\item $P(A^c \mid A) = 0$ \pause
+\vspace{1.5cm}
+\item $P(A^c \mid B) = 1 - P(A \mid B)$
+\vspace{1.5cm}
+\end{enumerate}
+
+%{\it proof?}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Multiplication rule}
+
+
+\begin{dinglist}{\DingListSymbolA}
+\item By the definition of conditional probability, the \hl{joint probability} of $A$ and $B$ is
+\[ P(A \cap B) = P(A \mid B)P(B) \]
+  \begin{itemize}
+  \item Usually, $P(A)$ and $P(B)$ are called \hl{marginal probabilities}.
+  \end{itemize}
+
+\vspace{0.5cm}
+\pause
+\item Generalize to $n$ events: chaining of probabilities
+\end{dinglist}
+%\footnotesize{
+\begin{align*}
+P\left(\bigcap_{i=1}^n A_i\right)
+%	& = P(A_1) \cdot \frac{P(A_2 A_1)}{P(A_1)} \cdot \frac{P(A_3   A_2   A_1)}{P(A_2   A_1)}\cdots \frac{P(A_1 \ldots A_n)}{P(A_1 \ldots A_{n-1})}\\
+	& = P(A_1) P(A_2 \mid A_1) P(A_3 \mid  A_1, A_2) \cdots P(A_n  \mid  A_1,\ldots,A_{n-1})\\
+\end{align*}
+%}
+
+%{\it We've already used it even before officially introduced...}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Multiplication rule}
+\disc{A box contains 8 white balls and 4 black ones. 3 balls are drawn at random without replacement.
+\begin{enumerate}
+\item What's the probability of getting $W_1B_2B_3$?
+\item What's the probability of getting black in draw 2?
+\end{enumerate}
+}
+
+\pause
+\begin{enumerate}
+\item Multiplication rule
+\begin{align*}
+P(W_1B_2B_3) & = P(W_1) P(B_2 \mid W_1) P(B_3 \mid W_1B_2)\\
+			& = \frac{8}{12}\cdot \frac{4}{11} \cdot \frac{3}{10}
+\end{align*}
+\vspace{-0.3cm}
+\pause
+\item If we want to consider draw 1, which can be $W_1$ or $B_1$ (disjoint!)
+\begin{align*}
+P(B_2) & = P(W_1B_2) + P(B_1B_2)\\
+			& = \frac{8}{12}\cdot \frac{4}{11} + \frac{4}{12} \cdot \frac{3}{11}
+			 = \frac{44}{132} = \frac{4}{12}
+\end{align*}
+%\pause
+%Actually we do not need to consider draw 1. The marginal probability
+%\[P(B_2) = \frac{4}{12}\]
+
+\end{enumerate}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Law of total probability}
+
+For events $A_1,\ldots,A_n$  are {\bf disjoint}, and
+\[ \bigcup_{i=1}^n A_i = S,\]
+then for any event $B$, \pause
+\begin{dinglist}{\DingListSymbolA}
+\item  law of total probability
+\[P(B)=P(B \mid A_1)P(A_1)+\ldots+P(B \mid A_n)P(A_n)\]
+\end{dinglist}
+\pause
+\begin{itemize}
+\item Such collection of sets $A_1,\ldots,A_n$ is also called a partition of sample space.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\disc{
+\footnotesize{Example: a firm is considering a drug-testing program for its employees,
+but before it begins it wants to know the scope of the problem if any exists.
+Realizing the sensitivity of this issue, the personnel director decides to use a randomized response survey.
+It is believed that respondents are more likely to be honest when such forms are used.
+Each employee is asked to flip a fair coin. If the coin comes up heads, answer the question
+``Do you carpool to work?''.
+If the coin comes up tails, answer the question ``Have you used illegal drugs within the last month?''.
+Assume that all employees answer the survey honestly. Out of 8000 responses,
+1420 answered ``YES''.
+Suppose the firm knows that 35\% of its employees carpool to work.
+What is the probability that an employee chosen at random used illegal drugs within the last month?
+}}
+\pause
+Let events $A_1 = \{\text{head}\}$, $A_2 = \{\text{tail}\}$, $B = \{ \text{answer YES} \}$.\\
+Since $\{A_1, A_2\}$ is a partition, so we can use the law to total probability
+\pause
+\begin{align*}
+P(B)= & P(B \mid A_1)P(A_1)+P(B \mid A_2)P(A_2)\\
+P(\text{YES}) = & P(\text{carpool}) P(\text{head}) +P(\text{drug}) P(\text{tail})\\
+\frac{1420}{8000} = & 0.35 \times 0.5 +P(\text{drug})\times 0.5\\
+P(\text{drug}) &= 0.005
+\end{align*}
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+\begin{itemize}
+\item Marginal probability: $P(A), P(B)$
+\item Joint probability: $P(A \cap B)$
+\item Conditional probability
+\[ P(A \mid B)=\frac{P(A \cap B)}{P(B)}\]
+\pause
+\item Multiplication rule:
+\[P(A \cap B)=P(A \mid B)\times P(B)\]
+%\item Independence: $P(A|B) = P(A)$, $P(A \cap B) = P(A) \times P(B)$
+\item Law of total probability: for a partition $\{A_1, A_2, \ldots, A_n\}$ of $S$,
+\[P(B)= \sum_{j = 1}^nP(B \mid A_j)P(A_j)\]
+\end{itemize}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}%\frametitle{}
+%
+%\disc{Monty Hall problem: suppose you are on a game show, and you are given the choice of three doors: Behind one door is a car; behind the others, goats. \\
+%
+%You pick a door, say No.\ 1, and the host, who knows whatÕs behind the doors, opens another door, say No.\ 3, which he knows has a goat.
+%He then asks you, ``Do you want to switch to door No.\ 2?'' Is it to your advantage to switch your choice?}
+%\pause
+%Event $A$: You first pick the correct door.
+%Event $B$: You win the car.\\
+%\pause
+%If you switch, by the law of total probability
+%\begin{eqnarray*}
+%P(B)&=&P(B \mid A)P(A)+P(B \mid A^c)P(A^c)\\
+%&=&0\times 1/3 + 1\times 2/3 = 2/3
+%\end{eqnarray*}
+%\pause
+%If you don't switch, by the law of total probability
+%\begin{eqnarray*}
+%P(B)&=&P(B \mid A)P(A)+P(B \mid A^c)P(A^c)\\
+%&=&1\times 1/3 + 0\times 2/3 = 1/3
+%\end{eqnarray*}
+%\pause
+%Good to switch.
+%
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bayes theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Bayes theorem (also called Bayes rule)}
+
+Suppose events $A_1,\ldots,A_n$  are  disjoint, and
+$\bigcup_{i=1}^n A_i = S,$
+with $P(A_i) > 0$, $i = 1, 2, \ldots, n$.
+Then for any event $B$ with $P(B) > 0$, \pause
+\begin{align*}
+P(A_i \mid B) = & \frac{P(B \mid A_i)P(A_i)}{\sum\limits_{j = 1}^n P(B \mid A_j)P(A_j)},
+\quad i = 1, \ldots, n \\
+& = \frac{P(B \mid A_i)P(A_i)}{P(B \mid A_1)P(A_1)+ \cdots + P(B \mid A_n)P(A_n)}
+\end{align*}
+\pause
+\begin{itemize}
+\item $P(A_i)$ is often called \hl{prior probability}
+\item $P(A_i \mid B)$ is called \hl{posterior probability}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Example: Vassar students}
+\begin{itemize}
+\item Suppose Vassar has only three possible majors:  math, music,
+and econ. And 25\% of the students are in math,
+55\% are in music, and the rest are in econ (with no double majors).
+\pause
+\item Campus folklore say that 90\% of math majors want to go on dates,
+compared with 50\% of music and 10\% of econ majors.
+\pause
+\item Your roommate meets someone at an event and gets a date.
+What is the probability that she is dating a math major?
+\pause
+\item Note that the majors define a finite partition, and the campus
+folklore gives us the conditional probabilities $\Pr(B \mid A_i)$.
+\pause
+\item The point of Bayes' rule is to reverse the conditioning to get
+$\Pr(A_i \mid B)$.
+\end{itemize}
+
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\disc{Example: Suppose Vassar has only three possible majors:  math, music,
+and econ. And 25\% of the students are in math,
+55\% are in music, and the rest are in econ (with no double majors).
+Campus folklore say that 90\% of math majors want to go on dates,
+compared with 50\% of music and 10\% of econ majors.
+Find $P(\text{math} \mid \text{date})$.}
+\pause
+Events $A_1 = \{ \text{math} \}, A_2 = \{ \text{music} \}, A_3 = \{ \text{econ} \}$ define  a partition. \\
+Let $B = \{ \text{date} \}$.
+In order to calculate $P(A_1 \mid B)$, use the Bayes theorem:
+\pause
+\begin{align*}
+P(A_1 \mid B)
+= & \frac{P(B \mid A_1)P(A_1)}{P(B \mid A_1)P(A_1)+ P(B \mid A_2)P(A_2) + P(B \mid A_3)P(A_3)}\\
+= & \frac{0.9 \times 0.25}{0.9 \times 0.25 + 0.5 \times 0.55 + 0.1 \times 0.20 } = 0.43
+\end{align*}
+
+\end{frame}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Example: diagnostic tests}
+%
+%{
+%\disc{Lupus is a medical phenomenon where antibodies that are supposed to attack foreign cells to prevent infections instead see plasma proteins as foreign bodies, leading to a high risk of blood clotting. It is believed that 2\% of the population suffer from this disease. \\
+%
+%The test for lupus is very accurate if the person actually has lupus, however is very inaccurate if the person does not. More specifically, the test is 98\% accurate if a person actually has the disease. The test is 74\% accurate if a person does not have the disease. \\
+%
+%There is a line from the Fox television show \textit{House}, often used after a patient tests positive for lupus: ``It's never lupus." Do you think there is truth to this statement? }
+%}
+%
+%
+%\end{frame}
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%
+%\begin{itemize}
+%\item Event $A = \{ \text{lupus} \}, \quad P(A) = 0.02, \quad P(A^c) = 1 - P(A) = 0.98$
+%\item Event $B = \{ \text{positive} \}, \quad P(B \mid A) = 0.98$
+%\item $P(\text{positive} \mid \text{no lupus}) = P(B \mid A^c) = 1- 0.74 = 0.26$
+%\end{itemize}
+%
+%\pause
+%\begin{align*}
+%P(\text{lupus} \mid \text{positive}) & = P(A \mid B)  \\
+%&= \frac{P(B \mid A)P(A)}{P(B \mid A)P(A)+ P(B \mid A^c)P(A^c)} \\
+%&= \frac{0.98\times 0.02}{0.98\times 0.02 + 0.26\times 0.98} \\
+%%&= \frac{0.0196}{0.0196 + 0.2548} \\
+%&= 0.0714
+%\end{align*}
+%\pause
+%Even when a patient tests positive for lupus, there is only a 7.14\% chance that he/she actually has lupus.
+%This is because the background rate of lupus is quite low.
+%House may be right.
+%\pause
+%\ct{\webURL{http://www.ted.com/talks/peter_donnelly_shows_how_stats_fool_juries.html/} From about 11:00 }
+%
+%
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Bayes theorem
+\begin{align*}
+P(A_i \mid B) = & \frac{P(B \mid A_i)P(A_i)}{\sum\limits_{j = 1}^n P(B \mid A_j)P(A_j)},
+\quad i = 1, \ldots, n
+\end{align*}
+%\pause
+%
+%\cl{Suppose in the Monty Hall problem, I tossed a fair coin to decide whether to stay or switch.
+%Say I won the car, what's the probability that I switched?}
+%
+%%\invisible{
+%\pause
+%\vspace{0.5cm}
+%Let $A_1 = \{ \text{switch} \}, A_2 = \{ \text{no switch} \}, B = \{ \text{win} \}$, using Bayes theorem
+%\begin{align*}
+%P(A_1 \mid B)
+%& = \frac{P(B \mid A_1)P(A_1)}
+%	{P(B \mid A_1)P(A_1) + P(B \mid A_2)P(A_2)}\\
+%& = \frac{\frac{2}{3}\cdot \frac{1}{2}}{\frac{2}{3}\cdot \frac{1}{2} + \frac{1}{3}\cdot \frac{1}{2}}=  \frac{2}{3}
+%\end{align*}
+%}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Independent events}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Product rule for independent events}
+
+\begin{defn}
+Events $A$ and $B$ are \hl{independent} if
+\[P(A \cap B) = P(A) \times P(B) \]
+%\small{Or more generally, $P(A_1~and~\cdots~and~A_k) = P(A_1) \times \cdots \times P(A_k)$}}
+\end{defn}
+
+\pause
+\begin{itemize}
+\item If $A$ and $B$ are independent, then
+\[P(A \mid B) = \frac{P(A)P(B)}{P(B)} = P(A).\]
+Knowing $B$ doesn't affect the odds of $A$.
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{}
+\disc{Example: you toss a coin twice, what is the probability of getting two tails in a row?}
+\pause
+\begin{itemize}
+\item Method 1: sample space $S = \{ HH, TT, HT, TH \}$.\\
+Since one out of four possible outcomes match this definition,
+the probability is $\frac{1}{4}$.\\
+\red{Inefficient way if the number of trials was much higher}.
+\pause
+\item Method 2: use independence.
+\[ P(\text{T on the first toss}) \times  P(\text{T on the second toss}) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4} \]
+\vspace{-0.5cm}
+%\item This also verifies the events \{T on the first toss\} and \{T on the second toss\} are independent.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of independence}
+If $A$ and $B$ are independent, then
+\begin{itemize}
+\item $B$ and $A$ are independent.
+\vspace{1.5cm}
+
+\pause
+\item $A$ and $B^c$ are independent. And so are $A^c$ and $B^c$.
+\vspace{1.5cm}
+
+
+\pause
+\item Independent is not disjoint.
+
+\vspace{1.5cm}
+
+
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Mutually independent}
+
+\begin{dinglist}{\DingListSymbolA}
+\item Three events $A, B, C$ are called \hl{mutually independent} if
+\begin{enumerate}
+\item \[P(A \cap B) = P(A) P(B)\]
+\[P(B \cap C) = P(B) P(C)\]
+\[P(A \cap C) = P(A) P(C)\]
+\item \[P(A \cap B \cap C) = P(A) P(B) P(C)\]
+\end{enumerate}
+
+\pause
+\item If only (1) holds but not (2), then $A, B, C$ are called \hl{pairwise independent}.
+
+\end{dinglist}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Example: pairwise indpt but not mutually indpt}
+\disc{
+Roll two fair 6-sided dice. Set
+\begin{itemize}
+\item $A = \{ \text{Sum is 7} \}$
+\item $B = \{ \text{First roll is 4} \}$
+\item $C = \{ \text{Second roll is 3} \}$
+\end{itemize}
+}
+
+\vspace{-0.5cm}
+
+%\invisible{
+\uncover<2->{
+\[
+\begin{array}{ccccc}
+        P(A \cap B) & \stackrel{?}{=} & P(A) &\times & P(B) \\
+	\uncover<3->{
+	1/36  &			& 1/6 & & 1/6
+	}
+\end{array}
+\invisible{
+\hspace{1cm} A, B, C \text{ are pairwise indpt}
+}
+\]
+}
+
+\vspace{-0.7cm}
+\uncover<4->{
+\[
+\begin{array}{ccccc}
+        P(B \cap C) & \stackrel{?}{=} & P(B) &\times & P(C) \\
+	\uncover<5->{
+	1/36  &			& 1/6 & & 1/6
+	}
+\end{array}
+\uncover<8->{
+\hspace{1cm} A, B, C \text{ are pairwise indpt}
+}
+\]
+}
+
+\vspace{-0.7cm}
+\uncover<6->{
+\[
+\begin{array}{ccccc}
+        P(A \cap C) & \stackrel{?}{=} & P(A) &\times & P(C) \\
+	\uncover<7->{
+	1/36  &			& 1/6 & & 1/6
+	}
+\end{array}
+\invisible{
+\hspace{1cm} A, B, C \text{ are pairwise indpt}
+}
+\]
+}
+
+\vspace{-0.7cm}
+\uncover<9->{
+\[
+\begin{array}{ccccccc}
+        P(A \cap B \cap C) & \stackrel{?}{=} & P(A) &\times & P(B) & \times & P(C) \\
+	\uncover<10->{
+	1/36  &			& 1/6 & & 1/6 & & 1/6
+	}
+\end{array}
+\uncover<11->{
+ \text{ NOT mutually indpt}
+}
+\]
+
+}
+
+%}
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{}
+
+\begin{dinglist}{\DingListSymbolA}
+\item Events $A_1, A_2, \ldots, A_n$ are called \hl{independent} if
+for any $1\leq r \leq n$ of them
+ \[P(A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_r}) = P(A_{i_1}) P(A_{i_2})  \cdots P(A_{i_r})\]
+
+\pause
+\item The key to compute the probability of independent events is to just multiply the probability of the individual events.
+\end{dinglist}
+
+\vspace{1cm}
+\pause
+\disc{A fair coin is tossed 5 times. Compute $P(\text{5 tails})$.}
+
+%\invisible{
+\pause
+\[ P(T_1\ T_2 \ T_3 \ T_4 \ T_5) = P(T_1)P(T_2)P(T_3)P(T_4)P(T_5) = \frac{1}{2^5}\]
+%}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%
+%\end{frame}
+%
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Perceptions of probability and biases}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Linda problem}
+\disc{Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student she was deeply concerned with issues of discrimination and social justice, and she also participated in anti-nuclear demonstrations. Please rank the following statements by their probability, using 1 for the most probable and 8 for the least probable.
+\begin{enumerate}
+\item Linda is a teacher in an elementary school.
+\item Linda works in a bookstore and takes yoga classes.
+\item Linda is active in the feminist movement.
+\item Linda is a psychiatric social worker.
+\item Linda is a member of the League of Women Voters.
+\item Linda is a bank teller.
+\item Linda sells insurance.
+\item Linda is a bank teller and is active in the feminist movement.
+\end{enumerate}
+}
+\end{frame}
+
+
+\begin{frame}{The Linda problem cont'd}
+\disc{Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student she was deeply concerned with issues of discrimination and social justice, and she also participated in anti-nuclear demonstrations. Please rank the following statements by their probability, using 1 for the most probable and 8 for the least probable.
+\begin{enumerate}
+\item Linda is a teacher in an elementary school.
+\item Linda works in a bookstore and takes yoga classes.
+\item {\color{red}Linda is active in the feminist movement.}
+\item Linda is a psychiatric social worker.
+\item Linda is a member of the League of Women Voters.
+\item {\color{red}Linda is a bank teller.}
+\item Linda sells insurance.
+\item {\color{red}Linda is a bank teller and is active in the feminist movement.}
+\end{enumerate}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Set theory - intersection}
+
+\begin{itemize}
+\item Event $A$ = \{Linda is active in the feminist movement\}
+\item Event $B$ = \{Linda is a bank teller\}
+\item Event $A \cap B$ = \{Linda is a bank teller and is active in the feminist movement\}.
+\pause
+\item {\color{red}$P(A \cap B) \leq P(A)$ and $P(A \cap B) \leq P(B)$!}
+\item What did our class do? 21 of you responded.
+\begin{itemize}
+\item Ranking: 1 is the most probable choice, and 8 is the least probable choice
+\item Avg(Ranking of event $A$) = 3.38
+\item Avg(Ranking of event $B$) = 4.76
+\item Avg(Ranking of event $A \cap B$) = 4.62
+\item Percentage of people ranking event $A \cap B$ higher than event $B$ $\approx$ 62\% (13 out of 21 responses)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{The Linda problem - historical results}
+The Linda problem was proposed by Amos Tversky and Daniel Kahneman in 1983.
+\begin{itemize}
+\item Ranking: 1 is the most probable choice, and 8 is the least probable choice
+\item Avg(Ranking of event $A$) = 2.1
+\item Avg(Ranking of event $B$) = 6.2
+\item Avg(Ranking of event $A \cap B$) = 4.1
+\item Percentage of people ranking event $A \cap B$ higher than event $B$ = 90\% (even among those who have had several advanced courses in probability and statistics)
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Representativeness and Conjunction Bias}
+
+\begin{itemize}
+\item Representativeness heuristic:
+\begin{itemize}
+\item people determine the probability of an event by the degree to which the event is similar in essential characteristics to its parent population.
+\item it leads people to inflate the believed probability of events that resembles the data available.
+\end{itemize}
+
+\pause
+
+\item Conjunction bias:
+\begin{itemize}
+\item intersecting relatively unrepresentative events (bank teller) with very representative event (feminist).
+\item the description of the conjunction of the two (feminist bank teller) is considered more probable than the unrepresentative event (bank teller).
+\end{itemize}
+
+\pause
+
+\item Interested in these types of topics? ECON 333 Behavioral Economics!
+\end{itemize}
+
+
+\end{frame}
+
+\end{document}

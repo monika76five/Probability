@@ -1,0 +1,621 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 4 part 3]{Chapter 4 part 3}
+\subtitle{Discrete Random Variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%\item HW3: \red{due now!}
+%\item HW4: \red{due Tuesday, Sept 30th}
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Poisson distribution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocounter{framenumber}{-1}
+\begin{frame}\frametitle{Count the number of ...}
+
+\twocol{0.25}{0.75}{
+\begin{center}
+\includegraphics[width = \textwidth]{figures/guinness}
+\end{center}
+
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{figures/prussian_soldier}
+\end{center}
+
+}
+{
+In beer brewing, cultures of yeast are kept alive in jars of fluid before being put into the mash.
+\begin{itemize}
+\item It's critical to control the amount of yeast used. %in the mash:
+%too little leads to incomplete fermentation; to much leads to bitter beer.
+\item Number of yeast cells in a fluid sample can be seen under a microscopes.
+\item Yeast cells are constantly multiplying and dividing.
+\item A famous statistician, Wiliam Sealy Gosset (aka ``Student''), who worked
+for the Guinness Brewing Compnay in early 1900's, modeled
+the counts of yeast cells using the \red{Poisson distribution}.
+\end{itemize}
+
+
+\vspace{24pt}
+The Poisson distribution was used in 1898 to count the number of
+soldiers in the Prussian Army
+who died accidentally from horse kicks
+
+
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Poisson distribution}
+\begin{defn}%{\DingListSymbolA}
+Denote random variable $X$ that takes value in $\{0, 1, 2, \ldots\}$ as having a \hl{Poisson distribution}
+ with parameter $\lambda$ if its pmf is
+\[ X \sim \text{P}(\lambda) \Longleftrightarrow\ p(k) = e^{-\lambda}\ \frac{\lambda^k}{k!},\quad k = 0, 1, 2, \ldots \]
+\end{defn}
+
+
+\twocol{0.75}{0.25}{
+\begin{itemize}
+\item Formulated by French mathematician\\ Sim\'{e}on Denis Poisson
+
+\item Usually is used to model "the number of xxx occur". Hence lower bound is $0$, no upper bound.
+\item Examples
+
+\begin{itemize}
+\item Number of rainy days this year
+
+\item Number of mis-placed books in the Main library
+%\item Number of times the song ``just give me a reason'' played in FM102.5
+
+\item Number of roses you will receive on the next Valentines Day
+\end{itemize}
+
+\end{itemize}
+}
+{
+
+\begin{center}
+\includegraphics[width = \textwidth]{figures/Simeon_Denis_Poisson}
+\end{center}
+}
+
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Pmf of Poisson distribution}
+
+\vspace{-0.5cm}
+\begin{center}
+\includegraphics[scale = 0.6]{figures/pmf3}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Mode of Poisson distribution}
+%
+%\begin{itemize}
+%\item $X \sim \text{P}(\lambda)$. Then as $k$ goes from $0$ to $\infty$,
+%\begin{align*}
+%& p(k) \text{ increases  for } 0 \leq k \leq \lambda - 1\\
+%& p(k) \text{ decreases   for }  k > \lambda -1
+%\end{align*}
+%\end{itemize}
+%\red{Proof}
+%
+%%\invisible{
+%\pause
+%\[
+%\frac{p(k + 1)}{p(k)} = \frac{ e^{-\lambda}\ \frac{\lambda^{k+1}}{(k+1)!} }{ e^{-\lambda}\ \frac{\lambda^k}{k!} }
+%= \frac{\lambda}{k + 1}
+%\]
+%\[
+%p(k) \text{ increases} \Longleftrightarrow \frac{p(k + 1)}{p(k)} \geq 1 \Longleftrightarrow k \leq \lambda -1
+%\]
+%
+%%}
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of Poisson distribution $p(k) = e^{-\lambda}\ \frac{\lambda^k}{k!}$}
+
+\begin{itemize}
+\item Well-defined (validness of pmf): non-negative, and
+\[\sum_{k = 0}^{\infty} p(k) = 1\]
+\end{itemize}
+
+\vfill
+\begin{itemize}
+\item Taylor Series
+\[ f(x) = f(x_0) + \frac{x-x_0}{1!}f^{\prime}(x_0) + \frac{(x-x_0)^2}{2!} f^{\prime\prime}(x_0) + \cdots \]
+
+\item Use Taylor series to verify that the Poisson distribution is well-defined  ({\color{red}required})
+\[ e^{\lambda} = 1 + \lambda + \frac{\lambda^2}{2!} + \cdots + \frac{\lambda^k}{k!}+\cdots\]
+\end{itemize}
+
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of Poisson distribution $p(k) = e^{-\lambda}\ \frac{\lambda^k}{k!}$}
+
+\begin{itemize}
+\item Mean ({\color{red}required})
+\[E[X] = \lambda \]
+
+\vspace{15mm}
+
+\item Variance ({\color{red}required})
+\[Var[X] = \lambda \]
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Pmf of Binomial distribution: uni-modeal}
+\cl{Find the probability that a randomly selected Vassar student has odd number of siblings, if the average number of siblings is 1.73.
+}
+
+%\invisible{
+\pause
+\[ X \sim \text{P}(\lambda),  \lambda = 1.73 \]
+\begin{align*}
+P(X \text{ is an odd number} ) &= p(1) + p(3) + p(5) + \cdots\\
+& = e^{-\lambda} \frac{\lambda^1}{1!} + e^{-\lambda} \frac{\lambda^3}{3!} + e^{-\lambda} \frac{\lambda^5}{5!} + \cdots
+\end{align*}
+\pause
+Note that \vspace{-0.5cm}
+\begin{align*}
+e^{x} & = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} +\frac{x^4}{4!} +  \cdots \\
+e^{-x} & = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} +\frac{x^4}{4!} -  \cdots \\
+\end{align*}
+\vspace{-0.5cm}
+%Therefore,
+\[P(X \text{ is an odd number} ) = e^{-\lambda} \left( \frac{e^{\lambda} - e^{-\lambda}}{2} \right) = \frac{1 - e^{-2\lambda}}{2} = 0.4843\]
+
+
+%}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Use Poisson to approximate Binomial distribution} % for small $p$ and large $n$}
+
+Let $X \sim \text{Bin}(n, p)$. If
+\begin{itemize}
+\item $p$: small
+\item $n$: large
+\item $\lambda = np$: of moderate size
+\end{itemize}
+then the distribution of $X$ can be approximated by $\text{P}(\lambda)$.\\
+
+\begin{center}
+\includegraphics[width = 0.5\textwidth]{figures/poisson_approx_binom}
+\end{center}
+%\red{Proof}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Pmf of Binomial distribution: uni-modeal}
+\cl{If you buy a lottery ticket in 50 lotteries, in each of which your chance of winning a prize is 1 / 100, what is the (approximate) probability that you will win a prize (a) at least once? (b) exactly once? (c) at least twice?
+}
+
+%\invisible{
+\pause
+We can use P$(\lambda)$ to approximate Bin$(n, p)$, if $p$ is small $n$ is large and $\lambda = np$ is of moderate size.\\
+
+Here we have $X \sim \textrm{Bin}(50, 0.01)$ with $np = 0.5$. Therefore, we can use P$(\lambda)$ = P$(0.5)$ for the approximation of Bin(50, 0.01). 
+
+\begin{itemize}
+\item Part (a): \\
+$P(X >= 1) = 1 - P(X < 1) = 1 - P(X = 0) \approx 1 - e^{-0.5}\frac{0.5 ^ 0}{0!} = 1 - e^{-0.5}$\\
+
+\item Part (b): \\
+$P(X = 1) \approx 1 - e^{-0.5}\frac{0.5 ^ 1}{1!} = 1 - e^{-0.5} \times 0.5$
+
+\item Part (c):\\
+$P(X >= 2) = 1 - P(X < 2) = 1 - P(X <= 1) = 1 - P(X = 0) - P(X = 1) \approx 1 - e^{-0.5}\frac{0.5 ^ 0}{0!} - e^{-0.5}\frac{0.5 ^ 1}{1!} = 1 - e^{-0.5} \times 1.5$
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Poisson distribution $X \sim \text{P}(\lambda) $
+\[ p(k) = e^{-\lambda}\ \frac{\lambda^k}{k!}\]
+\begin{itemize}
+\item mean $\mu = \lambda$
+\item variance $\sigma^2 =  \lambda$
+\item Approximate Binomial distribution with small $p$, large $n$, moderate $np$
+\[ \text{P}(np) \approx \text{Bin}(n,p) \]
+%\item Poisson process PP$(\lambda)$
+%\[ N(t) \sim \text{P}(\lambda t) \]
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{}
+
+\cl{$X \sim \text{P}(\lambda)$. Which is the following is FALSE?}
+
+\begin{enumerate}[(a)]
+\item The mean and standard deviation of $X$ are different.
+\item Pmf of $X$ can be a decreasing function.
+\solnMult{$\lambda$ can only take values $0, 1, 2, \ldots$}.
+\item None of the above.
+\end{enumerate}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric distribution and Negative Binomial distribution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Geometric distribution}
+
+A gambler plays at a roulette table and alway bet on red until he wins...\\
+In each round, his chance of winning is $18/38 = 0.47$.\\
+Let $X$ denote the number of rounds he plays.
+
+\begin{defn}
+Denote random variable $X$ that takes value in $\{1, 2, \ldots\}$ as having a \hl{Geometric distribution}
+ with parameter $p \in (0, 1)$ if its pmf is
+\[ X \sim \text{Geometric}(p) \Longleftrightarrow\ p(k) = (1-p)^{k-1}p,\quad k = 1, 2, \ldots \]
+\end{defn}
+
+\begin{itemize}
+\item $X$ represents the number of trials performed until we get a success, where $p$ is the probability of success on each trial.
+
+\item Note the difference between Geometric distribution and Binomial distribution!
+Eg: whether the total number of trials is fixed.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of Geometric distribution $p(k) = (1-p)^{k-1}p$}
+
+\begin{itemize}
+\item Well-defined (validness of pmf): non-negative, $\sum_{k = 1}^{\infty} p(k) = 1$  ({\color{red}required})\\
+%\invisible{
+\vspace{-0.3cm}
+\[\sum_{k = 1}^{\infty}(1-p)^{k-1}p =  p[1 + (1-p) + (1-p)^2 + \cdots] = \frac{p}{1-(1-p)}=1 \]
+%}
+
+\vspace{0.5cm}
+\pause
+\item Cdf: $P(X \leq k) = 1 - (1-p)^k$  ({\color{red}required})\\
+%\invisible{
+\vspace{-0.3cm}
+\[ P(X \geq k + 1) = P(\text{The first } k \text{ trials all fail}) \]
+%}
+
+\item Mean ({\color{red}not required}) Textbook page 148 for derivation
+\[E[X] = \frac{1}{p} \]
+
+\item Variance ({\color{red} not required}) Textbook page 148 for derivation
+\[Var[X] = \frac{1-p}{p^2} \]
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Gambler's fallacy}
+If the gambler loses 5 times in a row, will he more likely to win in the 6th round?
+
+\[
+P(X > 6 \mid X > 5) \stackrel{?}{<} P(X > 1)
+\]
+
+Unfortunately, not.
+
+\begin{defn}
+We say a distribution is \hl{memoryless}, if
+\[ P(X > n + k \mid X > n) = P(X > k)\]
+\end{defn}
+
+
+\begin{itemize}
+\item Geometric random variable is memoryless.
+
+%\invisible{
+
+%Let $q = (1-p)$, then
+\begin{align*}
+P(X > n + k \mid X > n) %& = \frac{P(X > n + k \cap X > n)}{P(X > n)} \\
+& = \frac{P(X > n + k)}{P(X > n)} \\
+%& =  \frac{P(\text{first } n + k \text{ trials all fail})}{P(\text{first } n \text{ trials all fail})} \\
+& = \frac{(1-p)^{n+k}}{(1-p)^n} = (1-p)^k = P(X > k)
+\end{align*}
+%}
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Pmf of Geometric distribution}
+
+\vspace{-0.5cm}
+\begin{center}
+\includegraphics[scale = 0.63]{figures/pmf4}
+\end{center}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Properties of Geometric distribution $p(k) = (1-p)^{k-1}p$}
+
+\cl{$X$ denotes the number of times a die is rolled until 6 is obtained.
+\begin{enumerate}
+\item What are the odds we have to roll it 10 or more times?
+\item How many times do we expect to roll?
+\item Find $Var[X]$.
+\end{enumerate}
+}
+
+%\invisible{
+\pause
+\begin{enumerate}
+\item $X \sim \text{Geometric}(p=1/6)$, and
+\[ P(X \geq 10) = 1- P(X \leq 9) = 1 - [1 - (1-p)^9] = (5/6)^9 \]
+\pause\vspace{-0.5cm}
+\item Mean of Geometric distribution
+\[E[X] = 1/p = 6\]
+\pause\vspace{-0.5cm}
+\item Variance
+\[Var[X] = \frac{1-p}{p^2} = \frac{\frac{5}{6}}{\frac{1}{6}\cdot \frac{1}{6}} = 30\]
+\end{enumerate}
+%}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Negative Binomial distribution}
+\begin{defn}
+Denote random variable $X$ that takes value in $\{1, 2, \ldots\}$ as having a \hl{Negative Binomial distribution}
+ with parameter $p \in (0, 1)$ if its pmf is
+\[ X \sim \text{NB}(r, p) \Longleftrightarrow\ p(k) = {k - 1 \choose r - 1}(1-p)^{k-r}p^{r},\quad k = r, r+1, \ldots \]
+\end{defn}
+
+\begin{itemize}
+\item $X$ represents the number of trials performed until we get $r$ success, where $p$ is the probability of success on each trial.
+
+
+\item Well-defined (validness of pmf). ({\color{red}not required})
+
+
+
+\item Connection between Negative Binomial and Geometric distributions
+\[ X \sim \text{Geometric}(p) \Longleftrightarrow  X \sim \text{NB}(1, p) \]
+
+
+\end{itemize}
+
+\Note{Proof of $\sum_{k = r}^{\infty} p(k) = 1$ for Negative Binomial distribution is not required.}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Properties of Neg Binom $p(k) = {k - 1 \choose r - 1}(1-p)^{k-r}p^{r}$}
+
+\vfill
+\begin{itemize}
+\item Mean ({\color{red}not required})
+\[E[X] = \frac{r}{p} \]
+Textbook page 150 for derivation
+
+\item Variance ({\color{red}not required})
+\[Var[X] = \frac{r(1-p)}{p^2} \]
+Textbook page 151 for derivation
+
+\item Recall that for $\text{Geometric}(p)$,
+\[ \mu = \frac{1}{p}, \sigma^2 = \frac{1-p}{p^2}\]
+%\red{Proof}
+
+
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Pmf of Negative Binomial distribution}
+
+\vspace{-0.5cm}
+\begin{center}
+\includegraphics[scale = 0.63]{figures/pmf5}
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\cl{Consider independent trials with success probability $p$. Let $q = 1-p$.
+What's the probability of getting $r$ successes before $m$ failures?}
+
+\begin{enumerate}[(a)]
+\item $p^{r-1} q^m$
+\item ${r + m -1 \choose r-1}p^{r-1} q^m$
+\item $\sum_{k = r}^{r + m} {k -1 \choose r-1}p^r q^{k - r}$
+\solnMult{ $\sum_{k = r}^{r + m-1} {k -1 \choose r-1}p^r q^{k - r}$ }
+\end{enumerate}
+%\invisible{
+\pause
+Let $X$ denote the number of trials needed to get $r$ successes. Then
+$ X \sim \text{NB}(r, p)$.
+\begin{align*}
+& P(r \text{ successes before } m \text{ failures}) \\
+= & P(r^{\text{th}} \text{ success occurs on trials } r, r+1, \ldots, r+m-1)\\
+= & P(X = r) + P(X = r+1) + \cdots + P(X = r+m-1)
+\end{align*}
+
+%}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+$X$: the number of trials performed until we get $r$ success, where $p$ is the probability of success on each trial.
+\[ p(k) = {k - 1 \choose r - 1}(1-p)^{k-r}p^{r},\quad k = r, r+1, \ldots \]
+\vspace{-0.5cm}
+\begin{itemize}
+\item Negative Binomial distribution $X \sim \text{NB}(r, p)$
+\item Mean $\mu = \frac{r}{p}$, variance $\sigma^2 = \frac{r(1-p)}{p^2}$.
+\item If $r = 1$, Geometric distribution $X \sim \text{NB}(1, p) = \text{Geometric}(p)$
+\item Geometric distribution is memoryless.
+\end{itemize}
+
+%\vspace{0.5cm}\pause
+%$X$: the number of white balls selected among $n$ balls from a box containing
+%$m$ whites balls and $N-m$ black balls.
+%\begin{itemize}
+%\item Hypergeometric distribution $X \sim \text{HG}(n, N, m)$.
+%\item Mean $\mu = \frac{nm}{N}$ %, variance $\sigma^2 = \frac{r(1-p)}{p^2}$.
+%\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Review: discrete distributions}
+
+\begin{center}
+\begin{tabular}{lllcc}
+\hline
+Name 								& Range 			& pmf $p(x)$																& mean 						& variance \\
+\hline
+Ber$(p)$							& $\{0, 1\}$			& $p^x (1-p)^{1-x}$														& $p$						& $p(1-p)$\\
+&&&&\\
+Bin$(n, p)$				& $\{0, 1, \ldots, n\}$	& ${n \choose x} p^x (1-p)^{n-x}$											& $np$						& $np(1-p)$\\
+&&&&\\
+Pois$(\lambda)$		& $\{0, 1, 2, \ldots\}$	& $e^{-\lambda}\ \frac{\lambda^x}{x!}$										& $\lambda$				& $\lambda$\\
+&&&&\\
+Geometric$(p)$		& $\{1, 2, \ldots\}$	& $(1-p)^{x-1}p$															& $\frac{1}{p}$				& $\frac{1-p}{p^2}$\\
+&&&&\\
+NegBin$(r, p)$			& $\{r, r+1, \ldots\}$	& ${x - 1 \choose r - 1}(1-p)^{x-r}p^{r}$									& $\frac{r}{p}$				& $\frac{r(1-p)}{p^2}$\\ \hline
+&&&&\\
+%\uncover<6->{HG$(n, N, m)$			& $\{0, 1, \ldots, n\}$	& $\frac{ {m \choose x}{N - m \choose n - x} }{ {N \choose n} }$				& $\frac{mn}{N} $			& $ \frac{N-n}{N-1} \frac{nm(N-m)}{N^2}$\\
+%\hline}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+\end{document} 

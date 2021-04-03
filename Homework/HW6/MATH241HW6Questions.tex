@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 6}	\\
+Due: Sunday 4/11 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+    \item
+    Chapter 4 Problem  52
+    
+    The monthly worldwide average number of airplane crashes of commercial airlines is 3.5. What is the probability that there will be
+    
+    \begin{itemize}
+    \item[(a)] at least 2 such accidents in the next month;
+    
+    \item[(b)] at most 1 accident in the next month?
+    \end{itemize}
+    Explain your reasoning!
+
+    \item
+    Chapter 4 Problem  53
+    
+    Approximately 80,000 marriages took place in the state of New York last year. Estimate the probability that for at least one of these couples,
+    
+    \begin{itemize}
+    \item[(a)] both partners were born on April 30;
+    
+    \item[(b)] both partners celebrated their birthday on the same day of the year.
+    \end{itemize}
+    State your assumptions.
+
+    \item
+    Chapter 4 Problem  57
+    
+    Suppose that the number of accidents occurring on a highway each day is a Poisson random variable with parameter $\lambda = 3$.
+    
+    \begin{itemize}
+    \item[(a)] Find the probability that 3 or more accidents occur today.
+    
+    \item[(b)] Repeat part (a) under the assumption that at least 1 accident occurs today.
+    \end{itemize}
+
+    \item
+    Chapter 4 Problem  71
+    
+    Consider a roulette wheel consisting of 38 numbers 1 through 36, 0, and double 0. If Smith always bets that the outcome will be one of the numbers 1 through 12, what is the probability that
+    
+    \begin{itemize}
+    \item[(a)] Smith will lose his first 5 bets;
+    
+    \item[(b)] his first will will occur on his fourth bet?
+    \end{itemize}
+
+    \item
+    Chapter 4 Problem  73
+    
+    Suppose in Problem 72 that the two teams are evenly matched and each has probability 1/2 of winning each game. Find the expected number of games played.
+
+    \item
+    Chapter 4 Problem  74
+    
+    An interviewer is given a list of people she can interview. If the interviewer needs to interview 5 people, and if each person (independently) agrees to be interviewed with probability 2/3, what is the probability that her list of people will enable her to obtain her necessary number of interviews if the list consists of (a) 5 people and (b) 8 people? For part (b), what is the probability that the interviewer will speak to exactly (c) 6 people and (d) 7 people on the list?
+
+    \item
+    Chapter 4 Problem  83
+    
+    There are three highways in the county. The number of daily accidents that occur on these highways are Poisson random variables with respective parameters 0.3, 0.5, and 0.7. Find the expected number of accidents that will happen on any of these highways today.
+
+
+   
+    \item
+    Chapter 4 Theoretical exercise 17(b)
+    
+    Let $X$ be a Poisson random variable with parameter $\lambda$.
+    
+    \begin{itemize}
+    \item[(a)] Show that 
+    
+    $$
+    P\{X \,\, \text{is even}\} = \frac{1}{2}(1 + e^{-2\lambda})
+    $$
+    by using the result of Theoretical Exercise 4.15 and the relationship between Poisson and binomial random variables.
+    
+    \item[(b)] Verify the formula in part (a) directly by making use of the expansion of $e^{-\lambda} + e^{\lambda}$. 
+    \end{itemize}
+
+
+
+\end{itemize}
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 4 Problems: 50-51, 54-55, 58-61, 72, 75
+\item Textbook  Chapter 4 Theoretical exercise: 16, 18, 20, 25, 27, 28, 36
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\end{document} 

@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 3 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item A survey asked if whether voters who are familiar with the DREAM act support or oppose it.
+\begin{itemize}
+\item 32\% of the respondents are Democrats,
+\item 51\% of the respondents support the DREAM act, and
+\item 21\% of the respondents are Democrats and support the DREAM act.
+\end{itemize}
+If we randomly select a respondent who supports the DREAM act, what is the probability that s/he is a Democrat?
+    
+\item At an apartment complex, 58\% of the units have a washer and dryer, 32\% have double parking, and 20\% have both washer \& dryer and double parking.
+\begin{enumerate}
+\item What percent of apartments have neither double parking nor washer and dryer?
+\item A unit with double parking just became available at this apartment complex, what is the probability that it also has washer and dryer?
+\end{enumerate}
+
+\item Chapter 3 Problem 47 part (a). An urn contains 5 white and 10 black balls. A fair 6-sided die is rolled and that number of balls is randomly chosen from the urn. What is the probability that all of the balls selected are white?
+
+\item Which is the correct notation for the following probability? \\
+``At a coffee shop you overhear a recent college graduate discussing that she doesn't believe that online courses provide the same educational value as one taken in person. What's the probability that she has taken an online course before?"
+\begin{enumerate}[(a)]
+\item P(took online course $|$ not valuable)
+\item P(not valuable $|$ took online course)
+\item P(took online course and not valuable)
+\item P(valuable $|$ didn't take online course)
+\end{enumerate}
+
+\item My neighbor has two children. I know one of them is a son (i.e.\ at least one boy). What is the probability that she has two boys?
+
+\item Chapter 3 Problem 47 (part b). An urn contains 5 white and 10 black balls. A fair 6-sided die is rolled and that number of balls is randomly chosen from the urn. What is the conditional probability that the die landed on 3 if all the balls selected are white?
+
+\item Roll two fair 6-sided dice. Set
+\begin{itemize}
+\item $A = \{ \text{Sum is 7} \}$
+\item $B = \{ \text{First roll is 5} \}$
+\item $C = \{ \text{Maximum roll is 5} \}$
+\end{itemize}
+Are $A$ and $B$ independent? How about $B$ and $C$?
+
+\item Two fair dice are rolled independently until a sum of 5 or 7 is obtained. What are the probability
+the trials end with a sums of 5? [Hint: You might find this series result useful. $\sum_{k=0}^{\infty}ar^k = a + ar + ar^2 + ar^3 + \cdot \cdot \cdot = \frac{a}{1-r}$ for $|r| < 1$.]
+
+\item Which of the following statements is false?
+\begin{enumerate}[(a)]
+\item Two disjoint events cannot occur at the same time.
+\item Two independent events cannot occur at the same time.
+\item Two complementary events cannot occur at the same time.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\end{document} 

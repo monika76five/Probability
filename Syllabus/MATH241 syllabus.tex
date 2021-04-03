@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+\usepackage[top=1.5cm,bottom=1.75cm,left=2cm,right= 2cm]{geometry}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{comment}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{xcolor}
+\xdefinecolor{lightBlue}{rgb}{0.169, 0.38, 0.702}
+\xdefinecolor{darkBlue}{rgb}{0.102, 0.235, 0.447}
+\xdefinecolor{medBlue}{rgb}{0.169, 0.38, 0.6}
+\xdefinecolor{Regalia}{HTML}{522D80}
+\xdefinecolor{VassarRed}{RGB}{128,0,0}
+
+\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= VassarRed,colorlinks=true,linkcolor=black]{hyperref}
+
+\newcommand{\pl}[1]{\textcolor{Regalia}{\textbf{#1}}}
+
+\newcommand{\note}[1]{\textcolor{red}{\textbf{\textit{#1}}}}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\textit{\url{#1}}}
+
+% Uncomment the following lines to use the Palatino font.  Remove the
+% [osf] bit if you don't like the old style figures.
+%
+%\usepackage[T1]{fontenc}
+%\usepackage{mathpazo}
+%\linespread{1.05}
+
+
+%\date{}                                           % Activate to display a given date or no date
+
+%
+
+%Students with disabilities who believe they may need accommodations in this class are encouraged to contact the Student Disability Access Office at (919) 668-1267 as soon as possible to better ensure that such accommodations can be implemented in a timely fashion.
+
+\begin{document}
+
+MATH 241: Probability, Vassar College \hfill
+Spring 2021 \\
+
+
+
+%\hspace{2cm} \textcolor{darkBlue}{\textit{It is easy to lie with statistics. It is hard to tell the truth without it.}}
+
+%\hspace{11cm} \textcolor{darkBlue}{\textit{Andrejs Dunkels}}
+
+%\pl{}
+
+\begin{center}
+\begin{tabular}{ p{3.2cm} p{14cm} }
+\pl{Classroom:}		& Virtual \\
+\pl{Time:}			& Section 01: Th 9:00am - 10:15am \\
+				& Section 02: Th 10:30am - 11:45am \\
+					& \\
+\pl{Instructor:}		& Jingchen (Monika) Hu \\
+\pl{Office:}			& Virtual \\
+\pl{Phone:}			& 845-437-7838\\
+\pl{Email:}			& \href{mailto:jihu@vassar.edu}{\textit{jihu@vassar.edu}} \\
+\pl{Office hours:}		& Tuesdays 10:00-11:30am \& Wednesdays 10:00-11:30am, or by appointment. \\
+					& Office hour link: \href{https://vassar.zoom.us/j/94170301450?pwd=WTNmV3JYOHNBMXRYcEZFUmFsVWQwUT09}{click} \\
+%Please stop by - I am happy to work with you one-on-one or in a small group and I look forward to getting know you.\\
+					&\\
+%					& You are highly encouraged to stop by with any questions or comments about the class, or just to say hi and introduce yourself. \\
+%					& \\
+\pl{Course \hspace{0.8cm} overview:}			&
+
+In this course, we will cover probability spaces and random variables, common probability distributions, joint distributions, and properties of expectation; and culminate with the laws of large numbers and a central limit theorem. With adequate understanding of these topics, one can go on to take MATH 341 Statistical Inference, MATH 347 Bayesian Statistics, and MATH 348 Statistical Principles for Research Study Design.\\
+%The overall goal of this course is to introduce students to the basic mathematics behind probability. The course is designed to provide students with a calculus based introduction to the theory of probability, as well as derivations and interesting examples.
+%At the end of class, students are expected to become proficient with concepts such as combinatorial theory, probability axioms, random variables, expected values, common discrete and continuous distributions, jointly distributed random variables, correlations and conditional distribution.\\
+ 					& \\
+\pl{Prerequisite:}	& MATH 126 and MATH 127 (i.e. Calculus II; equivalent to AP Calculus AB \& BC)\\
+\pl{Textbook:}	
+& \href{http://www.amazon.com/First-Course-Probability-9th-Edition/dp/032179477X}{\textit{A First Course in Probability, 9$^{th}$ Edition}}, by Sheldon M. Ross, Prentice Hall (earlier or later edition is fine)\\
+					%& (The 8$^{th}$ edition is also fine.)\\
+					& \\
+%\hspace{0.5cm} \textit{Clicker} 		& i$>$clicker 1. ISBN: 0716779390, available at the Duke textbook store and on \href{http://www.amazon.com/clicker-student-remote-Gen1-Frequency/dp/0716779390/ref=sr_1_1?ie=UTF8&qid=1326135675&sr=8-1}{\textit{Amazon}}.\\
+%					& \\
+%\hspace{0.5cm} \textit{Calculator}	& You will need a four function calculator that can do square roots for this class. There is no limitation on the type of calculator you can use. \\
+%					& \\				
+\pl{Website:}	  & Vassar's Moodle. It is your responsibility to check the site for homework, readings, and announcements.\\
+%\pl{Software:}    & Many problems in probability can be solved both analytically and computationally (via simulation). To appreciate this duality, we will use the software R for certain problems. R is open-source and free from \href{http://www.r-project.org/}{\textit{http://www.r-project.org/}}. I will give an introductory handout, and will provide help on R throughout the semester as needed.\\
+%                    & \\
+
+%\pl{Class starts:}		& Thursday, Aug 22\\
+%\pl{Class ends:}   		& Thursday, Dec 5\\
+%%\pl{Holidays:}			& Monday, May 28: Memorial Day \\
+%					& \\
+\pl{Workload:}			& {\underline{6 - 8 hours}} every week outside of class (i.e.,  {\underline{1 hour every day}} including weekends.)\\
+ 					& A few of you will do well with less time than this, and a few of you will need more.\\
+ 					& \\
+
+
+
+
+\pl{Grading:}			&
+%\begin{center}
+\begin{tabular}{l l }%p{0.5cm} l l p{0.5cm} l l}
+Homework 	& 15\%	\\
+Quizzes 	& 10\%	\\
+Weekly check-ins and team work solutions & 10\% \\
+Midterms (20\% $\times$ 2) 	& 40\%	\\
+ Final Exam		& 25\%	
+\end{tabular}
+%\end{center}
+
+$\:$
+
+Cumulative numerical averages of 90 - 100 are guaranteed at least an A-, 80 - 89 at least a B-, 70 - 79 are at least a C-, 60 - 69 are at least a D-.
+
+$\:$
+
+These ranges may be lowered, but they will not be raised, e.g., if everyone has averages in the 90s, everyone gets at least an
+A-. The exact ranges for letter grades will be determined after all the course work and exams are graded. The
+more evidence there is that the class has mastered the material, the more generous
+the curve will be.
+
+
+\end{tabular}
+\end{center}
+
+
+%We plan to achieve these goals by introducing you to the relevant statistical knowledge, teaching you how to use an open source (i.e. free!) statistical software called RStudio to perform data analysis, and having you engage in problem solving, application, analysis, and synthesis of statistical information through homework, labs, quizzes and exams. \\
+
+
+%
+%\pagebreak
+
+
+%
+
+\pl{Recorded lecture videos:}
+
+Recorded lecture videos will be posted and students are expected to watch the assigned videos before every live session on Thursday. Lecture slides for recorded lecture videos will be posted on Moodle to be used as study material.
+
+\newpage
+\pl{Live sessions:}
+
+{\underline{Every Thursday}}, students work in teams in the live session, where a list of exercises will be posted and shared before the session starts. Each team is responsible to provide solutions to one exercise at the end of the week and post on Moodle. After student solutions are due, solutions provided by me will be posted and shared on Moodle as study material. Every student will receive a participation grade by attending the live sessions and work in teams to provide exercise solutions for submission.
+\\
+%
+
+\pl{Homework:}
+
+%The objective of the homework assignments is to help you develop a more in-depth understanding
+%of the material covered in the lectures and help you prepare for exams.
+These will be assigned approximately once every week. %on the lecture slides.
+Homework questions will be posted on Moodle.
+Answer keys to homework will be posted on Moodle after homework is due.
+
+The grader will randomly select a few questions in each assignment to grade.
+Homework will be graded based on completeness as well as accuracy.
+In order to receive credit you must \emph{show all your work}.
+%The lowest homework score will be dropped.
+In order to get regraded, any dispute about the grading has to be filed within one week after they are returned. It is preferred to bring any dispute to my office hour.
+
+You are welcomed, and encouraged, to work with each other on the homework problems,
+but \emph{you must turn in your own work}.
+If you copy someone else's work, both parties will receive a 0 for the homework grade
+as well as being reported.
+
+%Your homework must be stapled with the cover page.
+%On the cover page, you must write your name, and you may list the questions you hope to be explained in class. 
+Homework is due {\underline{by Sunday 11:59pm (EST)}} of the week it is due (see late work policy below).
+If you cannot make it to class the day homework is due,
+please email me to make arrangements to drop off your homework earlier. \\
+%
+
+\pl{Quizzes:}	
+
+Pop quizzes will be assigned in live session about once every other week.
+Each quiz is about 10 - 15 minutes in length, and is open-book and open-notes.
+%Students are allowed to refer to any course materials including your notes and lecture slides.
+They are designed to help you find any areas that you are having problems, and to help me pace the course. Topics covered in the quiz will  be revealed in advance.\\
+%(Hint: most likely they will be related to what we have learned in the previous a few lectures.) \\
+
+%
+
+\pl{Weekly check-ins:}
+
+Students are expected to complete a weekly check-in (link on Moodle) {\underline{by Sunday 11:59pm (EST)}}, each week. These check-ins help me make sure everyone is on track and students can share any questions and comments they might have, from the course material and course logistics. Students earn a participation grade after completing each weekly check-in.
+
+
+\pl{Exams:}	
+
+There will be two midterm exams and a final exam. The exact date of midterm exam will be announced at least one week in advance. No rescheduling of exams except in extreme situations.
+
+The final comprehensive exam will be some time during the week of May 28 (exact date TBA by Registrar). You must take the final exam in order to pass this class. Exam dates cannot be changed.
+For the students who have at least 2 other final exams on the same day, notify me at least one month before the final exam day so that I can accommodate your schedule individually.
+
+
+No make-up exams will be given. Midterms and final exams are open-book open-notes exams. %You are allowed to bring a calculator and one sheet of notes (``cheat sheet") to the midterms and the final. This sheet must be no larger than $8\frac{1}{2}" \times 11"$, and \emph{must be prepared by you}. You may use both sides of the sheet.
+\\
+
+\newpage
+\pl{Late work policy for homework assignments:}		
+\begin{multicols}{2}
+\begin{itemize}
+%\item at the end of the class: lose 10\% of points
+\item next day: lose 30\% of points
+%\item late but on due date: lose 20\% of points
+\item later than next day: lose all points
+\end{itemize}
+\end{multicols}
+%\pl{Extra credit policy:}		
+%\begin{itemize}
+%%\item {\bf No make-ups for homework assignments and the final exam.}
+%%\item {\bf No make-ups for any missed quizzes or exams.}
+%\item Extra credit for quizzes: you are allowed to correct for quizzes after they are graded and returned.
+%If correct, I will add back 25\% of the points you missed.
+%\item Extra credit for midterm exams: after the midterm exams are graded and returned,
+%you may make a 10-minute appointment with me to re-do problems orally.
+%If correct, I will add back 25\% of the points you missed in those questions.
+%\end{itemize}
+
+\pl{Attendance:}
+
+\begin{itemize}
+\item You are expected to be regular and punctual in your class attendance.
+\item If no advance arrangements are made and I am absent, you may leave after a fifteen-minute wait.\\
+\end{itemize}
+
+%\pagebreak
+
+\pl{Tips for success:}
+\begin{enumerate}
+\item Do the homework - start early and make sure you attempt and understand all questions.
+\item Read the relevant sections before a new lecture begins, and then review them after the lectures.
+\item Be an active participant during lectures.
+\item Ask questions - during class or office hours, or by email. Ask me and your fellow students.
+\item Give yourself plenty of time to prepare good cheat sheets for exams. This requires going through the material and taking the time to review the concepts that you're not familiar with.
+\item Do not procrastinate - don't let a week go by with unanswered questions as it will just make the following week's material even more difficult to follow. \\
+\end{enumerate}
+
+
+%
+
+%\pl{Other learning resources:}
+
+%Aside from the office hours, you can also make use of the Academic Skill Center. For more information, see \urlwofont{http://web.duke.edu/arc}. \\
+
+
+\pl{Special needs:}
+
+Academic accommodations are available for students registered with the Office for Accessibility and Educational Opportunity (AEO).  Students in need of disability (ADA/504) accommodations should schedule an appointment with me early in the semester to discuss any accommodations for this course that have been approved by the Office for Accessibility and Educational Opportunity, as indicated in your AEO accommodation letter. For more information, please go to \href{http://accessibilityandeducationalopportunity.vassar.edu/}{\textit{the Vassar AEO office website}}.\\
+
+
+%
+
+
+
+\end{document}  

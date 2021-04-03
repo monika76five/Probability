@@ -1,0 +1,14 @@
+\frametitle{Birthday problem (cont.)}
+
+%\scriptsize{
+
+\cl{For a class of 30 students (i.e. $n = 30$), $P(\text{no match}) = 29.4\%$.
+What is the chance of at least a tie in birthdays among these 30 students?}
+
+\[
+P(\text{at least a tie}) = 1 - P(\text{no tie}) = 1 - 0.294 = 0.706
+\]
+
+%
+%We have a tie actually! \\
+%Two students in this class have birthday on April 19.

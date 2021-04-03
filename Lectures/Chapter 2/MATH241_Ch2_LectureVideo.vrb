@@ -1,0 +1,24 @@
+\frametitle{Example: birthday problem}
+
+\disc{Ignoring leap years, and assuming birthdays are equally likely to be any day of the year,
+what is the chance of no tie in birthdays among $n$ students?}
+
+%\pause %\vspace{5mm}
+
+%What would you guess the probability is?
+
+\pause %\vspace{2mm}
+
+\vspace{-4mm}
+\begin{align*}
+\#(\text{birthdays of $n$ people}) &= 365^n \\
+\#(\text{no match}) &= 365 \times 364 \times \cdots \times (365 - n +1)\\
+P(\text{no match}) &= \frac{365!}{(365-n)! ~365^n}
+\end{align*}
+
+
+\pause
+\begin{center}
+\includegraphics[width = 0.55\textwidth, height = 0.47\textheight]{figures/birthday}
+\end{center}
+

@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 2}	\\
+Due: Sunday 3/7 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item
+    Chapter 2 Problem 1
+    
+    A box contains 3 marbles: 1 red, 1 green, and 1 blue. Consider an experiment that consists of taking 1 marble from the box and then replacing it in the box and drawing a second marble from the box. Describe the sample space. Repeat when the second marble is drawn without replacing the first marble. 
+    
+    \item
+    Chapter 2 Problem 8
+    
+    Suppose that $A$ and $B$ are mutually exclusive events for which $P(A) = .3$ and $P(B) = .5$. What is the probability that
+    
+    \begin{enumerate}[(a)]
+    \item either $A$ or $B$ occurs?
+    \item $A$ occurs but $B$ does not?
+    \item both $A$ and $B$ occur?
+    \end{enumerate}
+
+    \item
+    Chapter 2 Problem  13
+    
+    A certain town with a population of 100,000 has 3 newspapers: I, II, and III. The proportions of townspeople who read these papers are as follows:
+    
+    \begin{itemize}
+    \item[-] I: 10 percent
+    \item[-] I and II: 8 percent
+    \item[-] I and II and III: 1 percent
+    \item[-] II: 30 percent
+    \item[-] I and III: 2 percent
+    \item[-] III: 5 percent
+    \item[-] II and III: 4 percent
+    \end{itemize}
+    (The list tells us, for instance, that 8000 people read newspapers I and II.)
+    
+    \begin{enumerate}[(a)]
+    \item Find the number of people who read only one newspaper.
+    \item How many people read at least two newspapers?
+    \item If I and III are morning papers and II is an evening paper, how many people read at least one morning paper plus an evening paper?
+    \item How many people do not read any newspapers?
+    \item How many people read only one morning paper and one evening paper?
+    \end{enumerate}
+    
+
+    \item
+    Chapter 2 Problem  19
+    
+    Two symmetric dice have had two of their sides painted red, two painted black, one painted yellow, and the other painted white. When this pair of dice is rolled, what is the probability that both dice land with the same color face up?
+
+    \item
+    Chapter 2 Problem  27
+    
+    An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)
+
+    \item
+    Chapter 2 Problem  36
+    
+    Two cards are chosen at random from a deck of 52 playing cards. What is the probability that they
+    
+    \begin{enumerate}[(a)]
+    \item are both aces?
+    \item have the same value?
+    \end{enumerate}
+
+    \item
+    Chapter 2 Problem  43
+    
+    \begin{enumerate}[(a)]
+    \item If $N$ people, including $A$ and $B$, are randomly arranged in a line, what is the probability that $A$ and $B$ are next to each other?
+    \item What would the probability be if the people were randomly arranged in a circle?
+    \end{enumerate}
+
+    \item
+    Chapter 2 Problem  47
+    
+    If there are 12 strangers in a room, what is the probability that no two of them celebrate their birthday in the same month?
+
+    \item
+    Chapter 2 Problem  49
+    
+    A group of 6 men and 6 women is randomly divided into 2 groups of size 6 each. What is the probability that both groups will have the same number of men?
+
+
+    \item
+    Chapter 2 Theoretical exercise 12
+    
+    Show that the probability that exactly one of the events $E$ or $F$ occurs equals 
+    
+    $$
+    P(E) + P(F) - 2P(EF).
+    $$
+
+    \item
+    Chapter 2 Theoretical exercise 15
+    
+    An urn contains $M$ white and $N$ black balls. If a random sample of size $r$ is chosen, what is the probability that it contains exactly $k$ white balls?
+
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 2 Problems: 2, 3, 5, 6, 9-12, 14-16, 18, 20-24, 28-42, 44-46, 48,
+\item Textbook  Chapter 2 Theoretical exercise: 1-3, 6, 7, 10, 11, 13
+
+\end{itemize}
+
+
+
+
+
+
+
+\end{document} 

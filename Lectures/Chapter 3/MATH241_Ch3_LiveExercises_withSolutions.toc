@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Conditional probability}{2}{0}{1}
+\beamer@sectionintoc {2}{Bayes theorem}{20}{0}{2}
+\beamer@sectionintoc {3}{Independent events}{27}{0}{3}

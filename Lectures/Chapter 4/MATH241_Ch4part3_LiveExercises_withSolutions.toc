@@ -1,0 +1,3 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Poisson distribution}{2}{0}{1}
+\beamer@sectionintoc {2}{Geometric distribution and Negative Binomial distribution}{17}{0}{2}

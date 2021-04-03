@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 3}	\\
+Due: Sunday 3/14 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item
+    Chapter 3 Problem 1
+    
+    Two fair dice are rolled. What is the conditional probability that at least one lands on 6 given that the dice land on different numbers?
+    
+    
+    \item
+    Chapter 3 Problem 8
+    
+    A couple has 2 children. What is the probability that both are girls if the older of the two is a girl?
+
+    \item
+    Chapter 3 Problem  12
+    
+    A recent college graduate is planning to take the first three actuarial examinations in the coming summer. She will take the first actuarial exam in June. If she passes that exam, then she will take the second exam in July, and if she also passes that one, then she will take the third exam in September. If she fails an exam, then she is not allowed to take any others. The probability that she passes the first exam is .9. If she passes the first exam, then the conditional probability that she passes the second one is .8, and if she passes both the first and the second exams, then the conditional probability that she passes the third exam is .7.
+    
+    \begin{enumerate}[(a)]
+    \item What is the probability that she passes all exams?
+    
+    \item Given that she did not pass all three exams, what is the conditional probability that she failed the second exam?
+    \end{enumerate}
+
+    \item
+    Chapter 3 Problem  13
+    
+    Suppose that an ordinary deck of 52 cards (which contains 4 aces) is randomly divided into 4 hands of 13 cards each. We are interested in determining $p$, the probability that each hand has an ace. Let $E_i$ be the event that $i$th hand has exactly one ace. Determine $p = P(E_1 E_2 E_3 E_4)$ by using the multiplication rule.
+
+    \item
+    Chapter 3 Problem  15
+    
+    An ectopic pregnancy is twice as likely to develop when the pregnant woman is a smoker as it is when she is a nonsmoker. If 32 percent of women of childbearing age are smokers, what percentage of women having ectopic pregnancies are smokers?
+
+    \item
+    Chapter 3 Problem  19
+    
+    A total of 48 percent of the women and 37 percent of the men who took a certain ``quit smoking" class remained nonsmokers for at least one year after completing the class. These people then attended a success party at the end of a year. If 62 percent of the original class was male,
+    
+    \begin{enumerate}[(a)]
+    \item what percentage of those attending the party were women?
+    
+    \item what percentage of the original class attended the party?
+    \end{enumerate}
+
+    \item
+    Chapter 3 Problem  28
+    
+    Suppose that an ordinary deck of 52 cards is shuffled and the cards are then turned over one at a time until the first ace appears. Given that the first ace is the 20th card to appear, what is the conditional probability that the card following it is the
+    
+    \begin{enumerate}[(a)]
+    \item ace of spades?
+    
+    \item two of clubs?
+    \end{enumerate}
+
+    \item
+    Chapter 3 Problem  29
+    
+    There are 15 tennis balls in a box, of which 9 have not previously been used. Three of the balls are randomly chosen, played with, and then returned to the box. Later, another 3 balls are randomly chosen from the box. Find the probability that none of these balls has ever been used.
+
+    \item
+    Chapter 3 Problem  45
+    
+    Suppose we have 10 coins such that if the $i$th coin is flipped, heads will appear with probability $i/10, i = 1, \cdots, 10$. When one of the coins is randomly selected and flipped, it shows heads. What is the conditional probability that it was the fifth coin?
+
+    \item
+    Chapter 3 Problem  56
+    
+    Suppose that you continually collect coupons and that there are $m$ different types. Suppose also that each time a new coupon is obtained, it is a type $i$ coupon with probability $p_i, i = 1, \cdots, m$. Suppose that you have just collected your $n$th coupon. What is the probability that it is a new type?
+    
+    [Hint: Condition on the type of this coupon.]
+
+    \item
+    Chapter 3 Problem  73
+    
+    Suppose that each child born to a couple is equally likely to be a boy or a girl, independently of the sex distribution of the other children in the family. For a couple having 5 children, compute the probabilities of the following events.
+    
+    \begin{enumerate}[(a)]
+    \item All children are of the same sex.
+    
+    \item The 3 eldest are boys and the others girls.
+    
+    \item Exactly 3 are boys.
+    
+    \item The 2 oldest are girls.
+    
+    \item There is at least 1 girl.
+    \end{enumerate}
+
+
+    \item
+    Chapter 3 Theoretical exercise 6
+    
+    Prove that if $E_1, E_2, \cdots, E_n$ are independent events, then
+    
+    $$
+    P(E_1 \cup E_2 \cup \cdots \cup E_n)  = 1 - \prod_{i=1}^{n}[1 - P(E_i)]
+    $$
+
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 3 Problems: 2-7, 9-11, 16-18, 20-24, 26, 30-39, 42-44, 46-55, 57, 59-65, 69-70, 72, 74-78
+\item Textbook  Chapter 3 Theoretical exercise: 1-2, 4, 5(a), 9-11, 15, 25
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\end{document} 

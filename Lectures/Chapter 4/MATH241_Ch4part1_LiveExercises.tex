@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 4 part 1 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Two fair six-sided dice are rolled. Let the random variable $X$ denote the product of the 2 dice. What are possible values of $X$ and their associated probabilities? Just give a few examples and you do not need to calculate the associated probability for all possible values.
+
+\item Two fair six-sided dice are rolled. Let the random variable $X$ denote the product of the 2 dice. Find the probability of: (a) $P(X \leq 2)$, (b) $P(X \leq 35)$.
+
+\item Three fair coins are tossed. Let the random variable $X$ denote the number of heads. Write out the pmf and cdf of $X$.
+
+\item Suppose that the distribution function of $X$ is given by
+\begin{align*}
+F(b)= 
+\begin{cases}
+    0,& b < 0\\
+    \frac{b}{4},& 0 \leq b < 1 \\
+    \frac{1}{2} + \frac{b - 1}{4},& 1 \leq b < 2 \\
+    \frac{11}{12}, & 2 \leq b < 3 \\
+    1, & 3 \leq b
+\end{cases}
+\end{align*}
+Find $P(X = i), i = 1, 2, 3$.
+
+\item Toss a coin. Suppose the probability of a head is $p$. Let $X$ be
+a 0-1 indicator random variable s.t.\
+\[
+X = \left\{
+\begin{array}{ll}
+1	& \text{if head is obtained}\\
+0	& \text{otherwise}\\
+\end{array}
+\right.
+\]
+Compute $\mu = E[X]$.
+
+\item Let the random variable $X$ denote the GP a certain student will earn in this class. Suppose its pmf is
+\[ p(0) = 0.05, \quad p(1) = 0.05, \quad p(2) = 0.3, \quad p(3) = 0.4\]
+Calculate their expected GP $E[X]$.
+
+\item Let $X$ denote a random variable that takes on any of the values -1, 0, and 2 with respective probability: $P(X = -1) = \frac{1}{5}, P(X = 0) = \frac{1}{5}, P(X = 2) = \frac{3}{5}$. Compute $E[X^3]$.
+
+\item Let $X$ denote a random variable that takes on any of the values -1, 0, and 2 with respective probability: $P(X = -1) = \frac{1}{5}, P(X = 0) = \frac{1}{5}, P(X = 2) = \frac{3}{5}$. Compute: 
+\begin{enumerate}
+\item $E[2X^2]$
+\item $E[4X^2 - 1]$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document} 
