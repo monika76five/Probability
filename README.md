@@ -1,6 +1,6 @@
 # Probability
 
-- Teaching and learning material (Spring 2021 iteration of MATH 241 Probability at Vassar College, NY)
+## This repo contains teaching and learning material of MATH 241 Probability at Vassar College, NY
 
 1. Lectures folder: lecture files (.Rmd and .pdf).
 2. Homework folder: homework files (.tex and .pdf).
