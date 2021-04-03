@@ -1,6 +1,6 @@
 # An Undergraduate Probability Course
 
-## This is for MATH 241 Probability at Vassar College, NY
+## MATH 241 Probability at Vassar College, NY
 
 ### Pre-reqs: Calculus II (AP Cal AB \& BC)
 
