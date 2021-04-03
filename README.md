@@ -1,4 +1,4 @@
-# Probability
+# An Undergraduate Probability Course
 
 ## This repo contains teaching and learning material of MATH 241 Probability at Vassar College, NY
 
