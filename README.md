@@ -2,6 +2,8 @@
 
 ## This is for MATH 241 Probability at Vassar College, NY
 
+### Pre-reqs: Calculus II (AP Cal AB \& BC)
+
 ### We use A First Course in Probability (9th edition) by Sheldon Ross
 
 ### We cover most of Chapters 1 - 8
