@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 5 part 1 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Suppose that $X$ is a continuous random variable whose pdf is
+\begin{align*}
+f(x) &= \begin{cases}
+c (8x - 4 x^3)& \text{if $0 \leq x \leq 1$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+\vspace{-0.5cm}
+\begin{itemize}
+%\item What's the value of $c$?
+\item Find $P(X > 0.5)$.
+%\item Find the cdf function $F(x)$.
+\end{itemize}
+
+
+\item Suppose that $X$ is a continuous random variable whose pdf is
+\begin{align*}
+f(x) &= \begin{cases}
+c (8x - 4 x^3)& \text{if $0 \leq x \leq 1$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+\vspace{-0.5cm}
+\begin{itemize}
+%\item What's the value of $c$?
+%\item Find $P(X > 0.5)$.
+\item Find the cdf function $F(x)$.
+\end{itemize}
+
+\item Comparing discrete random variables and continuous random variables.
+
+\begin{center}
+\begin{tabular}{ |p{1.5in}| p{1.25in}| p{1.25in}|}%{r|l|l}
+\hline
+\vspace{1mm}
+&discrete & continuous  \\ \hline
+\vspace{1mm}
+values can take& & \\ \hline
+\vspace{1mm}
+pmf / pdf& &\\ \hline
+\vspace{1mm}
+validness (i.e. the sum of probability is 1) & &\\ \hline
+\vspace{1mm}
+cdf & &\\ \hline
+\vspace{1mm}
+from cdf to pmf / pdf & &\\ \hline
+\vspace{1mm}
+probability at a single point & &\\ \hline
+\end{tabular}
+\end{center}
+
+\item Find $E[e^X]$, if the pdf of $X$ is given by
+\begin{align*}
+f(x) &=
+\begin{cases}
+1& \text{if $0 \leq x \leq 1$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+
+\item $X$ is a continuous random variable. Its pdf $f(x)$ is an even function, i.e.,
+\[ f(-x) = f(x), \quad \text{for any } x > 0 \]
+What is $E[X]$? Show your work. 
+\begin{enumerate}[(a)]
+\item Cannot decide. Need more information.
+\item $0$
+\item $1$
+\item $e$
+\end{enumerate}
+
+
+\item The density function of $X$ is given by
+\begin{align*}
+f(x) &= \begin{cases}
+a + bx^2 & \text{if $0 \leq x \leq 1$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+If $E[X] = \frac{3}{5}$, find $a$ and $b$.
+
+\item Comparing discrete random variables and continuous random variables.
+
+\begin{center}
+\begin{tabular}{ |p{1.5in}| p{1.25in}| p{1.25in}|}%{r|l|l}
+\hline
+\vspace{1mm}
+&discrete & continuous  \\ \hline
+\vspace{1mm}
+E[X] & &\\ \hline
+\vspace{1mm}
+E[g(X)] & &\\ \hline
+\vspace{1mm}
+Var(X) & &\\ \hline
+\vspace{1mm}
+$\sigma$ & &\\ \hline
+\vspace{1mm}
+E[aX+b] & &\\ \hline
+\vspace{1mm}
+Var(aX+b) & &\\ \hline
+\vspace{1mm}
+E[X+Y] & &\\ \hline
+\end{tabular}
+\end{center}
+
+\item If $X$ is uniformly distributed over (0, 10), calculate the probability that 
+\begin{enumerate}[(a)]
+\item $X < 3$
+\item $X > 6$
+\item $3 < X < 8$
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document} 

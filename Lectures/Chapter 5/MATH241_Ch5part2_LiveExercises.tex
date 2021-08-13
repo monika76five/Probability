@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 5 part 2 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Use the fact that normal pdf is well define, calculate the integral
+\[
+\int_{-\infty}^{\infty} e^{-\frac{(x + 2)^2}{6}}dx = ?
+\]
+
+\item Using the 68-95-99.7 rule, find the standard normal cdf $\Phi(-2)$ and $\Phi(2)$.
+
+\item At Heinz ketchup factory the amounts which go into bottles of ketchup are supposed to be normally distributed with mean 36 oz. and standard deviation 0.11 oz. Once every 30 minutes a bottle is selected from the production line, and its contents are noted precisely. If the amount of ketchup in the bottle is below 35.8 oz. or above 36.2 oz., then the bottle will fails the quality control inspection. What percent of bottles \underline{pass} the quality control inspection?
+
+\item A recent study found that ``Facebook users get more than they give". For example:
+\begin{itemize}
+\item Users in our sample pressed the like button next to friends' content an average of 14 times, but had their content ``liked" an average of 20 times
+\item 12\% of users tagged a friend in a photo, but 35\% were themselves tagged in a photo
+\end{itemize}
+This is because there are 	``power users'' who contribute much more content than the typical user.
+The same study found that approximately 25\% of Facebook users are considered power users.
+It also found that the average Facebook user has 245 friends.
+What is the probability that the average Facebook user with 245 friends has 70 or more friends who would be considered power users?
+
+\item Let $X \sim \text{N}(\mu, \sigma^2)$, what distribution does $Y = (X-\mu)/\sigma$ have? If you are going to use the formula, check if conditions are met.
+
+\item Let $X$ have a standard normal distribution. What is the pdf of $Y = X^2$? If you are going to use the formula, check if conditions are met.
+
+\end{enumerate}
+
+
+\end{document} 
