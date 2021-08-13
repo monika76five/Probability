@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Expectation of sums of random variable}{2}{0}{1}
+\beamer@sectionintoc {2}{Covariance and correlation}{14}{0}{2}
+\beamer@sectionintoc {3}{Conditional expectation}{29}{0}{3}

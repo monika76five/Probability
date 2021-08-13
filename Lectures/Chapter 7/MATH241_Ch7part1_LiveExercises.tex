@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 7 part 1 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item What's the expected value of $X-Y$?
+
+\item Suppose that $n$ people throw their hats into the center of a room. The hats are mixed up, and each person randomly selects one. Find the expected number of people that select their own hat.
+
+\item Let $X_1, ..., X_n$ be independent and identically distributed random variables having distribution function $F$ and expected value $\mu$. Such a sequence of random variables is said to constitute a sample from the distribution $F$. Then quantity
+$$\bar{X} = \sum_{i=1}^n\frac{X_i}{n}$$
+is called the sample mean. Compute $E[\bar{X}]$.
+
+\item Suppose $Z_1$ and $Z_2$ are two standard normal random variables. Let
+\[X = Z_1 + Z_2, ~ Y = Z_1 - Z_2\]
+Find $Cov(X, Y)$.
+
+\item Let $X_1, \ldots, X_n$ be independent random variables having the same variance $\sigma^2$, and
+\[\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i\]
+Find $Var(\bar{X})$.
+
+\item Find the value of $b$ in $Y = a + bX$ such that $\rho(X, Y) = 1$. What about $\rho(X, Y) = -1$?
+
+
+\item Type $i$ light bulbs function for a random amount of time having mean $\mu_i$ and standard deviation $\sigma_i$, $i = 1, 2$. A light bulb randomly chosen from a bin of bulbs is a type 1 bulb with probability $p$ and a type 2 bulb with probability $1 - p$. Let $X$ denote the lifetime of this bulb. Find (a) $E[X]$ (b) $Var(X)$
+
+\end{enumerate}
+
+
+\end{document} 

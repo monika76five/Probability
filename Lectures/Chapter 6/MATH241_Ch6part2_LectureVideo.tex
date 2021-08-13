@@ -1,0 +1,496 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+\usepackage{tikz}
+
+
+\input{../LectureStyle.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 6 part 2]{Chapter 6 part 2}
+\subtitle{Jointly Distributed Random Variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+
+\begin{document}
+
+%\begin{frame}%[plain]
+%\includegraphics[width = \textwidth]{figures/2015DukeNCAA}
+%\end{frame}
+%
+%{ % all template changes are local to this group.
+%\addtocounter{framenumber}{-1}
+%    \setbeamertemplate{navigation symbols}{}
+%    \begin{frame}[plain]
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \node[at=(current page.center)] {
+%                \includegraphics[width=1.25\paperwidth]{figures/2015DukeNCAA}
+%            };
+%        \end{tikzpicture}
+%     \end{frame}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%%\item HW7: \red{due now!}
+%\item HW8: \red{due Tuesday, Nov 20th}
+%
+%
+%\vspace{0.5cm}
+%\item Course evaluation open tomorrow.
+%  \begin{itemize}
+%  \item Activate between 11/14 - 12/3.
+%  \item If response rate $\geq 80\%$, drop the lowest quiz.
+%  \end{itemize}
+%
+%\vspace{0.5cm}
+%\item Next quiz: Tuesday, Nov 18th\\
+%  \begin{itemize}
+%  \item Topic: function of a continuous RV, i.e., find $f_Y(y)$ where $Y = g(X)$.
+%  %\item To prepare: do homework questions in Chapter 5: 37, 39, 40, TE29
+%  \end{itemize}
+%
+%
+%%\item Midterm: Tuesday, Feb 25th
+%%\begin{itemize}
+%%\item Close book, in class exam (75 min)
+%%\item ONE page cheat sheet {\bf made by yourself} (A4 size)
+%%\item Calculators are allowed, but not cell phones, tablets or laptops
+%%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Outline}
+%\tableofcontents[hideallsubsections,pausections]
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Recap}
+%
+%\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sums of independent random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Sums of continuous random variables}
+
+If $X,Y$ have a joint density $f(x,y)$, then $X+Y$ has the following density
+\begin{align*}
+f_{X+Y}(z) &= \int_{-\infty}^\infty f(x,z-x)~dx \\
+           &= \int_{-\infty}^\infty f(z-y,y)~dy \\
+\end{align*}
+
+\vspace{-0.3cm} \pause
+If $X$ and $Y$ are independent, we can use the convolution formula
+\begin{align*}
+f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\
+           &= \int_{-\infty}^\infty f_X(z-y)f_Y(y)~dy \\
+\end{align*}
+
+\vspace{-0.3cm} \pause
+Cdf $F_{X+Y}$ is called the \hl{convolution} of the distributions $F_X$ and $F_Y$.
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Why?}
+
+\begin{align*}
+F_{X+Y}(z) & = \iint_{x+y\leq z} f_{X, Y}(x,y)~dy ~dx\\
+\uncover<2->{             & = \int_{-\infty}^\infty\int_{-\infty}^{z-x} f_{X, Y}(x,y)~dy ~dx\\}
+\uncover<3->{f_{X+Y}(z) & =  \frac{d}{dz}F_{X+Y}(z)\\}
+\uncover<4->{		& = \int_{-\infty}^\infty\left\{\frac{d}{dz}\int_{-\infty}^{z-x} f_{X, Y}(x,y)~dy \right\}~dx\\}
+\uncover<5->{		& = \int_{-\infty}^\infty f_{X, Y}(x,z-x)~dx}
+\end{align*}
+
+Textbook page 239 gives a derivation when $X$ and $Y$ are independent. 
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Sum of two independent Uniforms: \uncover<11->{Triangular distribution}}
+\disc{Let X and Y have independent Unif$(0, 1)$ distribution. Find pdf of $X+Y$.}
+
+\pause
+\twocol{0.3}{0.7}
+{
+\uncover<11->{
+\begin{center}
+\includegraphics[width=1.2\textwidth]{figures/triangle_density}
+\end{center}
+}
+
+\uncover<12->{
+\footnotesize
+\begin{align*}
+&f_{X+Y}(z)   \\
+= & \begin{cases}
+              z & \text{if $0<z\leq1$} \\
+              2-z & \text{if $1<z<2$}\\
+              0 & \text{otherwise}
+              \end{cases}
+\end{align*}
+}
+}
+{
+\uncover<2->{Range of $X + Y$ is $(0, 2)$. \\}
+\uncover<3->{For any $0 < z \leq 1$, \vspace{-0.3cm}}
+\begin{align*}
+\uncover<4->{f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\}
+\uncover<5->{           &= \int_{{\color{red} 0}}^{{\color{red} z}} 1 ~dx }
+\uncover<6->{            = z}
+\end{align*}
+
+\uncover<7->{ For any $1 < z < 2$, \vspace{-0.3cm}}
+\begin{align*}
+\uncover<8->{f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\}
+\uncover<9->{           &= \int_{{\color{red} z-1}}^{{\color{red} 1}} 1 ~dx }
+\uncover<10->{         = 2- z}
+\end{align*}
+
+}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Sum of independent Exponentials (same $\lambda$) }
+%\disc{Example: suppose $X, Y \stackrel{\text{ind}}{\sim} \text{Exp}(\lambda)$. What distribution does $X+Y$ have?}
+%
+%%\pause
+%
+%
+%\twocol{0.5}{0.5}{
+%\uncover<2->{Range of $X + Y$ is $(0, \infty)$. \\ For any $z > 0$,}
+%\begin{align*}
+%\uncover<3->{f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\}
+%\uncover<4->{  &= \int_{{\color{red} 0}}^{{\color{red} z}} \lambda e^{-\lambda x} \lambda e^{-\lambda (z-x)} ~dx \\}
+%\uncover<5->{  &= \int_{0}^z \lambda^2 e^{-\lambda z}~dx \\}
+%\uncover<6->{   &= \left. \lambda^2 x e^{-\lambda z} \right|_0^z } \uncover<7->{ = \lambda^2 z e^{-\lambda z}  \\}
+%\uncover<8->{     f_{X+Y}(z)      &= \begin{cases}
+%              \lambda^2 z e^{-\lambda z} & \text{if $z>0$} \\
+%              0 & \text{otherwise}
+%              \end{cases} }
+%\end{align*}
+%}{
+%\pause
+%\uncover<9->{Recall: Gamma distribution pdf is:
+%\[f_{Z}(z|\alpha,\lambda) = \frac{\lambda^{\alpha}}{\Gamma(\alpha)}z^{\alpha-1}e^{-\lambda z}\]
+%\vspace{3mm}
+%}
+%\uncover<10->{
+%Therefore, $X+Y \sim \text{Gamma}(2,\lambda)$.
+%}
+%}
+%
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Sum of independent Gammas (same $\lambda$) }
+%\cl{Suppose $X \sim \text{G}(\alpha_1, \lambda)$, and $Y \sim \text{G}(\alpha_2, \lambda)$independently. What distribution does $X+Y$ have?}
+%
+%\pause
+%
+%Range of $X+Y$ is $(0, \infty)$. For any $z > 0$,
+%\begin{align*}
+%f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\
+%           &\propto \int_{0}^z x^{s-1} e^{-\lambda x} (z-x)^{t-1} e^{-\lambda (z-x)} ~dx \\
+%\uncover<3->{
+%           &= e^{-\lambda z} \int_{0}^z x^{s-1} (z-x)^{t-1}  ~dx \\}
+%\uncover<4->{
+%           &= z^{s + t -1} e^{-\lambda z} \int_{0}^1 \left(\frac{x}{z}\right)^{s-1} \left(1-\frac{x}{z}\right)^{t-1}  ~d \frac{x}{z} \\
+%           &= z^{s + t -1} e^{-\lambda z}  B(s,t) \\}
+%\uncover<5->{
+%           & \propto z^{s + t -1} e^{-\lambda z}}
+%\end{align*}
+%\uncover<6->{
+%Therefore, $X+Y \sim \text{Gamma}(s+t,\lambda)$.}
+%
+%
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Sum of independent random variables }
+
+Random variables $X$ and $Y$ are independent, then
+\begin{center}
+\begin{tabular}{lll}
+\hline
+$X$\rule{0pt}{3ex}							& $Y$ 						& $X + Y$\\
+\hline
+N$(\mu_1, \sigma^2_1)$ \rule{0pt}{3ex}		& N$(\mu_2, \sigma^2_2)$	& \uncover<2->{N$(\mu_1 + \mu_2, \sigma^2_1+\sigma^2_2)$}\\
+&&\\
+%G$(\alpha_1, \lambda)$	\rule{0pt}{3ex}		& G$(\alpha_2, \lambda)$	& \uncover<3->{G$(\alpha_1 + \alpha_2, \lambda)$}\\
+%&&\\
+Poi$(\lambda_1)$	\rule{0pt}{3ex}			& Poi$(\lambda_2)$			& \uncover<4->{Poi$(\lambda_1 + \lambda_2)$}\\
+&&\\
+Bin$(n_1, p)$	\rule{0pt}{3ex}				& Bin$(n_2, p)$			& \uncover<5->{Bin$(n_1 + n_2, p)$}\\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Sum of independent Chi-squared distributions}
+%\cl{Suppose $X \sim \chi^2(n_1)$, and $Y \sim \chi^2(n_2)$ independently. What distribution does $X+Y$ have?}
+%\pause
+%Hint: recall that $\chi^2(n) = G(n/2, 1/2)$.
+%\pause
+%\[ X \sim \text{G}\left( \frac{n_1}{2}, \frac{1}{2} \right), Y \sim \text{G}\left( \frac{n_2}{2}, \frac{1}{2}\right)\]
+%\[ X + Y \sim \text{G}\left( \frac{n_1 + n_2}{2}, \frac{1}{2}\right) \sim \chi^2\left( n_1 + n_2\right)\]
+%
+%\end{frame}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Random variables $X$ and $Y$ are independent if any real sets $A, B \subset \mathbb{R}$,
+\[P(X \in A, Y \in B) = P(X \in A) P(Y \in B)\]
+
+Random variables $X$ and $Y$ are independent {\bf if and only if}
+\begin{itemize}
+\item Cdf: for any $x, y \in \mathbb{R}$
+\[F_{X, Y}(x, y) = F_X(x) F_Y(y)\]
+\item  For any $x, y \in \mathbb{R}$, the pmf / pdf
+\[f_{X, Y}(x, y) = f_X(x) f_Y(y)\]
+\end{itemize}
+
+\hide{\pause}
+If $X$ and $Y$ are independent continuous random variables, then
+\begin{align*}
+f_{X+Y}(z) &= \int_{-\infty}^\infty f_X(x)f_Y(z-x)~dx \\
+\end{align*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Distribution of a function of a discrete rv}
+%
+%\cl{1. Let $X$ have a Bin$(n, p)$ distribution. What's the pmf of $Y = 2X$?}
+%
+%\begin{enumerate}[(a)]
+%\item $f_Y(y) = {2n \choose y}(2p)^y (1-2p)^{2n - y}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+%\item $f_Y(y) = {2n \choose y}p^y (1-p)^{2n - y}$ for any $y \in \{0, 1, 2, \ldots, 2n\}$
+%\solnMult{$f_Y(y) = {n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$}
+%\item $f_Y(y) = \frac{1}{2}{n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+%\end{enumerate}
+%
+%%\invisible{
+%\pause
+%\[ f_Y(y) = P(Y = y) = P\left(X = \frac{y}{2}\right) = f_X\left(\frac{y}{2}\right) \]
+%
+%%}
+%
+%\end{frame}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conditional distributions: discrete case}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Discrete conditional distributions}
+\begin{itemize}
+\item Recall that for any two events $E$ and $F$, the conditional probability of $E$ given $F$ is defined by
+$$P(E|F) = \frac{P(E\cap F)}{P(F)}$$
+provided that $P(F) > 0$.
+\vspace{4mm}
+\pause
+\item If $X$ and $Y$ are discrete random variables, we define the conditional probability mass function (pmf) of $X$ given $Y=y$ by
+$$p_{X|Y}(x|y) = P\{X = x|Y = y\} = \frac{P\{X = x, Y = y\}}{P\{Y = y\}} = \frac{p(x, y)}{p_Y(y)}$$
+for all values of $y$ such that $p_Y(y) > 0$.
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Discrete conditional distributions}
+\begin{itemize}
+\item Similarly for the conditional probability density function (cdf), we define it by
+$$F_{X|Y}(x|y) = P\{X \leq x|Y \leq y\} = \sum_{x \leq a}p_{X|Y}(a|y)$$
+\vspace{4mm}
+\pause
+\item If $X$ is independent of $Y$, then
+\begin{eqnarray*}
+p_{X|Y}(x|y) &=& P\{X = x|Y = y\}\\
+&=&\frac{P\{X = x, Y = y\}}{P\{Y = y\}} \\
+&=&\frac{P\{X = x\}P\{Y = y\}}{P\{Y = y\}}\\
+&=&P\{X = x\}
+\end{eqnarray*}
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Discrete conditional distributions}
+\disc{Suppose that 3 balls are chosen without replacement from an urn consisting 5 white and 8 red balls. Suppose the white balls are numbered, and let $X_i$ equal $1$ if the $i$th white ball is selected and $0$ otherwise. Calculate the conditional probability mass function of $X_1$ given that (1)$X_2 = 1$; (2) $X_2 = 0$.}
+\pause
+{\small{
+Suppose $p(x_1, x_2)$ is the joint pmf of $X_1$ and $X_2$, then
+\begin{itemize}
+\item $p(0, 0) = \frac{{11 \choose 3} {2 \choose 0}}{{13 \choose 3}} = \frac{15}{26}$, $p(1, 1) = \frac{{11 \choose 1}{2 \choose 2}}{{13 \choose 3}} = \frac{1}{26}$, $p(0, 1) = p(1, 0) = \frac{{11 \choose 2}{1 \choose 1}}{{13 \choose 3}} = \frac{5}{26}$
+\vspace{2mm}
+\pause
+\item Part (1): $p_{X_2}(1) = \sum_{x_1}p(x_1, 1) = p(0, 1) + p(1, 1) = \frac{6}{26}$ $p_{X_1|X_2}(0, 1) = \frac{p(0, 1)}{p_{X_2}(1)} = \frac{5}{6}, p_{X_1|X_2}(1, 1) = \frac{p(1, 1)}{p_{X_2}(1)} = \frac{1}{6}$
+\vspace{2mm}
+\pause
+\item Part (2): $p_{X_2}(0) = \sum_{x_1}p(x_1, 0) = p(0, 0) + p(1, 0) = \frac{20}{26}$ $p_{X_1|X_2}(0, 0) = \frac{p(0, 0)}{p_{X_2}(0)} = \frac{15}{20} = \frac{3}{4}, p_{X_1|X_2}(1, 0) = \frac{p(1, 0)}{p_{X_2}(0)} = \frac{5}{20} = \frac{1}{4}$
+\end{itemize}
+}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conditional distributions: continuous case}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Continuous conditional distributions}
+\begin{itemize}
+\item With joint probability function of $X$ and $Y$ as $f(x, y)$, the conditional pdf of $X$ given that $Y = y$ (for $f_Y(y) > 0$) is defined by
+$$f_{X|Y}(x|y) = \frac{f(x, y)}{f_Y(y)}$$
+note that the event $\{Y = y\}$ has probability $0$; we just use it for conditioning.
+\pause
+\item If $X$ and $Y$ are jointly continuous, then for any set $A$
+$$P\{X \in A|Y = y\} = \int_A f_{X|Y}(x|y)dx$$
+This is defining conditional probabilities of events associated with one random variable when we are given the value of a second random variable.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Continuous conditional distributions}
+\begin{itemize}
+\item By setting $A = (-\infty, a)$, we can define the cdf of $X$ given that $Y = y$ by
+$$F_{X|Y}(a|y) = P\{X \leq a|Y = y\} = \int_{-\infty}^a f_{X|Y}(x|y)dx$$
+\pause
+\item And if $X$ and $Y$ are independent continuous random variables,
+$$f_{X|Y}(x|y) = \frac{f(x, y)}{f_Y(y)} = \frac{f_X(x)f_Y(y)}{f_Y(y)} = f_X(x)$$
+This is the unconditional density of $X$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}%\frametitle{Continuous conditional distributions}
+\disc{The joint density of $X$ and $Y$ is given by
+\[ f(x,y) = \begin{cases}
+    \frac{12}{5}x(2 - x - y) 		 & \text{ for } 0 < x < 1, 0 < y < 1 \\
+    0         & \text{otherwise}
+\end{cases}
+ \]
+Compute the conditional density of $X$ given that $Y = y$, where $0 < y < 1$.}
+\pause
+{\small{
+For $0 < x < 1, 0 < y < 1$, we have
+\begin{eqnarray*}
+f_{X|Y}(x|y) &=& \frac{f(x, y)}{f_Y(y)}\\
+\pause
+&=&
+\frac{f(x, y)}{\int_{-\infty}^{\infty}f(x, y)dx} \\
+&=&
+\frac{x(2 - x - y)}{\int_0^1x(2 - x - y)dx} \\
+&=&
+\frac{x(2 - x - y)}{2/3 - y/2} \\
+&=&
+\frac{6x(2 - x - y)}{4 - 3y}
+\end{eqnarray*}
+}}
+\end{frame}
+\end{document}

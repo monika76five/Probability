@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 7 part 2 and Chapter 8 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item If $X$ is a Poisson random variable with parameter $\lambda$. Use the moment generating functions to obtain its mean and variance.
+
+\item If $X$ is an exponential random variable with parameter $\lambda$. Use the moment generating functions to obtain its mean and variance.
+
+\item Show that if $X$ and $Y$ are independent normal random variables with respective parameters $(\mu_1, \sigma_1^2)$ and $(\mu_2, \sigma_2^2)$, then $X + Y$ is normal with mean $\mu_1 + \mu_2$ and variance $\sigma_1^2 + \sigma_2^2$. Note that for normal $(\mu, \sigma^2)$, the MGF is $e^{\{\frac{\sigma^2t^2}{2} + \mu t\}}$. {\color{red} Textbook pages 339 and 340 for lists of MGFs of distributions.}
+
+\item A person has $100$ light bulbs whose lifetimes are independent exponentials with mean $5$ hours. If the bulbs are used one at a time, with a failed bulb being replaced immediately by a new one, approximate the probability that there is still a working bulb after $525$ hours. Suppose that it takes a random time, uniformly distributed over $(0, .5)$, to replace a failed bulb. Approximate the probability that all bulbs have failed by time 550. Note that if $X \sim \textrm{Exponential}(\lambda)$, then $E[X] = \frac{1}{\lambda}$ and $Var(X) = \frac{1}{\lambda^2}$.
+
+\end{enumerate}
+
+
+\end{document} 

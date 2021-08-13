@@ -1,0 +1,599 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+\usepackage{tikz}
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 7 part 1]{Chapter 7 part 1}
+\subtitle{Properties of Expectations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+%\begin{frame}%[plain]
+%\includegraphics[width = \textwidth]{figures/2015DukeNCAA}
+%\end{frame}
+
+%{ % all template changes are local to this group.
+%\addtocounter{framenumber}{-1}
+%    \setbeamertemplate{navigation symbols}{}
+%    \begin{frame}[plain]
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \node[at=(current page.center)] {
+%                \includegraphics[width=1.25\paperwidth]{figures/2015DukeNCAA}
+%            };
+%        \end{tikzpicture}
+%     \end{frame}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%%\item HW7: \red{due now!}
+%\item HW8: \red{due Tuesday, Nov 20th}
+%
+%
+%\vspace{0.5cm}
+%\item Course evaluation open tomorrow.
+%  \begin{itemize}
+%  \item Activate between 11/14 - 12/3.
+%  \item If response rate $\geq 80\%$, drop the lowest quiz.
+%  \end{itemize}
+%
+%\vspace{0.5cm}
+%\item Next quiz: Tuesday, Nov 18th\\
+%  \begin{itemize}
+%  \item Topic: function of a continuous random variable, i.e., find $f_Y(y)$ where $Y = g(X)$.
+%  %\item To prepare: do homework questions in Chapter 5: 37, 39, 40, TE29
+%  \end{itemize}
+%
+%
+%%\item Midterm: Tuesday, Feb 25th
+%%\begin{itemize}
+%%\item Close book, in class exam (75 min)
+%%\item ONE page cheat sheet {\bf made by yourself} (A4 size)
+%%\item Calculators are allowed, but not cell phones, tablets or laptops
+%%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Recap}
+%
+%
+%\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Expectation of sums of random variable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Expected value of $g(X, Y)$}
+Recap: expectation of random variable $g(X)$
+\begin{itemize}
+\item Discrete case $E[g(X)] = \sum_{\text{all } x} g(x) f(x)$
+\item Continuous case $E[g(X)] = \int_{-\infty}^{\infty} g(x)f(x) dx$
+\end{itemize}
+
+
+Suppose $g(X,Y)$ is a real-valued function of random variables $X$ and $Y$, then
+
+\begin{itemize}
+\item Discrete case
+\[E[g(X, Y)] = \sum_{\text{all } x}~\sum_{\text{all } y} g(x,y) f(x, y)\]
+\item Continuous case
+\[E[g(X, Y)] = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(x,y) f(x, y)dxdy\]
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Expectation of sums of two random variables}
+
+\[ E(X + Y) = E(X) + E(Y) \]
+
+\pause
+\begin{itemize}
+\item It's not difficult to show that if either (or both) of the $X, Y$ is discrete, this formula still holds.
+\item This results does not require $X$ and $Y$ to be independent. 
+\item This can be generalized to $n$ random variables
+\[E(X_1 + X_2 + \cdots + X_n) = E(X_1) + E(X_2) + \cdots + E(X_n)\] 
+%}
+%\item How about $E(XY)?$
+\end{itemize}
+
+\cl{What's the expected value of $X-Y$?} \pause
+%\invisible{
+\[E(X - Y) = E[X + (- Y)] = E(X) + E(-Y) = E(X) - E(Y) \] %\pause
+%}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Distribution of a function of a discrete random variable}
+
+\cl{Suppose that $n$ people throw their hats into the center of a room. The hats are mixed up, and each person randomly selects one. Find the expected number of people that select their own hat.
+}
+
+%\invisible{
+
+\pause
+Let $X$ denote the total number of matches.
+\[ X_i = \begin{cases}
+            1 & \text{if the $i$ th person selects his own hat} \\
+            0 & \text{otherwise}
+            \end{cases}\]
+\[ X = X_1 + X_2 + \cdots + X_n\]
+\vspace{0.1cm}
+\pause
+For any $i = 1, 2, \ldots, n$,
+\[ E(X_i) = 1/n \Longrightarrow\]
+\[ E(X) = E(X_1) + E(X_2) + \cdots + E(X_n) = n/n = 1\]
+
+
+
+%}
+
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\cl{Let $X_1, ..., X_n$ be independent and identically distributed random variables having distribution function $F$ and expected value $\mu$. Such a sequence of random variables is said to constitute a sample from the distribution $F$. Then quantity
+$$\bar{X} = \sum_{i=1}^n\frac{X_i}{n}$$
+is called the sample mean. Compute $E[\bar{X}]$.}
+\pause
+
+%\begin{eqnarray*}
+$$E[\bar{X}] = E[\sum_{i=1}^n\frac{X_i}{n}] =
+\frac{1}{n}E[\sum_{i=1}^nX_i]=
+\frac{1}{n}\sum_{i=1}^nE[X_i]=
+\mu$$
+%\end{eqnarray*}
+\pause
+\begin{itemize}
+\item The expected value of the sample mean is $\mu$ (the distribution mean).
+\item When the distribution mean $\mu$ is unknown, the sample mean is often used in statistics to estimate it.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Expectation of sum
+\[E[X_1 + X_2 + \cdots + X_n] = E[X_1] + E[X_2] + \cdots + E[X_n]\]
+
+
+$X_1, X_2, \ldots, X_n$ are independent $\Longrightarrow$ \red{$\not\Longleftarrow$}
+\[E[X_1  X_2  \cdots  X_n] = E[X_1]  E[X_2]  \cdots  E[X_n]\]
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Covariance and correlation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Covariance}
+\begin{defn}
+\hl{Covariance} of two random variables $X$ and $Y$ is defined as
+\[ Cov(X,Y) = E[ (X-E[X]) (Y-E[Y]) ] \]
+\end{defn}
+\begin{itemize}
+\item Simplification
+\begin{align*}
+    Cov(X,Y)  &= E[ (X-\mu_X) (Y-\mu_Y) ]\\
+             &= E[ XY+\mu_X\mu_Y-X\mu_Y-Y\mu_X]) \\
+             &= E[XY]-\mu_X\mu_Y \\
+\end{align*}
+\vspace{-0.7cm}
+\item Recall
+\begin{align*}
+    E[XY]  &= \int\int xy ~f(x, y) ~dx~dy ~~ \text{ if continuous }\\
+             &= \sum_x \sum_y xy~ f(x, y)~~ \text{ if discrete }
+\end{align*}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Properties of $Cov(X,Y) = E[XY]- E[X]E[Y]$}
+\begin{itemize}
+\item $Cov(X,Y) = Cov(Y, X)$
+
+\item $Cov(X,c) = 0$
+
+\item $Cov(X,X) = Var(X)$
+
+\item $Cov(aX,bY) = ab~Cov(X,Y)$
+
+%\invisible{
+\vspace{-0.5cm}
+\begin{align*}
+Cov(aX,bY) & = E[abXY] - E[aX]E[bY] \\
+	& = ab~E[XY] - ab~E[X]E[Y]
+\end{align*}
+%}
+
+
+
+\item
+$Cov(X+a,Y+b) = Cov(X,Y)$
+%\invisible{
+
+\vspace{-0.5cm}
+\begin{align*}
+Cov(X + a,Y+b) = & E[(X+a)(Y+b)] - E[X+a]E[Y+b] \\
+	= & ~E[XY + aY + bX + ab] \\
+	& - (E[X] + a) (E(Y)+b)\\
+	= & ~E[XY] + E[aY] + E[bX] + ab \\
+	& - E[X]E[Y] - a~E[Y] -b~E[X] - ab \\
+	= & ~E[XY]- E[X]E[Y]
+\end{align*}
+%}
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Covariance of sums of random variables}
+\[Cov\left(\sum_{i=1}^n X_i, \sum_{j = 1}^m Y_j  \right) = \sum_{i=1}^n \sum_{j = 1}^m Cov\left(X_i, Y_j  \right)\]
+
+A special case
+\[Var\left(\sum_{i=1}^n X_i \right) = \sum_{i=1}^n Var(X_i) + 2\sum_{1 \leq i < j \leq n} Cov(X_i, X_j)\]
+
+Some more special cases
+\begin{align*}
+Var(X+Y) &= Var(X)+Var(Y)+2Cov(X,Y)\\
+Var(X-Y) &= Var(X)+Var(Y)-2Cov(X,Y)\\
+\end{align*}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{}
+\cl{Suppose $Z_1$ and $Z_2$ are two standard normal random variables. Let
+\[X = Z_1 + Z_2, ~ Y = Z_1 - Z_2\]
+Find $Cov(X, Y)$.
+}
+
+\pause
+{\small{
+Method 1.
+\begin{align*}
+Cov(X, Y) & = Cov(Z_1 + Z_2, Z_1 - Z_2)\\
+	& = Cov(Z_1, Z_1) + Cov(Z_2, Z_1) + Cov(Z_1, - Z_2) + Cov(Z_2, -Z_2)\\
+	& = Cov(Z_1, Z_1) + Cov(Z_2, Z_1) - Cov(Z_1,  Z_2) - Cov(Z_2, Z_2)\\
+	& = Var(Z_1) - Var(Z_2) = 0
+\end{align*}
+\pause
+Method 2.
+\begin{align*}
+E[XY] & = E[Z_1^2 - Z_2^2] = E[Z_1^2] - E[Z_2^2] = 0 \\
+E[X]   & = E[Z_1] + E[Z_2] = 0, ~ E[Y] = E[Z_1] - E[Z_2] =0
+\end{align*}
+}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Zero covariance and independence}
+
+\begin{itemize}
+\item $X$ and $Y$ are independent $ \Longrightarrow$ $Cov(X,Y) = 0$
+
+\[ Cov(X,Y) = E[XY]- E[X]E[Y] = E[X]E[Y] - E[X]E[Y] = 0\] 
+\item $X_1, X_2, \ldots, X_n$ are independent $ \Longrightarrow$
+\[Var\left(\sum_{i=1}^n X_i \right) = \sum_{i=1}^n Var(X_i)\]
+
+\item $Cov(X,Y) = 0 \not\Longrightarrow$  $X$ and $Y$ are independent\\
+Counter example?
+
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Distribution of a function of a discrete random variable}
+
+\cl{Let $X_1, \ldots, X_n$ be independent random variables having the same variance $\sigma^2$, and
+\[\bar{X} = \frac{1}{n} \sum_{i = 1}^n X_i\]
+Find $Var(\bar{X})$.
+}
+
+
+%\invisible{
+
+\pause
+\begin{align*}
+Var(\bar{X}) & = \frac{1}{n^2} Var\left( \sum_{i = 1}^n X_i \right) \\
+& = \frac{1}{n^2} \left[ \sum_{i = 1}^n Var(X_i) \right] \\
+& = \frac{1}{n^2} \left( n \sigma^2 \right) = \frac{\sigma^2}{n}\\
+\end{align*}
+
+
+%}
+
+
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Correlation}
+
+Since $Cov(X,Y)$ depends on the magnitude of $X$ and $Y$ we would prefer to have a measure of association that is not effected by arbitrary changes in the scales of the random variables.\\
+
+\begin{defn}
+The most common measure of \emph{linear} association is \hl{correlation} which is defined as
+\[ \rho(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)}~\sqrt{Var(Y)}}  \]
+\end{defn}
+
+\begin{itemize}
+\item range: $-1 \leq \rho(X,Y) \leq 1 $
+\item the magnitude (i.e.\ absolute value) of the $\rho(X,Y)$ measures the strength of the \emph{linear} association
+\item the sign determines if it is a positive or negative relationship.
+\item if $\rho(X, Y) = 0$, then $X$ and $Y$ are said to be uncorrelated.
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Correlation}
+
+\vfill
+
+\begin{center}
+\includegraphics[width=\textwidth]{figures/corr.png}
+\end{center}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\cl{Find the value of $b$ in $Y = a + bX$ such that $\rho(X, Y) = 1$. What about $\rho(X, Y) = -1$?}
+\pause
+\begin{eqnarray*}
+\rho(X, a + bX) &=& \frac{Cov(X, a + bX)}{\sqrt{Var(X)}\sqrt{Var(a + bX)}} \\
+&=&
+\frac{bVar(X)}{\sqrt{Var(X)}\sqrt{b^2Var(X)}} \\
+&=& \frac{bVar(X)}{|b|Var(X)}
+\end{eqnarray*}
+\pause
+\begin{itemize}
+\item When $b > 0$, $\rho(X, a + bX) = \rho(X, Y) = 1$
+\item When $b < 0$, $\rho(X, a + bX) = \rho(X, Y) = -1$
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conditional expectation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Conditional expectation}
+\begin{itemize}
+\item The discrete case: for all $p_Y(y) > 0$
+\begin{itemize}
+\item Conditional pmf: $p_{X \mid Y}(x \mid y) = P\{X = x \mid  Y = y\} = \frac{p(x, y)}{p_Y(y)}$
+{\small{
+\begin{block}{Definition}
+The conditional expectation of $X$ given that $Y = y$ is
+$$E[X \mid Y = y] = \sum_x xP\{X = x \mid  Y = y\} = \sum_x xp_{X \mid Y}(x \mid y)$$
+\end{block}
+}}
+\end{itemize}
+
+\item The continuous case: for all $f_Y(y) > 0$
+\begin{itemize}
+\item Conditional pdf: $f_{X \mid Y}(x \mid y) = \frac{f(x, y)}{f_Y(y)}$
+{\small{
+\begin{block}{Definition}
+The conditional expectation of $X$ given that $Y = y$ is
+$$E[X \mid Y = y] = \int_{-\infty}^{\infty}xf_{X \mid Y}(x \mid y)dx$$
+\end{block}
+}}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Properties of expectations remain}
+\begin{itemize}
+\item Expectation of a function of a random variable
+\begin{itemize}
+\item The discrete case:
+$$E[g(X) \mid Y = y] = \sum_x g(x)p_{X \mid Y}(x \mid y)$$
+\item The continuous case:
+$$E[g(X) \mid Y = y] = \int_{-\infty}^{\infty}g(x)f_{X \mid Y}(x \mid y)dx$$
+\end{itemize}
+
+\vspace{2mm}
+\item Expectation of sum of random variables
+$$E[\sum_{i=1}^n X_i \mid Y = y] = \sum_{i=1}^n E[X_i \mid Y = y]$$
+\vspace{2mm}
+
+\item Think about the condition $Y = y$ as taking expectation of $X$ on a reduced sample space consisting only of outcomes for which $Y = y$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Computing expectations by conditioning}
+$$E[X] = E[E[X\mid Y]]$$
+\begin{itemize}
+\item A very important property of conditional expectation
+\item Think of $E[X|Y]$ as a random variable (when $Y = y$)
+\item The discrete case:
+$$E[X] = \sum_y E[X\mid Y = y]P\{Y = y\}$$
+\item Intuition:
+\begin{itemize}
+\item $E[E[X\mid Y]]$ is a weighted average of $E[X\mid Y]$, where weights are $P\{Y = y\}$ (the probability of the condition)
+\item Similar to the ``law of total probability" $P(E) = \sum_{i=1}^n P(E\mid F_i)P(F_i)$
+\end{itemize}
+\vspace{2mm}
+
+\item The continuous case:
+$$E[X] = \int_{-\infty}^{\infty}E[X\mid Y = y]f_Y(y)dy$$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Computing probabilities by conditioning}
+\begin{itemize}
+\item Let $E$ denote an arbitrary event, and define the indicator random variable $X$ as
+\[ X = \begin{cases}
+    1& \text{if $E$ occurs } \\
+    0         & \text{if $E$ does not occur}
+\end{cases}
+ \]
+\item Then $E[X] = P(E), E[X \mid Y = y] = P(E \mid Y = y)$ for any random variable $Y$
+\vspace{2mm}
+\item The discrete case:
+$$P(E) = \sum_yP(E|Y = y)p(Y = y)$$
+related to $P(E) = \sum_{i=1}^nP(E|F_i)P(F_i)$
+\vspace{2mm}
+
+\item The continuous case:
+$$P(E) = \int_{-\infty}^{\infty}P(E \mid Y = y)f_Y(y)dy$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Conditional variance}
+\begin{itemize}
+\item Similarly to the conditional expectation, we can define the conditional variance of $X$ given that $Y = y$
+\begin{block}{Definition}
+$$Var(X \mid Y = y) = E[(X - E[X \mid Y = y])^2  \mid  Y = y]$$
+\end{block}
+\item A very useful conditional variance formula
+$$Var(X) = E[Var(X \mid Y)] + Var(E[X \mid Y])$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\cl{Type $i$ light bulbs function for a random amount of time having mean $\mu_i$ and standard deviation $\sigma_i$, $i = 1, 2$. A light bulb randomly chosen from a bin of bulbs is a type 1 bulb with probability $p$ and a type 2 bulb with probability $1 - p$. Let $X$ denote the lifetime of this bulb. Find (a) $E[X]$ (b) $Var(X)$.}
+\pause
+Let $Y$ be the type of light bulb chosen. $Y = 1$ for choosing type 1 and $Y = 2$ for choosing type 2.
+\pause
+\begin{itemize}
+\item The mean is $E[X] = E[E[X \mid Y]] = \mu_1 p + \mu_2 (1 - p)$
+\pause
+\item The variance is
+{\small{
+\begin{eqnarray*}
+Var(X) &=& E[Var(X \mid Y)] + Var(E[X \mid Y])\\
+\pause
+&=&
+ E[Var(X \mid Y)] + E[(E[X \mid Y])^2] - (E[E[X \mid Y]])^2\\
+\pause
+&=&
+\sigma_1^2 p + \sigma_2^2 (1 - p) + \mu_1^2 p + \mu_2^2 (1 - p) - (\mu_1 p + \mu_2(1 - p))^2
+\end{eqnarray*}
+}}
+\end{itemize}
+\end{frame}
+
+\end{document}

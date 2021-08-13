@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 11}	\\
+Due: Sunday 5/16 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+    Chapter 7 Problem 4
+    
+    If $X$ and $Y$ have joint density function 
+    
+     \begin{equation*}
+    f_{X, Y}(x, y) =
+    \begin{cases}
+      1/y, & \text{if $0 < y < 1, 0 < x < y$} \\
+      0, & \text{otherwise}
+    \end{cases}
+  \end{equation*}
+  find
+  
+  \begin{itemize}
+  \item[(a)] $E[XY]$
+  \item[(b)] $E[X]$
+  \item[(c)] $E[Y]$
+  \end{itemize}
+  
+  
+    \item
+    Chapter 7 Problem 7
+    
+    Suppose that $A$ and $B$ each randomly and independently choose 3 of 10 objects. Find the expected number of objects
+    
+    \begin{itemize}
+    \item[(a)] chosen by both $A$ and $B$;
+    \item[(b)] not chosen by either $A$ or $B$;
+    \item[(c)] chosen by exactly one of $A$ and $B$. 
+    \end{itemize}
+
+    \item
+    Chapter 7 Problem 30
+    
+    If $X$ and $Y$ are independent, and identically distributed with mean $\mu$ and variance $\sigma^2$, find
+    
+    $$
+    E[(X - Y)^2]
+    $$
+
+    \item
+    Chapter 7 Problem 33
+    
+    If $E[X] = 1$ and $Var(X) = 5$, find
+    
+    \begin{itemize}
+    \item[(a)] $E[(2 + X)^2]$;
+    \item[(b)] $Var(4 + 3X)$.
+    \end{itemize}
+
+    \item
+    Chapter 7 Problem 36
+    
+    Let $X$ be the number of 1's and $Y$ the number of 2's that occur in $n$ rolls of a fair die. Compute $Cov(X, Y)$.
+
+    \item
+    Chapter 7 Problem 38
+    
+    The random variables $X$ and $Y$ have a joint density function given by
+    
+     \begin{equation*}
+    f(x, y) =
+    \begin{cases}
+      2 e^{-2x}/x, & 0 \leq x < \infty, 0 \leq y \leq x \\
+      0, & \text{otherwise}
+    \end{cases}
+  \end{equation*}
+  
+  Compute $Cov(X, Y)$.
+
+    \item
+    Chapter 7 Problem 53
+    
+    A prisoner is trapped in a cell containing 3 doors. The first door leads to a tunnel that returns him to his cell after 2 days' travel. The second door leads to a tunnel that returns him to his cell after 4 days' travel. The third door leads to freedom after 1 day of travel. If it is assumed that the prisoner will always select doors 1, 2, and 3 with respective probabilities 0.5, 0.3, and 0.2, what is the expected number of days until the prisoner reaches freedom?
+
+    \item
+    Chapter 7 Problem 65
+    
+    The number of winter storms in a good year is a Poisson random variable with mean 3, whereas the number in a bad year is Poisson random variable with mean 5. If next year will be a good year with probability 0.4 or a bad year with probability 0.6, find the expected value and variance of the number of storms that will occur. 
+
+
+%    \item Theoretical exercise 13
+
+%    \item Theoretical exercise 20
+%
+%    \item Theoretical exercise 29
+%
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 7 Problems: 6, 31, 37, 39, 45
+\item Textbook  Chapter 7 Theoretical exercise: 13, 20, 29
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

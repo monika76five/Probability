@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Monika (Jingchen) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 7}	\\
+Due: Sunday 4/18 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+    Chapter 5 Problem 1
+    
+    Let $X$ be a random variable with probability density function
+     
+   \begin{align*}
+   f(x) &= \begin{cases}
+   c (1 - x^2)& \text{if $-1 \leq x \leq 1$} \\
+   0 & \text{otherwise}
+   \end{cases}
+   \end{align*}
+   
+   \begin{itemize}
+   \item[(a)] What is the value of $c$?
+   \item[(b)] What is the cumulative distribution function of $X$?
+   \end{itemize}
+   
+    \item
+    Chapter 5 Problem 2
+    
+    A system consisting of one original unit plus a spare can function for a random amount of time $X$. If the density of $X$ is given (in units of months) by
+    
+   \begin{align*}
+   f(x) &= \begin{cases}
+   C x e^{-x/2} & x > 0\\
+   0 & x \leq 0
+   \end{cases}
+   \end{align*}
+   what is the probability that the system functions for at least 5 months?
+   
+    \item
+    Chapter 5 Problem  6
+    
+    Compute $E[X]$ if $X$ has a density function given by
+    
+    \begin{itemize}
+    \item[(a)] 
+    
+    \begin{align*}
+   f(x) &= \begin{cases}
+   \frac{1}{4}x e^{-x/2}& x > 0 \\
+   0 & \text{otherwise}
+   \end{cases}
+   \end{align*}
+   
+   \item[(b)] 
+   
+   \begin{align*}
+   f(x) &= \begin{cases}
+   c (1 - x^2)& \text{if $-1 \leq x \leq 1$} \\
+   0 & \text{otherwise}
+   \end{cases}
+   \end{align*}
+   
+   \item[(c)]
+   
+   \begin{align*}
+   f(x) &= \begin{cases}
+   \frac{5}{x^2} & x > 5 \\
+   0 & x \leq 5
+   \end{cases}
+   \end{align*}
+   
+   
+    \end{itemize}
+
+    \item
+    Chapter 5 Problem 10
+    
+    Trains headed for destination $A$ arrive at the train station at 15-minute intervals starting at 7 A.M., whereas trains headed for destination $B$ arrive at 15-minute intervals starting at 7:05 A.M.
+    
+    \begin{itemize}
+    \item[(a)] If a certain passenger arrives at the station at a time uniformly distributed between 7 and 8 A.M. and then gets on the first train that arrives, what proportion of time does he or she go to destination $A$?
+    
+    \item[(b)] What if the passenger arrives at a time uniformly distributed between 7:10 and 8:10 A.M.?
+    \end{itemize}
+    
+
+    \item
+    Chapter 5 Problem 14
+    
+    Let $X$ be a uniform(0, 1) random variable. Compute $E[X^n]$ by using Proposition 2.1, and check the result by using the definition of expectation. 
+    
+    Proposition 2.1 is on textbook page 181: If $X$ is a continuous random variable with probability density function $f(x)$, then, for any real-valued function $g$, 
+    $$
+    E[g(X)] = \int_{-\infty}^{\infty}g(x)f(x)dx
+    $$
+
+   
+    \item 
+    Chapter 5 Theoretical exercise 2
+    
+    Show that
+    $$
+    E[Y] = \int_{0}^{\infty} P\{Y > y\} dy - \int_{0}^{\infty}P\{Y < -y\}dy
+    $$
+
+    Hint: Show that
+    $$
+    \int_0^{\infty}P\{Y < -y\}dy = - \int_{-\infty}^{0} x f_Y(x)dx
+    $$
+    
+    $$
+    \int_0^{\infty}P\{Y > y\} dy = \int_{0}^{\infty} x f_Y(x)dx
+    $$
+    
+    \item 
+    Chapter 5 Theoretical exercise 4
+    
+    Prove Corollary 2.1: $$E[aX+b] = aE[X] + b$$
+
+    \item 
+    Chapter 5 Theoretical exercise 7
+    
+    The standard deviation of $X$, denoted $SD(X)$, is given by
+    $$
+    SD(X) = \sqrt{Var(X)}
+    $$
+    Find $SD(aX+b)$ if $X$ has variance $\sigma^2$.
+    
+   
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 5 Problems: 3-5, 7-8, 11-13
+\item Textbook  Chapter 5 Theoretical exercise: 1
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

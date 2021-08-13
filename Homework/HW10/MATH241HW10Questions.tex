@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 10}	\\
+Due: Sunday 5/9 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+
+{\bf Note that for Problem 28 and Problem 48, read textbook section 5.5 on exponential random variables before proceeding.}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+    Chapter 6 Problem 28
+    
+    The time that it takes to service a car is an exponential random variable with rate 1.
+    
+    \begin{itemize}
+    \item[(a)] If A.J. brings his car in at time 0 and M.J. brings her car in at time $t$, what is the probability that M.J.'s car is ready before A.J.'s car? (Assume that service times are independent and service begins upon arrival of the car.)
+    \item[(b)] If both cars are brought in at time 0, with work starting on M.J.'s car only when A.J.'s car has been completely serviced, what is the probability that M.J.'s car is ready before time 2?
+    \end{itemize}
+    
+    \item
+    Chapter 6 Problem  29
+    
+    The gross weekly sales at a certain restaurant are a normal random variable with mean \$2200 and standard deviation \$230. What is the probability that
+    
+    \begin{itemize}
+    \item[(a)] the total gross sales over the next 2 weeks exceeds \$5000;
+    \item[(b)] weekly sales exceed \$2000 in at least 2 of the next 3 weeks?
+    \end{itemize}
+    What independence assumptions have you made?
+
+    \item
+    Chapter 6 Problem  30
+    
+    Jill's bowling scores are approximately normally distributed with mean 170 and standard deviation 20, while Jack's scores are approximately normally distributed with mean 160 and standard deviation 15. If Jack and Jill each bowl one game, then assuming that their scores are independent random variables, approximate the probability that
+    
+    \begin{itemize}
+    \item[(a)] Jack's score is higher;
+    \item[(b)] the total of their scores is above 350.
+    \end{itemize}
+    
+    \item 
+    Chapter 6 Problem 39
+    
+    Two dice are rolled. Let $X$ and $Y$ denote, respectively, the largest and smallest values obtained. Compute the conditional mass function of $Y$ given $X = i$, for $i = 1, \cdots, 6$. Are $X$ and $Y$ independent? Why?
+    
+    \item 
+    Chapter 6 Problem 41
+    
+    The joint density function of $X$ and $Y$ is given by
+    
+    $$
+    f(x, y) = xe^{-x(y+1)}, x > 0, y > 0
+    $$
+    
+    \begin{itemize}
+    \item[(a)] Find the conditional density of $X$, given $Y = y$, and that of $Y$, given $X = x$.
+    \item[(b)] Find the density function of $Z = XY$.
+    \end{itemize}
+    
+    \item 
+    Chapter 6 Problem 48
+    
+    If $X_1, X_2, X_3, X_4, X_5$ are independent and identically distributed exponential random variables with the parameter $\lambda$, compute
+    
+    \begin{itemize}
+    \item[(a)] $P\{\textrm{min}(X_1, \cdots, X_5) \leq a\}$;
+    \item[(b)] $P\{\textrm{max}(X_1, \cdots, X_5) \leq a\}$.
+    \end{itemize}
+
+%    \item Theoretical exercise 13
+
+%    \item Theoretical exercise 20
+%
+%    \item Theoretical exercise 29
+%
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 6 Problems: 31-38, 40, 42-47
+%\item Textbook  Chapter 5 Theoretical exercise: 12, 14, 15, 18, 27, 30-31
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

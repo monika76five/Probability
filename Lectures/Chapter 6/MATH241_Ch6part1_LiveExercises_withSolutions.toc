@@ -1,0 +1,3 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Joint distribution}{3}{0}{1}
+\beamer@sectionintoc {2}{Independent random variables}{49}{0}{2}

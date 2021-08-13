@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Monika (Jingchen) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 8}	\\
+Due: Sunday 4/25 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item
+    Chapter 5 Problem 15
+    
+    If $X$ is a normal random variable with parameters $\mu = 10$ and $\sigma^2 = 36$, compute
+    
+    \begin{itemize}
+    \item[(a)] $P\{X > 5\}$;
+    \item[(b)] $P\{4 < X < 16\}$;
+    \item[(c)] $P\{X < 8\}$;
+    \item[(d)] $P\{X < 20\}$;
+    \item[(e)] $P\{X > 16\}$.
+    \end{itemize}
+    
+    \item
+    Chapter 5 Problem 16
+    
+    The annual rainfall (in inches) in a certain region is normally distributed with $\mu = 40$ and $\sigma = 4$. What is the probability that starting with this year, it will take more than 10 years before a year occurs having a rainfall of more than 50 inches? What assumptions are you making?
+
+    \item
+    Chapter 5 Problem  18
+    
+    Suppose that $X$ is a normal random variable with mean 5. If $P\{X > 9\} = 0.2$, approximately what is $Var(X)$? 
+    
+    \item 
+    Chapter 5 Problem 20
+    
+    If 65 percent of the population of a large community is in favor of a proposed rise in school taxes, approximate the probability that a random sample of 100 people will contain
+    
+    \begin{itemize}
+    \item[(a)] at least 50 who are in favor of the proposition;
+    \item[(b)] between 60 and 70 inclusive who are in favor;
+    \item[(c)] fewer than 75 in favor.
+    \end{itemize}
+    
+    \item
+    Chapter 5 Problem 23
+    
+    One thousand independent rolls of a fair die will be made. Compute an approximation to the probability that the number 6 will appear between 150 and 200 times inclusively. If the number 6 appears exactly 200 times, find the probability that the number 5 will appear less than 150 times.
+    
+    \item 
+    Chapter 5 Problem 28
+    
+    Twelve percent of the population is left handed. Approximate the probability that there are at least 20 left-handers in a school fo 200 students. State your assumptions.
+    
+    \item 
+    Chapter 5 Problem 37
+    
+    If $X$ is uniformly distributed over (-1, 1), find
+    
+    \begin{itemize}
+    \item[(a)] $P\{|X| > \frac{1}{2}\}$;
+    \item[(b)] the density function of the random variable $|X|$.
+    \end{itemize}
+    
+    \item 
+    Chapter 5 Problem 39
+    
+    If $X$ is an exponential random variable with parameter $\lambda = 1$, compute the probability density function of the random variable $Y$ defined by $Y = \log X$. Note that the pdf of an exponential random variable with rate $\lambda > 0$ is: $f(x) = \lambda e^{-\lambda x}, x > 0$.
+    
+    \item 
+    Chapter 5 Problem 40
+    
+    If $X$ is uniformly distributed over (0, 1), find the density function of $Y = e^X$.
+    
+
+    \item 
+    Chapter 5 Theoretical exercise 13 (only part a and b)
+    
+    The median of a continuous random variable having distribution function $F$ is that value $m$ such that $F(m) = \frac{1}{2}$. That is, a random variable is just as likely to be larger than its median as it is to be smaller. Find the median of $X$ if $X$ is
+    
+    \begin{itemize}
+    \item[(a)] uniformly distributed over (a, b);
+    \item[(b)] normal with parameters $\mu, \sigma^2$;
+    \end{itemize}
+    
+    \item 
+    
+    Chapter 5 Theoretical exercise 29
+    
+    Let $X$ be a continuous random variable having cumulative distribution function $F$. Define the random variable $Y$ by $Y = F(X)$. Show that $Y$ is uniformly distributed over (0, 1).
+    
+    
+
+
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 5 Problems: 17, 19, 21, 24-27, 29-30, 22, 41-42
+\item Textbook  Chapter 5 Theoretical exercise: 9, 10, 12, 14, 15, 18, 27, 30-31
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

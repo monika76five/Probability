@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Chapter 6 part 1 Live Exercises}	\\
+\end{center}
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Use joint cdf $F(x, y)$ to represent $P(x_1 < X \leq x_2, y_1 < Y \leq y_2)$. Show your reasoning.
+
+\begin{enumerate}[(a)]
+\item $F(x_2, y_2) + F(x_1, y_1) - F(x_1, y_2) - F(x_2, y_1)$
+\item $F(x_2, y_2) - F(x_1, y_1) - F(x_1, y_2) - F(x_2, y_1)$
+\item $F(x_2, y_2) - F(x_1, y_1)$
+\item none of the above
+\end{enumerate}
+
+\item Draw two socks at random, without replacement, from a drawer full of twelve colored socks:
+6 black, 4 white, 2 purple. Let $B$ be the number of Black socks, $W$ the number of White socks drawn. Find the pmf for white socks given no black socks were drawn.
+
+\item Which of the following can be obtained if the joint pdf $f_{X, Y}(x, y)$ is known? Show your reasoning.
+
+\begin{enumerate}[(a)]
+\item Joint cdf $F_{X, Y}(x, y)$
+\item Marginal cdf's $F_X(x), F_Y(y)$.
+\item Expected values $E[X], E[Y]$.
+\item all above
+\end{enumerate}
+
+\item Let $X$ have a Bin$(n, p)$ distribution. What's the pmf of $Y = 2X$? Show your reasoning.
+
+\begin{enumerate}[(a)]
+\item $f_Y(y) = {2n \choose y}(2p)^y (1-2p)^{2n - y}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+\item $f_Y(y) = {2n \choose y}p^y (1-p)^{2n - y}$ for any $y \in \{0, 1, 2, \ldots, 2n\}$
+\item $f_Y(y) = {n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+\item $f_Y(y) = \frac{1}{2}{n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+\end{enumerate}
+
+
+\item Let X and Y have the following joint pdf
+\[ f(x,y) = \begin{cases}
+    \frac{2}{9} & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+    0           & \text{otherwise}
+\end{cases}
+ \]
+Find the marginal pdf of $Y$.
+
+\item Let $f(x,y) = c x^2 y$ for $x^2 \leq y \leq 1$. Find:
+\begin{enumerate}[(a)]
+\item $c$
+\item $P[ X \geq Y ]$
+\item $f_X(x)$ and $f_Y(y)$
+\end{enumerate}
+
+
+\item Let X and Y be drawn uniformly from the triangle below, i.e., their
+joint pdf is
+\[ f(x,y) = \begin{cases}
+    \frac{2}{9} & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+    0           & \text{otherwise}
+\end{cases}
+ \]
+Are they independent? Why? Show your work.
+
+\end{enumerate}
+
+
+\end{document} 

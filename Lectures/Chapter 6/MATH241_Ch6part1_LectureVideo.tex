@@ -1,0 +1,759 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 6 part 1]{Chapter 6 part 1}
+\subtitle{Jointly Distributed Random Variables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%?%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+
+\begin{document}
+
+%\begin{frame}%[plain]
+%\includegraphics[width = \textwidth]{figures/2015DukeNCAA}
+%\end{frame}
+%
+%{ % all template changes are local to this group.
+%\addtocounter{framenumber}{-1}
+%    \setbeamertemplate{navigation symbols}{}
+%    \begin{frame}[plain]
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \node[at=(current page.center)] {
+%                \includegraphics[width=1.25\paperwidth]{figures/2015DukeNCAA}
+%            };
+%        \end{tikzpicture}
+%     \end{frame}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%%\item HW7: \red{due now!}
+%\item HW8: \red{due Tuesday, Nov 20th}
+%
+%
+%\vspace{0.5cm}
+%\item Course evaluation open tomorrow.
+%  \begin{itemize}
+%  \item Activate between 11/14 - 12/3.
+%  \item If response rate $\geq 80\%$, drop the lowest quiz.
+%  \end{itemize}
+%
+%\vspace{0.5cm}
+%\item Next quiz: Tuesday, Nov 18th\\
+%  \begin{itemize}
+%  \item Topic: function of a continuous random variable, i.e., find $f_Y(y)$ where $Y = g(X)$.
+%  %\item To prepare: do homework questions in Chapter 5: 37, 39, 40, TE29
+%  \end{itemize}
+%
+%
+%%\item Midterm: Tuesday, Feb 25th
+%%\begin{itemize}
+%%\item Close book, in class exam (75 min)
+%%\item ONE page cheat sheet {\bf made by yourself} (A4 size)
+%%\item Calculators are allowed, but not cell phones, tablets or laptops
+%%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Outline}
+%\tableofcontents[hideallsubsections,pausections]
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Recap}
+%
+%Distribution (pdf) of a function of a continuous random variable $X$: if function $g(x)$ is
+%\begin{enumerate}
+%\item monotonic,
+%\item differentiable,
+%\end{enumerate}
+%\pause
+%on the range of $X$, then the random variable defined by $Y = g(X)$ has pdf
+%\[ f_Y ( y ) = f_X( x )  \left|\frac{dx}{dy}\right| \]
+%
+%\pause
+%\begin{itemize}
+%\item When conditions are not satisfied, \pause
+%  \begin{enumerate}[(1)]
+%  \item  Identify the range of $Y$. \pause
+%  \item Find cdf $F_Y(y)$ as a function of $F_X(\cdot)$, for any $y$ in the range of $Y$. \pause
+%  \item Take derivative to get $f_Y(y)$. \pause
+%  \item Note that for any $y$ not in the range of $Y$, $f_Y(y) = 0$.
+%  \end{enumerate}
+%\end{itemize}
+%
+%\end{frame}
+%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Joint distribution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Joint cdf}
+
+\begin{defn}
+We have a pair of random variables (either discrete or continuous) $X$ and $Y$.
+The \hl{joint cumulative probability distribution function} of $X$ and $Y$ is defined by
+\vspace{-0.3cm}
+\begin{align*}
+F_{X, Y}(x,y) &= P[ X \leq x, Y \leq y ] \\
+\uncover<2->{       &= P[ (X,Y)\text{ lies south-west of the point }(x,y) ]}
+\end{align*}
+\end{defn}
+
+\uncover<2->{
+\vspace{-0.7cm}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/cdf.pdf}
+\end{center}
+}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Properties of joint cdf}
+
+\begin{itemize}
+\item For one random variable: marginal cdf
+\[ F_X(x) =   F_{X, Y}(x, \infty)\]
+\[ F_X(x) = P(X \leq x) = P(X \leq x, Y \leq \infty) =  F_{X, Y}(x, \infty)\]
+\pause
+\[ F_Y(y) =   F_{X, Y}(\infty, y)\]
+\[ F_Y(y) = P(Y \leq y) = P(X \leq \infty, Y \leq y) =  F_{X, Y}(\infty, y)\]
+
+\pause
+\item Joint probabilities
+\[ P(X > x, Y > y) = 1 - F_X(x) - F_Y(y) + F_{X, Y}(x, y)\]
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Joint distribution of two discrete random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Example: two discrete random variables}
+
+\disc{Draw two socks at random, without replacement, from a drawer full of twelve colored socks:
+\vspace{-0.3cm}
+\begin{center}
+6 black, 4 white, 2 purple
+\end{center}
+Let $B$ be the number of Black socks, $W$ the number of White socks drawn.
+}
+Then the distributions of $B$ and $W$ are given by:
+
+\uncover<2->{
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{c|c|c|c|}
+       & 0                                           &1                                            & 2                                           \\
+\hline
+P(B=k) & \uncover<3->{$\frac{6}{12} \cdot\frac{5}{11} = \frac{15}{66}$}  &  \uncover<4->{$2\cdot\frac{6}{12} \cdot\frac{6}{11} = \frac{36}{66}$} &  \uncover<5->{$\frac{6}{12}\cdot \frac{5}{11} = \frac{15}{66}$} \\
+\hline
+P(W=k) &\uncover<6->{$\frac{8}{12} \cdot\frac{7}{11} = \frac{28}{66}$} &  \uncover<7->{$2\cdot\frac{4}{12}\cdot \frac{8}{11} = \frac{32}{66}$} & \uncover<8->{$\frac{4}{12} \cdot\frac{3}{11} = \frac{6}{66}$}  \\
+\hline
+\end{tabular}
+\end{center}
+
+\uncover<9->{\footnotesize
+Note - $P(B=k)  = \frac{ {6 \choose k} {6 \choose 2-k} }{ {12 \choose 2} }$ and $P(W=k) = \frac{ {4 \choose k} {8 \choose 2-k} }{ {12 \choose 2} }$}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{Joint Distribution - Example, cont.}
+\disc{Draw two socks at random, without replacement, from a drawer full of twelve colored socks:
+6 black, 4 white, 2 purple.
+Let $B$ be the number of Black socks, $W$ the number of White socks drawn.
+}
+
+The \hl{joint distribution} is given by: $p_{B, W}(b, w) = P(B=b,W=w) $
+
+\twocol{0.4}{0.6}{
+\vspace{-5mm}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{cc|c|c|c|c}
+\multicolumn{2}{c}{} & \multicolumn{3}{c}{W} & \multicolumn{1}{c}{} \\
+  &       & 0               & 1               & 2              &                 \\ \cline{2-6}
+  & ~~0~~ &  \uncover<2->{$\frac{1}{66}$}  &  \uncover<3->{$\frac{8}{66}$}  &  \uncover<4->{$\frac{6}{66}$} & \uncover<11->{$\frac{15}{66}$} \\ \cline{2-6}
+B & ~~1~~ & \uncover<5->{$\frac{12}{66}$} & \uncover<6->{$\frac{24}{66}$} & \uncover<7->{$0$}            & \uncover<11->{$\frac{36}{66}$} \\ \cline{2-6}
+  & ~~2~~ & \uncover<8->{$\frac{15}{66}$} & \uncover<9->{$0$}             & \uncover<9->{$0$}            & \uncover<11->{$\frac{15}{66}$} \\ \cline{2-6}
+  &       & \uncover<12->{$\frac{28}{66}$} & \uncover<12->{$\frac{32}{66}$} & \uncover<12->{$\frac{6}{66}$} &  \\
+\end{tabular}
+\end{center}
+
+}{
+\vspace{5mm}
+{\scriptsize
+\[ P(B=b,W=w) = \begin{cases}
+  \uncover<2->{1/66 & \text{If b=0,w=0}\\}
+  \uncover<3->{8/66 & \text{If b=0,w=1}\\}
+  \uncover<4->{6/66 & \text{If b=0,w=2}\\}
+ \uncover<5->{12/66 & \text{If b=1,w=0}\\}
+ \uncover<6->{24/66 & \text{If b=1,w=1}\\}
+  %\uncover<7->{0/66 & \text{If b=1,w=2}\\}
+ \uncover<8->{15/66 & \text{If b=2,w=0}}
+  %\uncover<9->{0/66 & \text{If b=2,w=1}\\}
+  %\uncover<9->{0/66 & \text{If b=2,w=2}}
+\end{cases}
+\]
+}
+}
+
+\uncover<10->{\[P(B=b,W=w) = \frac{{6 \choose b}{4 \choose w}{2 \choose 2-b-w}}{ {12 \choose 2} }\text{, for $0\leq b,w\leq 2$ and $b+w\leq 2$}\]}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Marginal Distributions}
+
+Note that the column and row sums are the distributions of $B$ and $W$ respectively.
+
+{\footnotesize
+\[P(B=b) = P(B=b,W=0)+P(B=b,W=1)+P(B=b,W=2)\]
+\[P(W=w) = P(B=0,W=w)+P(B=1,W=w)+P(B=2,W=w)\]
+}
+
+\pause
+These are the \emph{marginal} distributions of $B$ and $W$. In general,
+\[ P(X=x) = \sum_y P(X=x,Y=y) = \sum_y P(X=x \mid Y=y)P(Y=y)\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Conditional Distribution}
+
+Conditional distributions are defined as we have seen previously with
+
+\[ P(X=x \mid Y=y) = \frac{P(X=x,Y=y)}{P(Y=y)} = \frac{\text{joint pmf}}{\text{marginal pmf}} \]
+
+\end{frame}
+
+%\pause
+%\cl{2. Find the pmf for white socks given no black socks were drawn.}
+%
+%\twocol{0.4}{0.6}{
+%\vspace{-8mm}
+%\begin{center}
+%\renewcommand{\arraystretch}{1.5}
+%\begin{tabular}{cc|c|c|c|c}
+%\multicolumn{2}{c}{} & \multicolumn{3}{c}{W} & \multicolumn{1}{c}{} \\
+%  &       & 0               & 1               & 2              &                 \\ \cline{2-6}
+%  & ~~0~~ & $\frac{1}{66}$  & $\frac{8}{66}$  & $\frac{6}{66}$ & $\frac{15}{66}$ \\ \cline{2-6}
+%B & ~~1~~ & $\frac{12}{66}$ & $\frac{24}{66}$ & $0$            & $\frac{36}{66}$ \\ \cline{2-6}
+%  & ~~2~~ & $\frac{15}{66}$ & $0$             & $0$            & $\frac{15}{66}$ \\ \cline{2-6}
+%  &       & $\frac{28}{66}$ & $\frac{32}{66}$ & $\frac{6}{66}$ & $\frac{66}{66}$ \\
+%\end{tabular}
+%\end{center}
+%
+%}{
+%%\invisible{
+%\pause
+%\vspace{-5mm}
+%\begin{align*}
+%& P(W=w | B=0) \\
+%= & \frac{P(W=w, B=0)}{P(B=0)}\\
+%= & \begin{cases}
+%\left.\frac{1}{66}\right/\frac{15}{66} = \frac{1}{15} &\text{if $W=0$}\\
+%\left.\frac{8}{66}\right/\frac{15}{66} = \frac{8}{15} &\text{if $W=1$}\\
+%\left.\frac{6}{66}\right/\frac{15}{66} = \frac{6}{15} &\text{if $W=2$}\\
+%\end{cases}
+%\end{align*}
+%%}
+%}
+%
+%\end{frame}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Joint distribution of two continuous random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Joint distribution of two continuous random variables}
+
+\vspace{-0.2cm}
+\begin{defn}
+Random variables $X$ and $Y$ are \hl{jointly continuous} if there exists a function $f(x, y)$ such that
+\begin{enumerate}
+%\vspace{0.2cm}
+\item Non-negative $f(x, y) \geq 0$, for any $x, y \in \mathbb{R}$, and
+%\vspace{0.2cm}
+\item $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x,y) ~dx~dy = 1$.
+\end{enumerate}
+%\vspace{0.2cm}
+$f_{X, Y}(x, y)$ is called the \hl{joint probability density function} of $X$ and $Y$.
+\end{defn}
+\vspace{-0.2cm}
+
+\begin{itemize}
+\item \pause
+For any set $C \subset \mathbb{R}^2$,
+\[ P[(X, Y) \in C] = \iint_{(x, y) \in C} f(x,y) ~dx~dy\]
+\vspace{-0.2cm}
+\item \pause
+Connection between joint pdf and joint cdf
+\vspace{-0.2cm}
+\[ F(a,b) = P(X\leq a,Y\leq b) = \int_{-\infty}^b \int_{-\infty}^a f(x,y) ~dx~dy \] \pause \vspace{-0.2cm}
+\[f(x,y) = \frac{\partial^2}{\partial x \partial y} F(x,y)\]
+
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Marginal pdfs}
+
+Marginal probability density functions are defined in terms of ``integrating out'' one of the random variables.
+
+\[ f_X(x) = \int_{-\infty}^\infty f(x,y)~dy \]
+\[ f_Y(y) = \int_{-\infty}^\infty f(x,y)~dx \]
+
+%Previously we defined independence in terms of $E(XY) = E(X)E(Y) \Rightarrow$ $X$ and $Y$ are independent. This is equivalent in the joint case of $f(x,y) = f_X(x)f_Y(y) \Rightarrow$ $X$ and $Y$ are independent.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Examples of joint distributions of continuous random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}%\frametitle{Example 1}
+
+
+\disc{Let X and Y be drawn uniformly from the triangle below. Find the joint pdf $f_{X,Y}(x,y)$.}
+
+%\frametitle{Example 2, cont.}
+
+\twocol{0.3}{0.7}
+{
+\begin{center}
+    \includegraphics[width=\textwidth]{figures/triangle2.pdf}
+\end{center}
+}
+{
+\pause
+Since the joint density is constant, then
+\[ f(x,y) = \begin{cases}
+    c 		 & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+    0         & \text{otherwise}
+\end{cases}
+ \]
+
+\pause
+Because
+\begin{align*}
+\uncover<3->{1 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x,y) ~dx~dy \\}
+\uncover<4->{&= \iint\limits_{x\geq 0, y\geq 0, x+y\leq 3} c ~dx~dy \\}
+\uncover<5->{& = c \times \text{area of the triangle} = c \times \frac{3 \times 3}{2}}
+\end{align*}
+%\pause
+\uncover<6->{Therefore, $c= \frac{2}{9}$.}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Recap}
+
+Joint cdf of two random variables $X$ and $Y$:
+\[ F_{X, Y}(x,y) = P[ X \leq x, Y \leq y ], -\infty < x, y < \infty \]
+%\vspace{-0.3cm}
+\begin{itemize}
+\item Probability of $(X, Y)$ in a rectangle
+\[P(x_1 < X \leq x_2, y_1 < Y \leq y_2)\]\[ = F(x_2, y_2) + F(x_1, y_1) - F(x_1, y_2) - F(x_2, y_1)\]
+\item Marginal cdfs
+\[ F_X(x) = F_{X, Y}(x, \infty), \quad F_Y(y) =  F_{X, Y}(\infty, y)\]
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Recap}
+
+{\bf Joint distribution of two discrete random variables}
+\begin{itemize}
+\item Joint pmf
+\[p_{X, Y}(x, y) = P(X=x,Y=y) \]
+\item Marginal pmfs
+\[p_X(x) = \sum_{y: p(x, y) > 0} p_{X, Y}(x,y), \quad p_Y(y) = \sum_{x: p(x, y) > 0} p_{X, Y}(x,y)  \]
+\end{itemize}
+
+\pause
+{\bf Joint distribution of two continuous random variables }
+\begin{itemize}
+\item Joint pdf
+  \begin{itemize}
+  \item Non-negative $f_{X, Y}(x, y) \geq 0$, for any $x, y \in \mathbb{R}$
+  \item $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x,y) ~dx~dy = 1$
+  \item For any set $C \subset \mathbb{R}^2$,
+  \[ P[(X, Y) \in C] = \iint_{(x, y) \in C} f_{X, Y}(x,y) ~dx~dy\]
+  \end{itemize}
+\item Marginal pdfs
+\[ f_X(x) = \int_{-\infty}^\infty f_{X, Y}(x,y)~dy, \quad f_Y(y) = \int_{-\infty}^\infty f_{X, Y}(x,y)~dx \]
+\end{itemize}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Distribution of a function of a discrete random variable}
+%
+%\cl{1. Let $X$ have a Bin$(n, p)$ distribution. What's the pmf of $Y = 2X$?}
+%
+%\begin{enumerate}[(a)]
+%\item $f_Y(y) = {2n \choose y}(2p)^y (1-2p)^{2n - y}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+%\item $f_Y(y) = {2n \choose y}p^y (1-p)^{2n - y}$ for any $y \in \{0, 1, 2, \ldots, 2n\}$
+%\solnMult{$f_Y(y) = {n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$}
+%\item $f_Y(y) = \frac{1}{2}{n \choose y/2}p^{\frac{y}{2}} (1-p)^{n - \frac{y}{2}}$ for any $y \in \{0, 2, 4, \ldots, 2n\}$
+%\end{enumerate}
+%
+%%\invisible{
+%\pause
+%\[ f_Y(y) = P(Y = y) = P\left(X = \frac{y}{2}\right) = f_X\left(\frac{y}{2}\right) \]
+%
+%%}
+%
+%\end{frame}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Examples of joint distributions of continuous random variable's}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}\frametitle{Example 1}
+%
+%
+%\disc{Let X and Y be drawn uniformly from the triangle below. Find joint pdf $f_{X,Y}(x,y)$ and marginal pdf $f_X(x)$.}
+%\vspace{-7mm}
+%\begin{center}
+%    \includegraphics[width=0.7\textwidth]{figures/triangle.pdf}
+%\end{center}
+%
+%Find the joint pdf, cdf, and marginals.
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%%\frametitle{Example 2, cont.}
+%
+%Since the joint density is constant, then
+%\[ f(x,y) = \begin{cases}
+%    c 		 & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+%    0         & \text{otherwise}
+%\end{cases}
+% \]
+%\twocol{0.3}{0.7}
+%{
+%\begin{center}
+%    \includegraphics[width=\textwidth]{figures/triangle2.pdf}
+%\end{center}
+%}
+%{
+%\pause
+%Because
+%\begin{align*}
+%1 & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x,y) ~dx~dy \\
+%&= \iint\limits_{x\geq 0, y\geq 0, x+y\leq 3} c ~dx~dy \\
+%& = c \times \text{area of the triangle} = c \times \frac{3 \times 3}{2}
+%\end{align*}
+%%\pause
+%Therefore,
+%\[ c= \frac{2}{9} \]
+%}
+%
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+%\frametitle{Example 1, cont.}
+\disc{Let X and Y have the following joint pdf
+\[ f(x,y) = \begin{cases}
+    \frac{2}{9} & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+    0           & \text{otherwise}
+\end{cases}
+ \]
+Find the marginal pdf $f_X(x)$.}
+\vspace{8pt}
+\twocol{0.3}{0.7}
+{
+\begin{center}
+    \includegraphics[width=\textwidth]{figures/triangle2.pdf}
+\end{center}
+}
+{
+\uncover<2->{For $x\in [0,3]$,}
+\[
+\uncover<3->{f_X(x) = \int_{-\infty}^\infty f(x,y)~dy} \uncover<4->{= \int_{0}^{\red{3-x}} \frac{2}{9}~dy} \uncover<6->{= \frac{2}{9}(3-x)}
+\]
+\uncover<5->{\red{Be careful about the range of $Y$ given $X = x$}.}
+%\pause
+\uncover<7->{
+\[ f_X(x) = \begin{cases}
+    \frac{2}{9}(3-x) &  \text{ for } x\in [0,3] \\
+    0           & \text{otherwise}
+\end{cases}
+\]
+}
+}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+%\frametitle{Example 2, cont.}
+\disc{In the previous example, find $P(X < Y)$.}
+\vspace{-0.3cm}
+\[ f(x,y) = \begin{cases}
+    \frac{2}{9} & \text{ for } x\geq 0, y \geq 0 \text{ and } x+y \leq 3 \\
+    0           & \text{otherwise}
+\end{cases}
+\]
+\twocol{0.3}{0.7}
+{
+\begin{center}
+    \includegraphics[width=\textwidth]{figures/triangle4.pdf}
+\end{center}
+}
+{
+%\invisible{
+\uncover<2->{Identify the region $C = \{ (x, y): x\geq 0, y \geq 0 \text{ and } x+y \leq 3, x < y \}$.}
+
+%\pause
+\vspace{-0.3cm}
+\begin{align*}
+\uncover<3->{P(X < Y) & = \iint_{(x, y) \in C} f(x,y) ~dx~dy \\}
+\uncover<4->{& = \int_0^{\frac{3}{2}} \left[ \int_{{\color{red} x}}^{{\color{red} 3-x}} \frac{2}{9} ~{\color{red} dy} \right]~dx\\}
+\uncover<5->{& = \int_0^{\frac{3}{2}} \frac{2}{9}(3-2x)  ~dx} \uncover<6->{= \frac{2}{9} \times \left[ \left.3x - x^2 \right|_0^{\frac{3}{2}} \right]\\}
+\uncover<7->{& = \frac{2}{9} \left( \frac{9}{2} - \frac{9}{4} \right)} \uncover<8->{= \frac{1}{2}}
+\end{align*}
+
+%}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Recap}
+
+{\bf Joint distribution of two continuous random variables }
+\begin{itemize}
+\item Joint pdf
+  \begin{itemize}
+  \item Non-negative $f_{X, Y}(x, y) \geq 0$, for any $x, y \in \mathbb{R}$
+  \item $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x,y) ~dx~dy = 1$
+  \item For any set $C \subset \mathbb{R}^2$,
+  \[ P[(X, Y) \in C] = \iint_{(x, y) \in C} f_{X, Y}(x,y) ~dx~dy\]
+  \end{itemize}
+\item Between joint cdf and joint pdf
+\[ F_{X, Y}(a,b) = \int_{-\infty}^{b} \int_{-\infty}^{a}f_{X, Y}(x,y)~dx~dy \]
+\[ f_{X, Y}(x,y) = \frac{\partial^2}{\partial x \partial y} F_{X, Y}(x,y) \]
+
+\item Marginal pdfs
+\[ f_X(x) = \int_{-\infty}^\infty f_{X, Y}(x,y)~dy, \quad f_Y(y) = \int_{-\infty}^\infty f_{X, Y}(x,y)~dx \]
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Independent random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Independent random variables}
+\begin{defn}
+Random variables $X$ and $Y$ are \hl{independent} if any real sets $A, B \subset \mathbb{R}$,
+\[P(X \in A, Y \in B) = P(X \in A) P(Y \in B)\]
+\end{defn}
+
+\pause Random variables $X$ and $Y$ are independent {\bf if and only if}
+\begin{itemize}
+\item Cdf: for any $x, y \in \mathbb{R}$
+\[F_{X, Y}(x, y) = F_X(x) F_Y(y)\]
+\item \pause If both are discrete, pmf: for any $x, y \in \mathbb{R}$
+\[p_{X, Y}(x, y) = p_X(x) p_Y(y)\]
+\item \pause If both are continuous, pdf: for any $x, y \in \mathbb{R}$
+\[f_{X, Y}(x, y) = f_X(x) f_Y(y)\]
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%\frametitle{Independent random variables}
+\disc{A man and a woman decide to meet at a certain location. If each of them independently arrives at a time uniformly distributed between 12 noon and 1 P.M., find the probability that the first to arrive has to wait longer than 10 minutes.}
+
+\pause
+Let random variables $X, Y$ be the time they arrive (uniform between 0 to 60 minutes).
+\twocol{0.3}{0.7}
+{
+\begin{center}
+    \includegraphics[width=\textwidth]{figures/square.pdf}
+\end{center}
+}
+{
+\pause
+%\invisible{
+\begin{align*}
+\uncover<3->{& P(|X - Y| > 10) \\}
+\uncover<4->{= & ~P(Y > X + 10) + P(Y < X - 10) \\}
+\uncover<5->{= & ~2P(Y > X + 10)\\}
+\uncover<6->{= & ~2\iint_{y > x+10} f_{X, Y}(x, y) ~dx~dy\\}
+\uncover<7->{= & ~2\iint_{y > x+10} f_X(x) f_Y(y) ~dx~dy\\}
+\uncover<8->{
+= & ~2\int_{10}^{60} \int_0^{y -10} (1/60)^2 ~dx~dy} \uncover<9->{ = 25/36}
+\end{align*}
+
+%}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{Independent random variables}
+
+The continuous (discrete) random variables $X$ and $Y$ are independent {\bf if and only if}
+their joint probability density (mass) function can be expressed as
+\[f_{X, Y}(x, y) = g(x) h(y), \quad -\infty < x, y < \infty \]
+
+\vfill
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}\frametitle{More than two random variables}
+\begin{dinglist}{\DingListSymbolA}
+\item Random variables $X_1, X_2, \ldots, X_n$ are \hl{independent} if any real sets $A_1, A_2, \ldots, A_n \subset \mathbb{R}$,
+\[P(X_1 \in A_1,  \ldots, X_n \in A_n) = P(X_1 \in A_1) \cdots P(X_n \in A_n)\]
+\end{dinglist}
+
+\pause Random variables $X_1, X_2, \ldots, X_n$ are independent {\bf if and only if}
+\begin{itemize}
+\item Cdf: for any $x_1, x_2, \ldots, x_n \in \mathbb{R}$
+\[F(x_1, \ldots, x_n) = F_{X_1}(x_1)\cdots F_{X_n}(x_n)\]
+\item \pause If both are discrete, pmf: for any $x_1, x_2, \ldots, x_n \in \mathbb{R}$
+\[p(x_1, \ldots, x_n) = p_{X_1}(x_1)\cdots p_{X_n}(x_n)\]
+\item \pause If both are continuous, pdf: for any $x_1, x_2, \ldots, x_n \in \mathbb{R}$
+\[f(x_1, \ldots, x_n) = f_{X_1}(x_1)\cdots f_{X_n}(x_n)\]
+
+\end{itemize}
+\end{frame}
+
+
+
+\end{document}

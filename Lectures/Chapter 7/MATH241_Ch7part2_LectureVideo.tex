@@ -1,0 +1,304 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+\usepackage{tikz}
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 7 part 2]{Chapter 7 part 2}
+\subtitle{Properties of Expectations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+%\begin{frame}%[plain]
+%\includegraphics[width = \textwidth]{figures/2015DukeNCAA}
+%\end{frame}
+
+%{ % all template changes are local to this group.
+%\addtocounter{framenumber}{-1}
+%    \setbeamertemplate{navigation symbols}{}
+%    \begin{frame}[plain]
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \node[at=(current page.center)] {
+%                \includegraphics[width=1.25\paperwidth]{figures/2015DukeNCAA}
+%            };
+%        \end{tikzpicture}
+%     \end{frame}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%%\item HW7: \red{due now!}
+%\item HW8: \red{due Tuesday, Nov 20th}
+%
+%
+%\vspace{0.5cm}
+%\item Course evaluation open tomorrow.
+%  \begin{itemize}
+%  \item Activate between 11/14 - 12/3.
+%  \item If response rate $\geq 80\%$, drop the lowest quiz.
+%  \end{itemize}
+%
+%\vspace{0.5cm}
+%\item Next quiz: Tuesday, Nov 18th\\
+%  \begin{itemize}
+%  \item Topic: function of a continuous RV, i.e., find $f_Y(y)$ where $Y = g(X)$.
+%  %\item To prepare: do homework questions in Chapter 5: 37, 39, 40, TE29
+%  \end{itemize}
+%
+%
+%%\item Midterm: Tuesday, Feb 25th
+%%\begin{itemize}
+%%\item Close book, in class exam (75 min)
+%%\item ONE page cheat sheet {\bf made by yourself} (A4 size)
+%%\item Calculators are allowed, but not cell phones, tablets or laptops
+%%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Recap}
+%
+%
+%\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Moment generating functions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{Moment generating functions}
+\begin{block}{Definition}
+The moment generating function $M(t)$ of the random variable $X$ is defined for all real values of $t$ by
+\[ M(t) = E[e^{tX}] = \begin{cases}
+    \sum_x e^{tx}p(x) & \text{if $X$ is discrete with pmf $p(x)$} \\
+    \int_{-\infty}^{\infty}e^{tx}f(x)dx        & \text{if $X$ is continuous with pdf $f(x)$}
+\end{cases}
+ \]
+\end{block}
+\pause
+{\small{
+All the moments of $X$ can be obtained by successively differentiating $M(t)$ and then evaluating the result at $t = 0$\pause
+$$M'(t) = \frac{d}{dt}E[e^{tX}] \pause= E[\frac{d}{dt}(e^{tX})] \pause= E[Xe^{tX}], \pause M'(0) = E[X]$$\pause
+$$M''(t) = \frac{d}{dt}E[Xe^{tX}] \pause= E[\frac{d}{dt}(Xe^{tX})] \pause= E[X^2e^{tX}], \pause M''(0) = E[X^2]$$
+\pause
+In general
+$$M^n(t) = E[X^ne^{tX}], M^n(0) = E[X^n], n \geq 1$$
+}}
+\end{frame}
+
+\begin{frame}
+\disc{If $X$ is a binomial random variable with parameters $n$ and $p$. Use the moment generating functions to obtain its mean and variance.}
+\pause
+{\small{
+\begin{itemize}
+\item The moment generating function is
+\begin{eqnarray*}
+M(t) = E[e^{tX}] &=& \sum_{k=0}^{n}e^{tk}{n \choose k}p^k (1-p)^{n-k} \\
+&=& \sum_{k=0}^{n}{n \choose k} (pe^t)^k (1-p)^{n-k} \\
+&=&(pe^t + 1 - p)^n
+\end{eqnarray*}
+\pause
+\item Taking differentiations
+$$M'(t) = n(pe^t + 1 - p)^{n-1} pe^t$$
+\pause
+$$M''(t) = n(n-1)(pe^t + 1 - p)^{n-2}(pe^t)^2 + n(pe^t + 1 - p)^{n-1}pe^t$$
+\end{itemize}
+}}
+\end{frame}
+
+\begin{frame}
+$$M'(t) = n(pe^t + 1 - p)^{n-1} pe^t$$
+$$M''(t) = n(n-1)(pe^t + 1 - p)^{n-2}(pe^t)^2 + n(pe^t + 1 - p)^{n-1}pe^t$$
+
+Therefore
+$$E[X] = M'(0) = np$$
+
+\pause
+
+\begin{eqnarray*}
+Var(X) = E[X^2] - (E[X])^2 &=& M''(0) - (M'(0))^2 \\
+&=& n(n-1)p^2 + np - (np)^2 \\
+&=& np(1-p)
+\end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}{Properties of MGFs}
+\begin{itemize}
+\item Property 1: The MGF of the sum of independent random variables equals to the product of the individual MGFs.
+$$M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX}e^{tY}] = E[e^{tX}]E[e^{tY}] = M_X(t)M_Y(t)$$
+\pause
+\item Property 2: The MGF uniquely determines the distribution. Refer to the tables of MGF of some discrete and continuous distributions. {\color{red} Textbook pages 339 and 340 for lists of MGFs of distributions.}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Joint moment generating functions}
+\begin{block}{Definition}
+For any $n$ random variables $X_1, ..., X_n$, the joint MGF $M(t_1, ..., t_n)$ is defined for all real values of $t_1, ..., t_n$ by
+$$M(t_1, ..., t_n) = E[e^{t_1X_1+...t_nX_n}]$$
+\end{block}%
+\pause
+{\small{
+\begin{itemize}
+\item The individual MGF can be obtained from $M(t_1, ..., t_n)$ by letting all but one of the $t_j$'s be 0
+$$M_{X_i}(t) = E[e^{tX_i}] = M(0, ..., t, 0, ..., 0)$$
+\pause
+\item The joint MGF $M(t_1, ..., t_n)$ uniquely determines the joint distribution of $X_1, ..., X_n$
+\pause
+\item Then we have the $n$ random variables $X_1, ..., X_n$ are independent {\bf{if and only if}}
+$$M(t_1, ..., t_n) = M_{X_1}(t_1)...M_{X_n}(t_n)$$
+\end{itemize}
+}}
+\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Additional properties of normal random variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}\frametitle{Multivariate normal distribution}
+%\begin{block}{Definition}
+%{\small{
+%Let $Z_1, ..., Z_n$ be a set of $n$ independent unit normal random variables. If, for some constants $a_{ij}$, $1 \leq i \leq m, 1 \leq j \leq n$, and $\mu_i, 1 \leq i \leq m$
+%\begin{eqnarray*}
+%X_1 &=& a_{11}Z_1 + ... + a_{1n}Z_n + \mu_1 \\
+%X_2 &=& a_{21}Z_1 + ... + a_{2n}Z_n + \mu_2 \\
+%\vdots && \vdots\\
+%X_i &=& a_{i1}Z_1 + ... + a_{in}Z_n + \mu_i \\
+%\vdots && \vdots\\
+%X_m &=& a_{m1}Z_1 + ... + a_{mn}Z_n + \mu_m
+%\end{eqnarray*}
+%then the random variables $X_1, ..., X_m$ are said to have a multivariate normal distribution.
+%}}
+%\end{block}
+%{\small{
+%i.e. $X_1, ..., X_m$ are all linear combinations of a finite set of independent standard normal random variables.
+%}}
+%\end{frame}
+%
+%\begin{frame}\frametitle{Multivariate normal distribution}
+%$$X_i = a_{i1}Z_1 + ... + a_{in}Z_n + \mu_i$$
+%{\small{
+%\begin{itemize}
+%\item $E[X_i] = \mu_i, Var(X_i) = \sum_{j=1}^{n}a_{ij}^2$ for each $X_i$
+%\pause
+%\item Consider the joint MGF $M(t_1, ..., t_m) = E[e^{\{t_1X_1+...+t_mX_m\}}]$
+%\begin{itemize}
+%\item $\sum_{i=1}^{m}t_iX_i$ is a linear combination of $Z_1, ..., Z_n$
+%\item The mean is
+%$E[\sum_{i=1}^{m}t_iX_i] = \sum_{i=1}^{m}t_i\mu_i$
+%\item The variance
+%$$Var(\sum_{i=1}^{m}t_iX_i) = Cov(\sum_{i=1}^{m}t_iX_i, \sum_{j=1}^{m}t_jX_j) = \sum_{i=1}^{m}\sum_{j=1}^{m}t_it_jCov(X_i, X_j)$$
+%\pause
+%\item As $E[e^Y] = M_Y(t)|_{t=1} = e^{\mu + \sigma^2/2}$ if $Y \sim N(\mu, \sigma^2)$
+%$$M(t_1,...,t_m) = e^{\{\sum_{i=1}^{m}t_i\mu_i + \frac{1}{2}\sum_{i=1}^{m}\sum_{j=1}^{m}t_it_jCov(X_i, X_j)\}}$$
+%\end{itemize}
+%\item {\color{red} The joint $X_1, ..., X_m$ is completely determined from $E[X_i]$ and $Cov(X_i, X_j), i, j = 1, ..., m$}
+%\end{itemize}
+%}}
+%\end{frame}
+%
+%\begin{frame}
+%\disc{Find $P(X < Y)$ for bivariate normal random variables $X$ and $Y$ having parameters: $X \sim N(\mu_x, \sigma_x^2), Y \sim N(\mu_y, \sigma_y^2), \rho = Corr(X, Y)$.}
+%\pause
+%\begin{itemize}
+%\item The difference of $X$ and $Y$: $X - Y$
+%\begin{itemize}
+%\item $E[X - Y] = \mu_x - \mu_y$
+%\item $Var(X - Y) = Var(X) + Var(-Y) + 2Cov(X, -Y) = \sigma_x^2 + \sigma_y^2 - 2\rho\sigma_x\sigma_y$
+%\end{itemize}
+%\pause
+%\item Then we can obtain
+%\begin{eqnarray*}
+%P\{X < Y\} &=& P\{X - Y < 0\} \\ \pause
+%&=&
+%P\{\frac{X - Y - (\mu_x - \mu_y)}{\sqrt{\sigma_x^2 + \sigma_y^2 - 2\rho\sigma_x\sigma_y}} < \frac{- (\mu_x - \mu_y)}{\sqrt{\sigma_x^2 + \sigma_y^2 - 2\rho\sigma_x\sigma_y}}\}\\
+%&=&
+%\Phi\left(\frac{\mu_y - \mu_x}{\sqrt{\sigma_x^2 + \sigma_y^2 - 2\rho\sigma_x\sigma_y}}\right)
+%\end{eqnarray*}
+%\end{itemize}
+%\end{frame}
+\end{document}

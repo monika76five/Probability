@@ -1,0 +1,185 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 9}	\\
+Due: Sunday 5/2 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item
+    Chapter 6 Problem  2
+    
+    Suppose that 3 balls are chosen without replacement from an urn consisting of 5 white and 8 red balls. Let $X_i$ equal 1 if the $i$th ball selected is white, and let it equal 0 otherwise. Give the joint probability mass function of
+    
+    \begin{itemize}
+    \item[(a)] $X_1, X_2$;
+    \item[(b)] $X_1, X_2, X_3$.
+    \end{itemize}
+
+    \item
+    Chapter 6 Problem  7
+    
+    Consider a sequence of independent Bernoulli trials, each of which is a success with probability $p$. Let $X_1$ be the number of failures preceding the first success, and let $X_2$ be the number of failures between the first two successes. Find the joint mass function of $X_1$ and $X_2$.
+
+    \item
+    Chapter 6 Problem  8
+    
+    The joint probability density function of $X$ and $Y$ is given by
+    
+    $$
+    f(x, y) = c(y^2 - x^2)e^{-y}, -y \leq x \leq y, 0 < y < \infty
+    $$
+    
+    \begin{itemize}
+    \item[(a)] Find $c$.
+    \item[(b)] Find the marginal densities of $X$ and $Y$.
+    \item[(c)] Find $E[X]$.
+    \end{itemize}
+
+    \item
+    Chapter 6 Problem  9
+    
+    The joint probability density function of $X$ and $Y$ is given by
+    
+    $$
+    f(x, y) = \frac{6}{7}(x^2 + \frac{xy}{2}), 0 < x < 1, 0 < y < 2
+    $$
+    
+    \begin{itemize}
+    \item[(a)] Verify that this is indeed a joint density function.
+    \item[(b)] Compute the density function of $X$.
+    \item[(c)] Find $P\{X > Y\}$.
+    \item[(d)] Find $P\{Y > \frac{1}{2} \mid X < \frac{1}{2}\}$.
+    \item[(e)] Find $E[X]$.
+    \item[(f)] Find $E[Y]$.
+    \end{itemize}
+    
+
+    \item
+    Chapter 6 Problem  15
+    
+    The random vector $(X, Y)$ is said to be uniformly distributed over a region $R$ in the plane if, for some constant $c$, its joint density is
+    
+    \begin{equation*}
+    f(x, y) =
+    \begin{cases}
+      c, & \text{if $(x, y) \in R$} \\
+      0, & \text{otherwise}
+    \end{cases}
+  \end{equation*}
+  
+    \begin{itemize}
+    \item[(a)] Show that $1/c$ = area of region $R$.
+    \end{itemize}
+    
+    Suppose that $(X, Y)$ is uniformly distributed over the square centered at (0, 0) and with sides of length 2.
+    
+    \begin{itemize}
+    \item[(b)] Show that $X$ and $Y$ are independent, with each being distributed uniformly over (-1, 1).
+    \item[(c)] What is the probability that $(X, Y)$ lies int he circle of radius 1 centered at the origin? That is, find $P\{X^2 + Y^2 \leq 1\}$.
+    \end{itemize}
+
+    \item
+    Chapter 6 Problem 18
+    
+    Two points are selected randomly on a line of length $L$ so as to be on opposite sides of the midpoint of the line. [In other words, the two points $X$ and $Y$ are independent random variables such that $X$ is uniformly distributed over (0, $L/2$) and $Y$ is uniformly distributed over ($L/2, L$).] Find the probability that the distance between the two points is greater than $L/3$.
+
+    \item
+    Chapter 6 Problem 20
+    
+    The joint density of $X$ and $Y$ is given by
+    
+    \begin{equation*}
+    f(x, y) =
+    \begin{cases}
+      xe^{-(x+y)}, & x > 0, y > 0 \\
+      0, & \text{otherwise}
+    \end{cases}
+    \end{equation*}
+  
+    Are $X$ and $Y$ independent? If, instead, $f(x, y)$ were given by
+    
+    \begin{equation*}
+    f(x, y) =
+    \begin{cases}
+      2, & 0 < x < y, 0 < y < 1 \\
+      0, & \text{otherwise}
+    \end{cases}
+    \end{equation*}
+    
+    would $X$ and $Y$ be independent?
+
+\end{itemize}
+
+
+\vspace{12pt}
+
+\underline{Optional: if you feel like more practice}\\
+These will not be graded, but you are welcome to discuss these with me during the office hour.
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Textbook  Chapter 6 Problems: 1, 4-6, 10-14, 17, 19, 21-23
+%\item Textbook  Chapter 5 Theoretical exercise: 12, 14, 15, 18, 27, 30-31
+
+\end{itemize}
+
+
+
+
+
+
+
+
+\end{document} 

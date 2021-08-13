@@ -1,0 +1,349 @@
+\documentclass[slidestop,compress,mathserif]{beamer}
+%\documentclass[slidestop,compress,mathserif,handout]{beamer}
+
+%\documentclass[xcolor=dvipsnames,handout]{beamer}
+%\documentclass[xcolor=dvipsnames]{beamer}
+
+%\documentclass[handout]{beamer}
+
+%%% To get rid of solutions on handouts:
+\newcommand{\soln}[1]{\textit{\textcolor{darkGray}{#1}}}				% For slides
+%\newcommand{\soln}[1]{ }	% For handouts
+
+% to get pausing to work properly on slides
+\newcommand{\hide}[1]{#1}	% For slides
+%\newcommand{\hide}[1]{ }	% For handouts
+\usepackage{tikz}
+
+
+\input{../LectureStyle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Chapter 8]{Chapter 8}
+\subtitle{Limit Theorems}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\author[Jingchen (Monika) Hu] % (optional, use only with lots of authors)
+{Jingchen (Monika) Hu}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Vassar] % (optional, but mostly needed)
+{Vassar College}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[MATH 241] % (optional, should be abbreviation of conference name)
+{MATH 241}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{MATH 241}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+%\begin{frame}%[plain]
+%\includegraphics[width = \textwidth]{figures/2015DukeNCAA}
+%\end{frame}
+
+%{ % all template changes are local to this group.
+%\addtocounter{framenumber}{-1}
+%    \setbeamertemplate{navigation symbols}{}
+%    \begin{frame}[plain]
+%        \begin{tikzpicture}[remember picture,overlay]
+%            \node[at=(current page.center)] {
+%                \includegraphics[width=1.25\paperwidth]{figures/2015DukeNCAA}
+%            };
+%        \end{tikzpicture}
+%     \end{frame}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+% Title Page
+
+\begin{frame}%[plain]
+\titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{framenumber}{-1}
+%
+%\begin{frame}\frametitle{Annoucement}
+%
+%\begin{itemize}
+%%\item HW7: \red{due now!}
+%\item HW8: \red{due Tuesday, Nov 20th}
+%
+%
+%\vspace{0.5cm}
+%\item Course evaluation open tomorrow.
+%  \begin{itemize}
+%  \item Activate between 11/14 - 12/3.
+%  \item If response rate $\geq 80\%$, drop the lowest quiz.
+%  \end{itemize}
+%
+%\vspace{0.5cm}
+%\item Next quiz: Tuesday, Nov 18th\\
+%  \begin{itemize}
+%  \item Topic: function of a continuous RV, i.e., find $f_Y(y)$ where $Y = g(X)$.
+%  %\item To prepare: do homework questions in Chapter 5: 37, 39, 40, TE29
+%  \end{itemize}
+%
+%
+%%\item Midterm: Tuesday, Feb 25th
+%%\begin{itemize}
+%%\item Close book, in class exam (75 min)
+%%\item ONE page cheat sheet {\bf made by yourself} (A4 size)
+%%\item Calculators are allowed, but not cell phones, tablets or laptops
+%%\end{itemize}
+%
+%\end{itemize}
+%
+%
+%\end{frame}
+%
+
+%
+%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Recap}
+%
+%
+%\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}{Outline}
+%%\tableofcontents[hideallsubsections,pausections]
+%\tableofcontents[hideallsubsections]
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}\frametitle{Overview}
+%
+%\begin{itemize}
+%\item The most important limit theorems are classified under two headings: ``laws of large numbers" and ``central limit theorems"
+%\vspace{5mm}
+%\pause
+%\item Theorems under ``laws of large numbers" (LLN)
+%\begin{itemize}
+%\item Stating conditions under which the average of a sequence of random variables converges (in some sense) to the expected average
+%\item We will study the strong LLN
+%\end{itemize}
+%\pause
+%\vspace{5mm}
+%\item Theorems under ``central limit theorems" (CLT)
+%\begin{itemize}
+%\item Determining conditions under which the sum of a large number of random variables has a probability distribution that is approximately normal
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Markov's and Chebyshev's inequalities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}%\frametitle{Chebyshev's inequality}
+%
+%\begin{block}{Chebyshev's inequality}
+%If $X$ is a random variable with finite mean $\mu$ and variance $\sigma^2$, then for any value $k > 0$
+%$$P\{|X - \mu| \geq k\} \leq \frac{\sigma^2}{k^2}$$
+%\end{block}
+%\pause
+%{\small{
+%To prove Chebyshev's inequality, useful proposition: Markov's inequality\\
+%If $X$ is a random variable that takes only nonnegative values, then for any value $a > 0$
+%$$P\{X \geq a\} \leq \frac{E[X]}{a}$$
+%}}
+%
+%
+%\end{frame}
+%
+%\begin{frame}\frametitle{Chebyshev's inequality applied to known distributions}
+%\begin{itemize}
+%\item Earlier we saw we can use Chebyshev's inequality and/or Markov' inequality to derive bounds on probabilities
+%\item Chebyshev's inequality: $P\{|X - \mu| \geq k\} \leq \frac{\sigma^2}{k^2}$
+%\item How about for known distributions?
+%\pause
+%\end{itemize}
+%{\small{
+%\disc{If $X$ is uniformly distributed over the interval $(0, 10)$. What is the exact probability of $P\{|X - 5| > 4\}$ and the upper bound of this probability obtained by Chebyshev's inequality?}
+%\pause
+%\begin{itemize}
+%\item Exact probability:
+%$$P\{|X - 5| > 4\} = .20$$
+%\pause
+%\item Upper bound by Chebyshev's inequality ($E[X] = 5, Var(X) = \frac{25}{3}$):
+%$$P\{|X - 5| > 4\} \leq \frac{25}{3(16)} \approx .52$$
+%\pause
+%\item Chebyshev's inequality gives very rough/not close (but correct!) bound
+%\end{itemize}
+%}}
+%\end{frame}
+%
+%
+%\begin{frame}\frametitle{Chebyshev's inequality applied to known distributions}
+%\cl{If $X$ is a normal random variable with mean $\mu$ and variance $\sigma^2$. What is the exact probability of $P\{|X - \mu| > 2\sigma\}$ and the upper bound of this probability obtained by Chebyshev's inequality?}
+%\pause
+%{\small{
+%\begin{itemize}
+%\item Exact probability:
+%$$P\{|X - \mu| > 2\sigma\} = P\{|\frac{X - \mu}{\sigma}| > 2\} = 2[1 - \Phi(2)] \approx .0456$$
+%\pause
+%\item Upper bound by Chebyshev's inequality:
+%$$P\{|X - \mu| > 2\sigma\} \leq \frac{1}{4}$$
+%\pause
+%\item Again, Chebyshev's inequality gives very rough/not close (but correct!) bound
+%\end{itemize}
+%}}
+%\end{frame}
+%
+%\begin{frame}\frametitle{Usefulness of Chebyshev's inequality}
+%\begin{itemize}
+%\item Chebyshev's inequality is valid for all distributions of the random variable $X$
+%\vspace{5mm}
+%\item Do not expect the bound on the probability to be very close to the actual probability in most cases
+%\vspace{5mm}
+%\pause
+%\item However, if we do not know the exact probability distribution but its mean and variance are known, Chebyshev's and Markov's inequalities are very useful to derive bounds on probabilities
+%\vspace{5mm}
+%\pause
+%\item On the other hand, if the exact distribution is known, we won't need the inequalities to bound the probabilities
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\disc{From past experience, a professor knows that the test score of a student taking her final exam is a random variable with mean $75$. (a) Give an upper bound for the probability that a student's test score will exceed $85$, suppose that the variance is $25$. (b) What can be said about the probability that a student will score between $65$ and $85$?}
+%\pause
+%{\small{
+%\begin{itemize}
+%\item[(a)] Using Markov's inequality
+%$$P\{X \geq 85\} \leq \frac{E[X]}{85} = \frac{75}{85} = \frac{15}{17}$$
+%\pause
+%\item[(b)] Using Chebyshev's inequality
+%$$P\{65 \leq X \leq 85\} = P\{|X - 75| \leq 10\} = 1 - P\{|X - 75| \geq 10\} \geq 1 - \frac{25}{100} = \frac{3}{4}$$
+%\end{itemize}
+%}}
+%\end{frame}
+%
+%%\begin{frame}
+%%\begin{block}{The weak law of large numbers}
+%%Let $X_1, X_2, ..., X_n$ be a sequence of independent and identically distributed random variables, each having finite mean $E[X_i] = \mu$. Then, for any $\epsilon > 0$, as $n \to \infty$
+%%$$P\{|\frac{X_1 + ... + X_n}{n} - \mu| \geq \epsilon \} \to 0$$
+%%\end{block}
+%%\pause
+%%Proof (assuming that the random variables have a finite variance $\sigma^2$)
+%%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Central limit theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\begin{block}{The central limit theorem}
+Let $X_1, X_2, ...$ be a sequence of independent and identically distributed random variables, each having mean $\mu$ and variance $\sigma^2$. Then the distribution of
+$$\frac{X_1 + X_2 + ... + X_n - n\mu}{\sigma \sqrt{n}}$$
+tends to the standard normal as $n \to \infty$. 
+%That is for $-\infty < a < \infty$, as $n \to \infty$
+%$$P\{\frac{X_1 + X_2 + ... + X_n - n\mu}{\sigma \sqrt{n}} \leq a\} \to \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{a}e^{-\frac{x^2}{2}}dx$$
+\end{block}
+\pause
+\vspace{5mm}
+In words, if the random variables have a finite mean $\mu$ and a finite variance $\sigma^2$, then the distribution of the sum of the first $n$ of them is, for large $n$, approximately that of a normal random variable with mean $n\mu$ and variance $n\sigma^2$.
+\end{frame}
+
+\begin{frame}\frametitle{Applications of the CLT}
+\disc{A person has $100$ light bulbs whose lifetimes are independent exponentials with mean $5$ hours. If the bulbs are used one at a time, with a failed bulb being replaced immediately by a new one, approximate the probability that there is still a working bulb after $525$ hours. Note that if $X \sim \textrm{Exponential}(\lambda)$, then $E[X] = \frac{1}{\lambda}$ and $Var(X) = \frac{1}{\lambda^2}$.}
+\pause
+\begin{itemize}
+\item For each light bulb: $\mu = 5, \sigma^2 = 25$ ($\lambda = \frac{1}{5}$)
+\pause
+\item Using the CLT
+\begin{eqnarray*}
+P\{\sum_{i=1}^{100}X_i > 525\} \pause \approx P\{N(0, 1) > \frac{525 - 500}{\sqrt{100\times 25}}\} &=& P\{N(0, 1) > .5\} \\
+&=&
+ .3085
+\end{eqnarray*}
+\pause
+\item Note that because exponential distribution is also continuous, we do not apply the continuity correction ($.5$); for discrete distributions (e.g. binomial, poisson), the continuity correction is necessary
+\end{itemize}
+
+\end{frame}
+
+
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{The strong law of large numbers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\begin{block}{The strong law of large numbers}
+%Let $X_1, X_2, ...$ be a sequence of independent and identically distributed random variables, each having a finite mean $\mu = E[X_i]$. Then, with probability $1$, as $n \to \infty$
+%$$\frac{X_1 + X_2 + ... + X_n}{n} \to \mu$$
+%\end{block}
+%\pause
+%\begin{itemize}
+%\item The strong LLN states that $P\{\underset{n\to \infty}{\lim}\frac{X_1 + ... + X_n}{n} = \mu\} = 1$
+%\item In words, the average of a sequence of independent random variables having a common distribution will with probability $1$, converge to the mean of that distribution
+%\end{itemize}
+%\end{frame}
+%
+%
+%\begin{frame}\frametitle{The strong LLN and the interpretation of probability}
+%Back in Chapter 2, we discussed two different schools of interpreting probability
+%\begin{itemize}
+%\item \red{Frequentist} interpretation: The probability of event $A$ is the proportion of times (frequency) that A occurs in an infinite sequence (or very long run) of separate tries of the experiment.
+%\[ P(A)= \lim_{n \rightarrow \infty} \frac{\mbox{\# times A happens}}{n}.\]
+%\pause
+%\item A {\red{Bayesian}} can pick whatever number they prefer for $P(A)$, based on their own personal experience and intuition, provided that number is consistent with all of the other probabilities they choose in life.
+%\pause
+%\item The strong LLN can help understand the frequentist interpretation
+%\end{itemize}
+%\end{frame}
+%
+%
+%\begin{frame}{Application of the strong LLN}
+%\begin{itemize}
+%\item Suppose that a sequence of independent trials of some experiment is performed
+%\item Let $A$ be a fixed event of the experiment, and denote by $P(A)$ the probability that $A$ occurs on any particular trial
+%\pause
+%\item Letting
+%\[ X_i = \begin{cases}
+%    1 & \text{if $A$ occurs on the $i$-th trial} \\
+%    0& \text{if $A$ does not occur on the $i$-th trial}
+%\end{cases}
+% \]
+%\pause
+%By the strong LLN, with probability $1$
+%$$\frac{X_1 + ... + X_n}{n} \to E[X] = P(A)$$
+%\pause
+%\item $X_1 + ... + X_n$ represents the number of times that the event $A$ occurs in the first $n$ trials, the limiting proportion of time that the event $A$ occurs is just $P(A)$ with probability $1$
+%\end{itemize}
+%
+%\end{frame}
+\end{document}

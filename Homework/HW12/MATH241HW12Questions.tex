@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[top=2.1cm,bottom=2cm,left=2cm,right= 2cm]{geometry}
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{lscape}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{dashrule}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\newcommand{\urlwofont}[1]{\urlstyle{same}\url{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\hl}[1]{\textbf{\underline{#1}}}
+
+
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newenvironment{choices}{
+\begin{enumerate}[(a)]
+}{\end{enumerate}}
+
+%\newcommand{\soln}[1]{\textcolor{MidnightBlue}{\textit{#1}}}	% delete #1 to get rid of solutions for handouts
+\newcommand{\soln}[1]{ \vspace{1.35cm} }
+
+%\newcommand{\solnMult}[1]{\textbf{\textcolor{MidnightBlue}{\textit{#1}}}}	% uncomment for solutions
+\newcommand{\solnMult}[1]{ #1 }	% uncomment for handouts
+
+%\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{black}{(#1)}}} }	% uncomment for handouts
+\newcommand{\pts}[1]{ \textbf{{\footnotesize \textcolor{blue}{(#1)}}} }	% uncomment for handouts
+
+\newcommand{\note}[1]{ \textbf{\textcolor{red}{[#1]}} }	% uncomment for handouts
+
+\begin{document}
+
+
+\enlargethispage{\baselineskip}
+
+Spring 2021 \hfill Jingchen (Monika) Hu\\
+
+\begin{center}
+{\huge MATH 241 Homework 12}	\\
+Due: Sunday 5/23 11:59pm to Moodle
+\end{center}
+\vspace{0.5cm}
+
+\begin{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item
+    Chapter 7 Problem 75
+    
+    The moment generating function of $X$ is given by $M_X(t) = \exp\{2e^t - 2\}$ and that of $Y$ by $M_Y(t) = (\frac{3}{4}e^t + \frac{1}{4})^{10}$. If $X$ and $Y$ are independent, what are
+    
+    \begin{itemize}
+    \item[(a)] $P\{X + Y = 2\}$?
+    \item[(b)] $P\{XY = 0\}$?
+    \item[(c)] $E[XY]$?
+    \end{itemize}
+
+    \item
+    Chapter 7 Problem 77
+    
+    The joint density of $X$ and $Y$ is given by 
+    
+    $$
+    f(x, y) = \frac{1}{\sqrt{2\pi}} e^{-y} e^{-(x-y)^2/2}, 0 < y < \infty, -\infty, x < \infty
+    $$
+    
+    \begin{itemize}
+    \item[(a)] Compute the joint moment generating function of $X$ and $Y$.
+    \item[(b)] Compute the individual moment generating functions.
+    \end{itemize}
+
+    \item
+    Chapter 7 Problem 79
+    
+    Successive weekly sales, in units of \$1,000, have a bivariate normal distribution with common mean 40, common standard deviation 6, and correlation 0.6.
+    
+    \begin{itemize}
+    \item[(a)] Find the probability that the total of the next 2 weeks' sales exceeds 90.
+    \item[(b)] If the correlation were 0.2 rather than 0.6, do you think that this would increase or decrease the answer to (a)? Explain your reasoning.
+    \item[(c)] Repeat (a) when the correlation is 0.2.
+    \end{itemize}
+
+%    \item Theoretical exercise 13
+
+%    \item Theoretical exercise 20
+%
+%    \item Theoretical exercise 29
+%
+
+      \item Chapter 8 Question 5
+      
+      Fifty numbers are rounded off to the nearest integer and then summed. If the individual round-off errors are uniformly distributed over (-0.5, 0.5), approximate the probability that the resultant sum differs from the exact sum by more than 3.
+      
+      \item Chapter 8 Question 6
+      
+      A die is continually rolled until the total sum of all rolls exceeds 300. Approximate the probability that at least 80 rolls are necessary.
+\end{itemize}
+
+
+\vspace{12pt}
+
+
+
+
+
+
+
+
+
+
+\end{document} 
